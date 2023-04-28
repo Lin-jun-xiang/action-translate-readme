@@ -3,7 +3,7 @@
 # vscode-extensions [最佳]
 
 <div>
-<img src="https://readme-typing-svg.demolab.com/?pause=1&size=50&color=f75c7e&center=True&width=1200&height=120&vCenter=True&lines=Click+the+⭐+Star+please.;Any+questions+可以+被+詢問+在+問題中。” />
+    <img src="https://readme-typing-svg.demolab.com/?pause=1&size=50&color=f75c7e&center=True&width=1200&height=120&vCenter=True&lines=Click+the+⭐+Star+please.;Any+questions+ can+be+asked+in+Issue." />
 </div>
 
 [中文版README.md](README_中文.md)
@@ -11,54 +11,54 @@
 <details>
 <summary>Vscode Common Commands</summary>
 
-* sss test123
+* sss test1234
 
-* 使用vscode命令面板可以提高開發速度。
+* 使用 the vscode command palette can improve development speed。
 
-* 打開命令面板：`ctrl+shift+p`
+* 打開 命令 調色板： `ctrl+shift+p`
 
-* 常用命令：
-* `File: Open Folder`: 打開文件夾作為工作區。
-* `Preferences: Color Theme`：為編輯器選擇一個顏色主題。
-* `Preferences: File Icon Theme`：為文件選擇一個圖標主題。
-* `Developer: Reload Window`: 重新加載 VSCode 窗口。
+* Common 命令：
+   __* `文件： 打開 文件夾`： 打開 a 文件夾 作為 a 工作區。
+   __* `首選項： 顏色 主題`： 選擇 a 顏色 主題 為 編輯器。
+   __* `首選項： 文件 圖標 主題`： 選擇  圖標 主題 為  文件。
+   __* `開發人員： Reload Window`： Reload the VSCode window。
 
 </details>
 
 ---
 
-* 記錄分享vscode擴展，包括提升開發效率、必備、主題美化等。
-* 本項目將為每個擴展提供詳細的使用說明，希望能幫助全世界的碼農們一起愉快地碼字:sunglasses:
-* 本項目提供["**擴展分享區**"](./share/README.md)，任何人都可以在這裡提交感興趣的擴展。
+* Record and share vscode extensions, including those that enhance development efficiency, must-haves, theme beautification, etc.
+* This project will provide detailed usage instructions for each extension, with the hope of helping coders all over the world to code happily together :太陽鏡：
+* This project provides a ["**extensions sharing area**"](./share/README.md), where anyone can submit interesting extensions。
 
-* 擴展概要：
-- [快速下載多個擴展（先讀這個）]（#starquickly-download-multiple-extensions-please-read-this-first）
-- [透明編輯器](#snowflaketransparent-editor)
-- [主題](#purple_hearttheme)
-- [編輯器和環境美化](#yellow_heart-beautifying-editor-and-editing-environment)
-- [必備和強烈推薦](#green_heart-must-have-highly-recommended)
-- [大數據與人工智能工程師-Jupyter(Python)](#star2big-data-ai-engineer---jupyter-python)
-- [Git 和 Markdown 助手](#wavegitmarkdown-support)
-- [遠程 WSL 和開發容器](#computer-remote-wsl--dev-container)
-- [修復器](#wrenchfixer-fix-vscode-corrupt)
-- [社區分享和貢獻](./share/README.md)
+* Outline of extensions：
+   __- [快速 下載 多個 擴展 （首先閱讀 這個 ）]（#starquickly-download-multiple-extensions-please-read-this-first）
+    - [透明 編輯器](#snowflaketransparent-editor)
+    - [主題](#purple_hearttheme)
+    - [Editor and environment beautification](#yellow_heart-beautifying-editor-and-editing-environment)
+    - [必備 和 高度 推薦]（#green_heart-must-have-highly-recommended）
+    - [Big data and AI engineer - Jupyter(Python)](#star2big-data-ai-engineer---jupyter-python)
+    - [Git and Markdown 助手](#wavegitmarkdown-support)
+    - [遠程 WSL & 開發容器](#computer-remote-wsl--dev-container)
+    - [修復器](#wrenchfixer-fix-vscode-corrupt)
+    - [通過 社區共享 和 貢獻 ](./share/README.md)
 ---
 
-## :star:快速下載多個擴展（請先閱讀此內容）
-後面會介紹很多vscode的擴展。這裡有一個技巧，可以快速下載許多擴展，而無需一個一個地尋找。
+## :star:Quickly download multiple extensions （請 閱讀 this first）
+稍後， 我們 將 引入 a lot of vscode 擴展。 這裡 是 一個 技巧 可以 快速 下載 許多 擴展 而無需   查找 它們 一個 一個。
 
-如果以後想把舊電腦的擴展轉移到新電腦上，也可以用這個方法:kissing:
+如果 你 想要 轉移 擴展 從 一台 舊 計算機 到 一台 新 一個 在 未來， 你 可以 也 使用 這個 方法 ：接吻：
 
-* 您可以下載此項目附帶的 `.ps1` 文件，並按照下面的第三步排除不需要的擴展名。
-* 在 `extensions.ps1` 文件中，每個擴展名都有註釋。請在執行安裝命令前刪除不需要的。
+* 您 可以 下載  `.ps1` 文件 附加 到 這個 項目 和 排除  擴展 您 不需要 通過 以下 步驟 三個 。
+* 在  `extensions.ps1` 文件中， 每個 擴展 都 註釋了。 請 刪除 那些 你 在 執行  安裝 命令之前 不需要 。
 
 > 方法：
-> 1、訪問當前電腦上vscode的所有擴展，並輸出為文本。在終端（`powershell`）中輸入以下命令：
->`代碼--列表擴展| ForEach-Object {"code --install-extension $_"} > extensions.ps1`
-> 2、命令執行後，會在當前目錄下得到`extensions.ps1`文件（文件名在執行命令時定義）。
-> 3. 在新電腦的終端（`powershell`）中輸入以下命令：
+> 1. 訪問 所有 the extensions__of vscode on the current computer and output them as text. Enter the following command in terminal (`powershell`):
+> `code --list-extensions | ForEach-Object {"code --install-extension $_"} > extensions.ps1`
+> 2. 在  命令 執行後，  `extensions.ps1` 文件 （ 文件名 是 定義 當 執行  命令） 將 在 當前 目錄中 獲得。
+> 3. Enter the following command in terminal (`powershell`) on the new computer：
 > `.xtensions.ps1`
-> 4. 下載完成
+> 4. 下載 已完成
 > <img src="https://user-images.githubusercontent.com/63782903/226086537-1dddd375-3206-44db-8208-17715d70c744.png" width="60%">
 
 <details>
@@ -66,33 +66,33 @@
 
 * [`extensions-compare`](./extensions_compare/)
 
-* 比較兩個 `.ps` 文件並找到兩個擴展記錄之間的**差異**。
+* Compare two `.ps` files and find the **difference** between the two extension records.
 
-* 用法（選擇以下之一）：
-*`比較.py`
-運行“Python”腳本。
+* 用法 （選擇 一個 的 以下 ）：
+    * `比較.py`
+         運行 the `Python` 腳本。
 
-![](./img/2023-04-19-11-06-37.png)
-*`比較.sh`
-在 `git bash、wsl 或 linux` 等上運行 `./extensions_compare/compare.sh`。
+        ![](./img/2023-04-19-11-06-37.png)
+    * `compare.sh`
+        __Run `./extensions_compare/compare.sh` on `git bash, wsl, or linux`, 等。
 
-![](./img/2023-04-19-11-07-16.png)
+        ![](./img/2023-04-19-11-07-16.png)
 </details>
 
 ---
 
-## :snowflake:透明編輯器
-透明效果很棒。
+## :snowflake:Transparent   編輯器
+透明 效果 是 太棒了。
 
-它可以是一個工作懶人工具（邊看視頻邊編碼~）。
+它 可以 是 一個 工作 懶惰 工具 （代碼 同時 看 視頻~）。
 
-您可以在編碼和觀看 **Gura** 時使用自己的桌面背景。
+你 可以 使用 你的 自己的 桌面 背景 而 編碼 和 看 **古拉**。
 
 ### GlassIt-VSC
 
 > 用法：
-`ctrl+alt+z`：降低飽和度（透明）
-`ctrl+alt+c`：增加飽和度（不透明）
+`ctrl+alt+z`: 減少 飽和度 （透明）
+`ctrl+alt+c`:__ 增加 __ 飽和度  （不透明）
 
 <img src="img/2023-03-20-20-35-03.png" width="60%">
 
@@ -102,173 +102,173 @@
 
 ## :purple_heart:主題
 
-使用vscode最大的原因就是要有一個`醒目`、`優雅`、`舒適`、`愉快的編輯界面`。只有好看的編輯環境，才能讓碼農願意敲鍵盤~:sunglasses:
+ 使用  vscode  的 最大 原因 是 要 擁有 一個 `引人注目`、 `優雅`、 `舒適`、 和 `令人愉快 編輯 界面`。  鍵盤 ~：太陽鏡：
 
-接下來筆者將自己喜歡的主題一一分享給大家（以下示例均基於Python，不同語言可能略有差異）
+接下來， 作者 將 與 你 一個 通過 一個 分享 他 最喜歡的 主題 （ 以下 示例 是 基於 on Python， 和 可能 是 輕微的 差異  不同的 語言）
 
-哦！等一下，這裡有一個快速切換主題的方法。畢竟你可能每天都想換主題~~
+哦！ 等 一 分鐘， 這是 一個 快速 方式  切換 主題。 畢竟， 你 可能 想要 to change your theme every day~~
 
-> 快速切換主題
-> 1. “ctrl+shift+p”：打開vscode命令輸入框
-> 2.“Preferences: Color Theme”：進入並選擇你想要的主題
+> Quickly switch themes
+> 1. "ctrl+shift+p": 打開 the vscode command input box
+> 2. “首選項： 顏色 主題”： 輸入 並 選擇 the theme you want
 
 ### 黃油主題
-* 顧名思義，這是一款不傷眼的*奶油黃色*主題
-* 非常難得的一個主題（說白了，用的人不多），但是作者很喜歡
-* 如果找不到這個主題，<a href="https://marketplace.visualstudio.com/items?itemName=Levampire.Buttur" target="_blank">鏈接</a>
+* As its name suggests, it is a non-eye-straining *cream yellow* theme
+* 一個 非常 罕見 主題 （ 把 它 坦率地說， 不是 很多 人 使用 ）， 但是  作者 喜歡 它
+* 在 情況下 you can't find this theme，<a href="https://marketplace.visualstudio.com/items?itemName=Levampire.Buttur" target="_blank">鏈接</a>
 
 <img src="img/2023-03-17-14-36-15.png" width="60%">
 
-### Visual Studio 代碼的 Arc Dark
-* 主題有點類似於 Visual Studio Code 的深色主題，但整體色調更柔和，類似於馬卡龍的顏色。
+### Arc Dark for Visual Studio Code
+* The theme is somewhat similar to the dark theme of Visual Studio Code， but with softer overall tones that resemble the colors_of macarons。
 
 <img src="img/2023-03-25-16-10-51.png" width="60%">
 
-### 編碼器200
-* 這次光看名字就完全不知道了……
-* 非常難得的主題，充滿了*橙色*的顏色，好性感~:flushed:
+### Coder200
+* This time, I have absolutely no idea just by looking at the name...
+* A very rare theme, filled with *orange* color, so sexy~ :flushed:
 
 <img src="img/2023-03-17-14-44-30.png" width="60%">
 
-###德古拉官方
-* 非常有名，吸血鬼顏色為*粉色*和*紫色*
+### 德古拉 官方
+* 非常 眾所周知， with a vampire color of *pink* and *purple*
 
 <img src="img/2023-03-17-14-51-36.png" width="60%">
 
 ### 激光波
-* 帶有夕陽感覺的*紫粉色*主題
+* A *紫色-粉色* 主題 with a sunset feel
 
 <img src="img/2023-03-17-20-17-56.png" width="60%">
 
-###萌木主題
-* 溫柔又養眼的主題
+### Moegi 主題
+* A gentle and eye-friendly theme
 
 <img src="img/2023-03-17-20-20-13.png" width="60%">
 
-### 熊貓主題
-* *湖綠* :panda_face: 的頂級主題
-* 這個主題真不錯！
+### 熊貓 主題
+* A top-notch theme with *lake green* :panda_face:
+* This theme is really nice！
 
 <img src="img/2023-03-17-20-21-23.png" width="60%">
 
-### 簡單的深色
-* 背景很暗，文字顏色不會太刺眼
+### 簡單 黑暗
+* The background is very dark， and the text color is not too harsh on the eyes
 
 <img src="img/2023-03-17-20-23-37.png" width="60%">
 
-###天際線
-* 藍色愛好者必用：blue_heart:
+###__天際線
+* Blue lovers must use it:blue_heart:
 
 <img src="img/2023-03-17-20-25-15.png" width="60%">
 
-### 合成波 '84
-* 超高科技、炫目的熒光主題：太陽鏡：
-* 選好主題後記得開啟熒光效果（也可以和其他主題色組合:fu:)
+### SynthWave '84
+* A super high-tech, flashy fluorescent theme :太陽鏡:
+* After selecting the theme， remember to activate the fluorescent effect （which can also be combined with other theme _colors:fu:)
 
-> 啟用熒光模式：
-> 1. “ctrl+shift+p”：打開VS Code命令輸入框
-> 2.《Synthwave '84: Enable/Disable Neon Dreams》：開啟/關閉（見圖）
-> 3.“重啟”：重啟VS Code
+> To enable fluorescent mode:
+> 1. "ctrl+shift+p": 打開 the VS Code command input box
+> 2. "Synthwave '84: Enable/Disable Neon Dreams": Turn on/off （see figure）
+> 3. “重啟”： 重啟 VS Code
 
 <img src="img/2023-03-17-20-28-44.png" width="60%">
 
 <img src="img/2023-03-17-20-27-06.png" width="60%">
 
-### 提爾茲
-* 有點類似於之前推出的萌木主題
-* 不過這個*紫色*真的很吸引作者~
+### Tearz
+* 它  一點 相似 to the previously introduced Moegi theme
+* 但是 這個 *紫色* 對 作者來說 真的 有吸引力~
 
 <img src="img/2023-03-17-20-33-32.png" width="60%">
 
-### 厄運-emacs-主題
-* 簡約風格
+### doom-emacs-主題
+* 簡單 風格
 
 <image src="https://user-images.githubusercontent.com/63782903/232356902-fc57dbc3-f650-4c41-b5a6-f33497954cc7.png" width="60%" />
 
 ### Xcode 主題
-* 經典題材之一，不容忽視
+* One of the classic themes, cannot be ignored
 
 <img src="img/2023-03-17-20-35-39.png" width="60%">
 
-### 一個黑暗專業版
-* 經典題材之一，不容忽視
+### One Dark Pro
+* One of the classic themes, cannot be ignored
 
 <img src="img/2023-03-17-20-36-31.png" width="60%">
 
-### 材質深色
-* 經典題材之一，不容忽視
+### 材質 深色
+* One of the classic themes, cannot be ignored
 
 <img src="img/2023-03-17-20-37-24.png" width="60%">
 
 <a href="#top">Back to top</a>
 
 ---
-## :yellow_heart: 美化編輯器和編輯環境
-裝修完我們的編輯器，接下來要介紹的插件不僅可以增加美感，還可以提高工作效率~
+## :yellow_heart: 美化 editor and editing environment
+在 裝飾 我們的 編輯器之後， 插件 我們 將 引入 不能 只能 增加 美觀 但 也 提高 工作 效率~
 
-### 顏色高亮
-* 如果你是**前端**工程師或**數據分析師**，經常需要做**視覺**工作，一定要下載這個！
-* 編輯的時候，只要出現一個**十六進制**的顏色表達式，就可以清楚的看到顏色（不用跑代碼看顏色好看不好看）。
+### 顏色 高光
+* 如果 你 是 **前端** 工程師 或 **數據 分析師** 誰 經常 需要  做 **視覺** 工作， 你 必須 下載 這個！ 
+* 當 編輯時， as long as a **十六進制** color expression 出現， you can clearly see the color （no need to run the code  to see if the color looks good）。
 
 <img src="img/2023-03-17-20-48-11.png" width="60%">
 
-### 材質主題圖標
-* 不同的文件擴展名有不同的圖標
-* 不僅好看，而且可以更快地找到文件。
+###__材料 主題 圖標
+* Different file extensions have different icons
+* 不 只 看起來 好 但 也 使 它 更快  找到 文件. 
 
 <img src="img/2023-03-17-20-51-07.png" width="60%">
 
-### vscode圖標
-* 與 Material 主題圖標略有不同
-* 作者比較喜歡用這個~
+### vscode-圖標
+* Slightly different from Material Theme Icons
+* The author prefers to use this one~
 
 <img src="img/2023-03-17-20-53-26.png" width="60%">
 
 <a href="#top">Back to top</a>
 
 ---
-## :green_heart: 必備，強烈推薦
-下面要介紹的插件真的好用！
+## ：green_heart： 必備， 高度 推薦
+ 插件  將 引入 下面  真的 容易  使用！
 
-其中絕大多數都可以提高開發效率，千萬不要錯過：heart_eyes：
+The vast majority of them can improve development efficiency, so don't miss them:heart_eyes:
 
-### 代碼運行器
-* 相信用過VSCode的朋友對這個插件應該不會陌生吧！？
-* 允許VSCode一鍵執行程序。
-* 支持多種語言，如C, C++, Java, JavaScript, PHP, Python, Perl...等。
+### Code Runner
+* 我 相信  那些 誰 使用 VSCode 應該 不  不熟悉  這個 插件！？
+* 它 允許 VSCode  執行 程序  一次 點擊。
+* Supports many languages, such as C, C++, Java, JavaScript, PHP, Python, Perl...等。
 
 <img src="img/2023-03-17-20-59-33.png" width="60%">
 
-### 評論分隔符
-* 使用快捷鍵生成好看的**評論樣式**。
-* 如下圖所示，可以看到兩種樣式：`Shift+Alt+x`和`Alt+x`。
+### 評論 分隔符
+* Generates good-looking **comment styles** with shortcut keys。
+* 如 所示 在 下面的 圖 中， 您 可以 看到 兩種 樣式： `Shift+Alt+x` 和 `Alt+x`。
 
 <img src="img/2023-03-17-21-03-04.png" width="60%">
 
-### autoDocstring - Python 文檔字符串生成器
-* 該插件是為 Python 開發人員引入的。
-* 使用快捷鍵快速生成 **Docstring** 風格的註釋。
-* 描述函數的用途、參數、返回值等信息。
-* 支持不同的**Docstring**風格，如google、sphinx、numpy等。
+### autoDocstring - Python Docstring 生成器
+*  插件 是 為 Python 開發人員引入的。
+* Quickly generate comments in **Docstring** style using shortcut keys。
+* Describe the purpose, parameters, return values, and other information of the function.
+* 支持 different **Docstring** styles, such as google, sphinx, numpy, etc.
 
-> 使用方法：在要生成評論的地方按下面的鍵
-Windows：`ctrl+shift+2`
-Mac：`cmd+shift+2`
+> 用法： 按 以下 鍵 在 地方  你 想要  生成 評論
+Windows: `ctrl+shift+2`
+蘋果機： `cmd+shift+2` 
 
 <img src="img/2023-03-17-21-07-10.png" width="60%">
 
 ### Draw.io 集成
-* 流程圖繪製工具
-* 在設計項目時，可以使用本插件進行可行性規劃。
-* 可用作筆記工具。
-* 支持很多常用的模式，比如穀歌云平台代表功能符號（如圖）。
+* 流程圖 繪圖 工具
+* When designing a project， you can use this plugin to plan feasibility。
+* Can be used as a note-taking tool。
+* 支持 許多 commonly used patterns， such as the Google Cloud Platform representative function symbol （as shown in the figure）。
 
 <img src="img/2023-03-17-21-14-00.png" width="60%">
 
-### 路徑智能感知
-* 編碼時有這個插件真的很棒 :kissing_heart:
-* 適合經常讀寫文件的碼農。
-* 寫路徑時，會自動列出你要查找的路徑下的文件。
+### Path 智能感知
+* Having this plugin when coding is really great :kissing_heart:
+* Suitable for code farmers who often read and write files。
+* When writing a path, it will automatically list the files under the path you are looking__for。
 
 <img src="img/2023-03-17-21-17-09.png" width="60%">
 
@@ -276,50 +276,50 @@ Mac：`cmd+shift+2`
 
 ---
 
-## :star2:大數據、人工智能工程師-Jupyter (Python)
-這裡介紹的插件真的很給力！
+## :star2:Big data, AI engineer - Jupyter (Python)
+ 插件 在這裡 介紹 真的 太棒了！
 
-筆者知道很多使用Python的人都不習慣使用vscode，原因有很多：
-* 互動模式
-* 查看變量數據類型和變量值（就像在Spyder、Pycharm中一樣）
-* 逐行執行代碼，執行部分代碼（真的很實用，比Debug還厲害~:heart_eyes:)
+ 作者 知道 很多 人 誰 使用 Python  不  使用  使用 vscode， 和 有 很多 原因：
+* Interactive 模式
+* View variable data types and variable values （只是 like in Spyder， Pycharm）
+* Execute code line by line and execute part_of the code （真的 實用， even better than Debug~:heart_eyes:)
 
-該插件提供以下功能：
-* :pushpin:**交互模式**
-* :pushpin:**查看變量數據類型和變量值**（就像在 Spyder、Pycharm 中一樣）
-* :pushpin:**逐行執行代碼**和**執行部分代碼**（真的很實用，比Debug還厲害~:heart_eyes:)
+ 插件 提供 以下 功能：
+* :圖釘:**Interactive mode**
+* ：圖釘：**查看 variable data types and variable values** （只是 like in Spyder， Pycharm）
+* :pushpin:**Execute code line by line** and **execute part_of the code** （真的 實用， even better than Debug~:heart_eyes:)
 
-> 如果你能看懂中文，建議花5分鐘快速學習如何使用Jupyter插件（查看<a href="https://www.bilibili.com/video/BV1Bg411J78F/" target="_blank">鏈接</a>)
+> 如果 你 能 理解 中文， 它 是 推薦 到 花費 5 分鐘 快速 學習 如何 使用 the Jupyter 插件 （查看 <a href="https://www.bilibili.com/video/BV1Bg411J78F/" target="_blank" >鏈接</a>)
 
 > 用法：
 >
-> :bulb:下載以下插件（有些可能用不到，忘記了~）
+> :bulb:下載 以下 插件 （有些 可能  不需要 ， 但是 我 忘了~）
 >
-> `Jupyter`、`Jupyter keymap`、`Jupyter slide show`、`Jupyter cell tag`、`Jupyter notebook renderes`、`vs code jupyter notebook previewer`
+> `Jupyter`, `Jupyter keymap`, `Jupyter slide show`, `Jupyter cell tag`, `Jupyter notebook renderes`, `vs code jupyter notebook previewer`
 >
 ><img src="img/2023-03-17-21-50-07.png" width="40%">
 
-> :bulb:**在交互模式下執行代碼**
+> :bulb:**Execute code in interactive mode**
 >
-> 1. 在腳本中右擊。
-> 2. 選擇`在交互窗口中運行當前文件`
-（建議設置一個VS Code快捷鍵，我設置為`F10`）。
-> 3. 執行後會出現一個`Interactive`窗口。
+>  1.  右鍵單擊_in the _script。
+> 2. Select `Run Current File in Interactive Window`
+（  推薦  設置 a VS 代碼 快捷方式 鍵， 我 將 它 設置為 `F10`）。
+> 3. After execution, an `Interactive` window will appear.
 >
 ><img src="img/2023-03-17-21-54-03.png" width="40%">
 ><img src="img/2023-03-17-21-57-03.png" width="40%">
 
-> :bulb:**查看變量數據類型和變量值**（需要處於交互模式）
+> :bulb:**View variable data types and variable values** （需要 to be in interactive mode）
 >
-> 在交互式窗口中單擊 *Variables*。
+> 單擊 *變量* 在 交互式 窗口中。
 >
 ><img src="img/2023-03-20-13-17.PNG" width="60%">
 
-> :bulb:**逐行或部分執行**
+> :bulb:**Execute line by line or partially**
 >
-> 1. 選擇要執行的代碼（可以是一行或多行）。
-> 2. 右擊選中的代碼。
-> 3. 選擇*在交互式窗口中運行選擇/線*。
+> 1. 選擇 代碼 來 執行 （可以 是 一個 或 更多 行）。
+> 2. 右鍵單擊 the selected 代碼。
+> 3. Select *Run Selection/Line in Interactive Window*。
 >
 ><img src="img/2023-03-17-22-04-33.png" width="60%">
 
@@ -327,20 +327,20 @@ Mac：`cmd+shift+2`
 
 ---
 
-## :wave:Git、Markdown 支持
-下面介紹的插件對於從事 Github 或 Gitlab 項目的開發人員來說是必不可少的。
+## :wave:Git、Markdown   支持
+ 插件 介紹 下面 是 必不可少的 開發人員 在 Github 或 Gitlab 項目上 工作。
 
 ### GitLens
-* 下載後，腳本代碼將顯示**哪些**部分被**修改**，**誰**進行了修改，**何時**進行了修改。
-* 注意屏幕右側的代碼。 `170`行有一條綠線，表示有新增代碼的記錄（紅色表示刪除的代碼）。
-* 請記住使用 `git` 跟踪項目以使該插件正常工作。
+* 下載後， 腳本 代碼 將 顯示 **哪些** 部分 已經 修改**， **誰** 做了  更改， 和 **他們 被 做了。
+* 注意  代碼 在 屏幕 右邊  上。 有 一條 綠色 線 在 線 `170`， 哪個 表示 那 有 是 記錄 的 新 代碼 已添加 （紅色 表示 已刪除 代碼）。
+* Remember to track the project with `git` for this plugin to work。
 
 <img src="img/2023-03-17-22-08-15.png" width="60%">
 
-### Markdown 預覽增強
-* 編寫 .md 文件時，您可以預覽結果。
-* 按 `ctrl+k`，然後按 `v` 打開預覽窗口。
-* 下圖中間為`.md`文件，右側為預覽窗口。
+### Markdown Preview Enhanced
+* When writing `.md` files, you can preview the results.
+* 按 `ctrl+k`， 然後 `v` 打開  預覽 窗口。
+* The middle__of the figure below shows the `.md` file, and the right side shows the preview window.
 
 <img src="img/2023-03-17-22-15-20.png" width="60%">
 
@@ -348,22 +348,22 @@ Mac：`cmd+shift+2`
 
 ---
 
-##：計算機：遠程 WSL 和開發容器
+## ：計算機： Remote WSL & Dev Container
 
 ### 遠程 WSL
-* vscode 將在 `Windows Subsystem Linux` 環境中打開。
-* 您可以在 vscode 編輯器的 `WSL` 環境中編輯文件，而無需使用 `vim` 或 `nano`。
+* vscode will open in the `Windows Subsystem Linux` environment。
+* 您 可以 編輯 文件 在  `WSL` 環境 中  vscode 編輯器 而不 使用 `vim` or `nano`。
 
 > 用法：
-> 1. `ctrl+shift+p`：打開命令面板。
-> 2. `WSL: New WSL Window`: 在 vscode 中打開 `WSL` 環境。
+> 1. `ctrl+shift+p`: 打開 命令 調色板。
+> 2. `WSL: New WSL Window`: open the `WSL` environment within vscode。
 
 <img src="img/2023-03-20-11-47-42.png" width="60%">
 
 ### 開發容器
-* 借助`Docker`，vscode內部的整個開發環境都可以在一個容器中運行，包括編輯、終端、調試、執行。
+* 使用  幫助 of `Docker`，  整個 開發 環境 within vscode 可以 在 a 容器中 運行， 包括 編輯， 終端， 調試， 和 執行。
 
-* 您可以在只安裝`Docker`和vscode的環境中以最舒適的方式進行`Node.js`、`Python`、`Java`等各種開發任務，而無需安裝相應的runtime和編譯軟件。
+* 您 可以 執行 各種 開發 任務 ，例如 `Node.js`、 `Python`、 `Java`、 等 在 最 舒適 方式 內 只有 `Docker`__和 vscode 安裝， 沒有 需要__  安裝 相應的 運行時 和 編譯 軟件。
 
 <img src="img/2023-03-20-11-48-43.png" width="60%">
 
@@ -371,19 +371,19 @@ Mac：`cmd+shift+2`
 
 ---
 
-## :wrench:Fixer（修復 Vscode 損壞）
-有時，在卸載插件時，VS Code 窗口的右下角會出現如下錯誤信息：
+## ：扳手：Fixer （Fix Vscode Corrupt）
+有時， 當 卸載 a 插件時，  錯誤 消息 出現 在  下 右 角 的 VS 代碼 窗口 如下 ：
 
 <img src="https://user-images.githubusercontent.com/63782903/231321298-916da9d3-0e90-4bd5-bfc6-859371545ec7.png" width="60%" />
 
-您可以使用以下方法解決此問題：
+你 可以 解決 這個 問題 使用 以下 方法：
 
 > 用法：
 > 1. 下載 Fix VSCode Checksums 插件。
-> 2. `ctrl+shift+p`：打開命令面板。
-> 3. `Fix ChecksumS: Apply`: 執行修復。
-> 4. `ctrl+shift+p`：打開命令面板。
-> 5. `Developer: Reload Window`: 重啟 VS Code。
+> 2. `ctrl+shift+p`: 打開  command 調色板。
+> 3. `Fix ChecksumS: Apply`: execute the repair。
+> 4. `ctrl+shift+p`: 打開 命令 調色板。
+> 5. `開發人員： 重新加載 Window`： 重新啟動 VS Code。
 
 <img src="img/2023-03-17-21-36-48.png" width="60%">
 
