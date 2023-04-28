@@ -3,7 +3,7 @@ if [[ $(git diff --name-only HEAD~1 HEAD -- README.md) ]]; then
 
     output=""
     while IFS= read -r line; do
-        line="${line//   /%%%}" # Replace space with special character
+        line="${line//   /%space%}" # Replace space with special character
 
         if [[ "$line" =~ ^\<.*\> ]]; then # Ignore <tags>
             output+="$line"$'\n'
@@ -27,6 +27,6 @@ if [[ $(git diff --name-only HEAD~1 HEAD -- README.md) ]]; then
     # Write output file
     echo -e "$output" > README.zh-TW.md
     sed -i 's/u003d/=/g' README.zh-TW.md
-    sed -i 's/%%%/ /g' README.zh-TW.md
+    sed -i 's/%space%/ /g' README.zh-TW.md
 
 fi
