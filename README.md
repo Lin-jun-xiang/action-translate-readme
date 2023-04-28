@@ -11,7 +11,7 @@
 <details>
 <summary>Vscode Common Commands</summary>
 
-* Testing man 102333
+* Testing man world
 
 * Using the vscode command palette can improve development speed.
 
