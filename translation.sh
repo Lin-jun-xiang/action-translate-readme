@@ -13,10 +13,14 @@ if [[ $(git diff --name-only HEAD~1 HEAD -- README.md) ]]; then
             output+="$line"$'\n'
 
         elif [[ "$line" =~ ^#+[[:space:]] ]]; then # Translate headings
-            output+=$(echo "$line" | sed -E 's/^#+[[:space:]](.*)$/#\1/' | trans -no-ansi  -b en:zh-TW "$line")$'\n'
+            line=$(echo "$line" | sed -E 's/^#+[[:space:]](.*)$/#\1/')
+            line=$(trans -no-ansi -b en:zh-TW "$line")
+            output+=$(echo "$line" | sed 's/^\([[:space:]]*\)/\1\1/')$'\n'
 
         else # Translate text
-            output+=$(trans -no-ansi -b en:zh-TW "$line")$'\n'
+            line=$(trans -no-ansi -b en:zh-TW "$line")
+            line=$(echo "$line" | sed 's/\b\\u003d\b/=/g')
+            output+=$(echo "$line" | sed 's/^\([[:space:]]*\)/\1\1/')$'\n'
         fi
     # Read README.md to do while
     done < README.md
