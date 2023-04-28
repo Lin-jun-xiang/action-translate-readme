@@ -11,16 +11,16 @@
 <details>
 <summary>Vscode Common Commands</summary>
 
-* sss 測試人的世界。
+* sss 測試人的世界。 123
 
 * 使用vscode命令面板可以提高開發速度。
 
 * 打開命令面板：`ctrl+shift+p`
 
 * 常用命令：
-  * `File: Open Folder`: 打開文件夾作為工作空間。
-  * `Preferences: Color Theme`: 為編輯器選擇一個顏色主題。
-  * `Preferences: File Icon Theme`: 為文件選擇一個圖標主題。
+  * `File: Open Folder`: 打開文件夾作為工作區。
+  * `Preferences: Color Theme`：為編輯器選擇一個顏色主題。
+  * `Preferences: File Icon Theme`：為文件選擇一個圖標主題。
   * `Developer: Reload Window`: 重新加載 VSCode 窗口。
 
 </details>
@@ -28,7 +28,7 @@
 ---
 
 * 記錄分享vscode擴展，包括提升開發效率、必備、主題美化等。
-* 本項目將為每個擴展提供詳細的使用說明，希望能幫助全世界的碼友們一起愉快地碼字:sunglasses:
+* 本項目將為每個擴展提供詳細的使用說明，希望能幫助全世界的碼農們一起愉快地碼字:sunglasses:
 * 本項目提供["**擴展分享區**"](./share/README.md)，任何人都可以在這裡提交感興趣的擴展。
 
 * 擴展概要：
@@ -40,7 +40,7 @@
   - [大數據與AI工程師-Jupyter(Python)](#star2big-data-ai-engineer---jupyter-python)
   - [Git 和 Markdown 助手](#wavegitmarkdown-support)
   - [遠程 WSL 和開發容器](#computer-remote-wsl--dev-container)
-  - [修復器](#wrenchfixer-fix-vscode-corrupt)
+  - [Fixer](#wrenchfixer-fix-vscode-corrupt)
   - [社區共享和貢獻](./share/README.md)
 ---
 
@@ -72,11 +72,11 @@
   * `compare.py`
    運行 `Python` 腳本。
 
-   ![](./img/2023-04-19-11-06-37.png)
+%空間%%空間% ![](./img/2023-04-19-11-06-37.png)
   * `compare.sh`
    在 `git bash、wsl 或 linux` 等上運行 `./extensions_compare/compare.sh`。
 
-   ![](./img/2023-04-19-11-07-16.png)
+%空間%%空間% ![](./img/2023-04-19-11-07-16.png)
 </details>
 
 ---
@@ -102,7 +102,7 @@
 
 ## :purple_heart:主題
 
-使用vscode最大的原因就是要有一個`搶眼`、`優雅`、`舒適`、`愉快的編輯界面`。只有好看的編輯環境，才能讓碼農願意敲鍵盤~:sunglasses:
+使用vscode最大的原因就是要有一個`醒目`、`優雅`、`舒適`、`愉快的編輯界面`。只有好看的編輯環境，才能讓碼農願意敲鍵盤~:sunglasses:
 
 接下來筆者將自己喜歡的主題一一分享給大家（以下示例均基於Python，不同語言可能略有差異）
 
@@ -136,7 +136,7 @@
 <img src="img/2023-03-17-14-51-36.png" width="60%">
 
 ### 激光波
-* 具有日落感覺的*紫粉色*主題
+* 帶有夕陽感覺的*紫粉色*主題
 
 <img src="img/2023-03-17-20-17-56.png" width="60%">
 
@@ -163,7 +163,7 @@
 
 ### 合成波 '84
 * 超高科技、炫目的熒光主題：太陽鏡：
-* 選好主題後記得開啟熒光效果（也可以和其他主題色搭配:fu:)
+* 選好主題後記得開啟熒光效果（也可以和其他主題色組合:fu:)
 
 > 啟用熒光模式：
 > 1. “ctrl+shift+p”：打開VS Code命令輸入框
@@ -280,7 +280,7 @@ Mac：`cmd+shift+2`
 這裡介紹的插件真的很給力！
 
 筆者知道很多使用Python的人都不習慣使用vscode，原因有很多：
-* 交互模式
+* 互動模式
 * 查看變量數據類型和變量值（就像在Spyder、Pycharm中一樣）
 * 逐行執行代碼，執行部分代碼（真的很實用，比Debug還厲害~:heart_eyes:)
 
