@@ -3,7 +3,7 @@
 # vscode-extensions [最佳]
 
 <div>
-  <img src="https://readme-typing-svg.demolab.com/?pause=1&size=50&color=f75c7e&center=True&width=1200&height=120&vCenter=True&lines=Click+the+⭐+Star+please.;任何+問題+可以+被+詢問+在+問題中。” />
+  <img src="https://readme-typing-svg.demolab.com/?pause=1&size=50&color=f75c7e&center=True&width=1200&height=120&vCenter=True&lines=Click+the+⭐+Star+please.;任何+questions+can+be+asked+in+Issue。” />
 </div>
 
 [中文版README.md](README_中文.md)
@@ -11,16 +11,16 @@
 <details>
 <summary>Vscode Common Commands</summary>
 
-* sss 測試人員
+* sss 測試人的世界。
 
 * 使用vscode命令面板可以提高開發速度。
 
 * 打開命令面板：`ctrl+shift+p`
 
 * 常用命令：
-  * `File: Open Folder`: 打開文件夾作為工作區。
-  * `Preferences: Color Theme`：為編輯器選擇一個顏色主題。
-  * `Preferences: File Icon Theme`：為文件選擇一個圖標主題。
+  * `File: Open Folder`: 打開文件夾作為工作空間。
+  * `Preferences: Color Theme`: 為編輯器選擇一個顏色主題。
+  * `Preferences: File Icon Theme`: 為文件選擇一個圖標主題。
   * `Developer: Reload Window`: 重新加載 VSCode 窗口。
 
 </details>
@@ -37,11 +37,11 @@
   - [主題](#purple_hearttheme)
   - [編輯器和環境美化](#yellow_heart-beautifying-editor-and-editing-environment)
   - [必備和強烈推薦](#green_heart-must-have-highly-recommended)
-  - [大數據和人工智能工程師 - Jupyter(Python)](#star2big-data-ai-engineer---jupyter-python)
+  - [大數據與AI工程師-Jupyter(Python)](#star2big-data-ai-engineer---jupyter-python)
   - [Git 和 Markdown 助手](#wavegitmarkdown-support)
   - [遠程 WSL 和開發容器](#computer-remote-wsl--dev-container)
   - [修復器](#wrenchfixer-fix-vscode-corrupt)
-  - [社區分享和貢獻](./share/README.md)
+  - [社區共享和貢獻](./share/README.md)
 ---
 
 ## :star:快速下載多個擴展（請先閱讀此內容）
@@ -69,11 +69,11 @@
 * 比較兩個 `.ps` 文件並找到兩個擴展記錄之間的**差異**。
 
 * 用法（選擇以下之一）：
-  *`比較.py`
+  * `compare.py`
    運行 `Python` 腳本。
 
    ![](./img/2023-04-19-11-06-37.png)
-  *`compare.sh`
+  * `compare.sh`
    在 `git bash、wsl 或 linux` 等上運行 `./extensions_compare/compare.sh`。
 
    ![](./img/2023-04-19-11-07-16.png)
@@ -104,7 +104,7 @@
 
 使用vscode最大的原因就是要有一個`搶眼`、`優雅`、`舒適`、`愉快的編輯界面`。只有好看的編輯環境，才能讓碼農願意敲鍵盤~:sunglasses:
 
-接下來，筆者將他最喜歡的主題一一分享給大家（以下示例均基於Python，不同語言可能略有差異）
+接下來筆者將自己喜歡的主題一一分享給大家（以下示例均基於Python，不同語言可能略有差異）
 
 哦！等一下，這裡有一個快速切換主題的方法。畢竟你可能每天都想換主題~~
 
@@ -163,7 +163,7 @@
 
 ### 合成波 '84
 * 超高科技、炫目的熒光主題：太陽鏡：
-* 選好主題後記得開啟熒光效果（也可以和其他主題色組合:fu:)
+* 選好主題後記得開啟熒光效果（也可以和其他主題色搭配:fu:)
 
 > 啟用熒光模式：
 > 1. “ctrl+shift+p”：打開VS Code命令輸入框
