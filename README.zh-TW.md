@@ -3,7 +3,7 @@
 # vscode-extensions [最佳]
 
 <div>
-<img srcu003d"https://readme-typing-svg.demolab.com/?pauseu003d1&sizeu003d50&coloru003df75c7e&centeru003dTrue&widthu003d1200&heightu003d120&vCenteru003dTrue&linesu003dClick+the+⭐+Star+please.;Any+questions+可以+被+詢問+在+問題中。” />
+<img src="https://readme-typing-svg.demolab.com/?pause=1&size=50&color=f75c7e&center=True&width=1200&height=120&vCenter=True&lines=Click+the+⭐+Star+please.;Any+questions+可以+被+詢問+在+問題中。” />
 </div>
 
 [中文版README.md](README_中文.md)
@@ -11,7 +11,7 @@
 <details>
 <summary>Vscode Common Commands</summary>
 
-* SS測試
+* sss test123
 
 * 使用vscode命令面板可以提高開發速度。
 
@@ -59,7 +59,7 @@
 > 3. 在新電腦的終端（`powershell`）中輸入以下命令：
 > `.xtensions.ps1`
 > 4. 下載完成
-> <img srcu003d"https://user-images.githubusercontent.com/63782903/226086537-1dddd375-3206-44db-8208-17715d70c744.png" widthu003d"60%">
+> <img src="https://user-images.githubusercontent.com/63782903/226086537-1dddd375-3206-44db-8208-17715d70c744.png" width="60%">
 
 <details>
 <summary>Missing Extensions</summary>
@@ -115,7 +115,7 @@
 ### 黃油主題
 * 顧名思義，這是一款不傷眼的*奶油黃色*主題
 * 非常難得的一個主題（說白了，用的人不多），但是作者很喜歡
-* 如果找不到這個主題，<a hrefu003d"https://marketplace.visualstudio.com/items?itemNameu003dLevampire.Buttur" targetu003d"_blank">鏈接</a>
+* 如果找不到這個主題，<a href="https://marketplace.visualstudio.com/items?itemName=Levampire.Buttur" target="_blank">鏈接</a>
 
 <img src="img/2023-03-17-14-36-15.png" width="60%">
 
@@ -289,7 +289,7 @@ Mac：`cmd+shift+2`
 * :pushpin:**查看變量數據類型和變量值**（就像在 Spyder、Pycharm 中一樣）
 * :pushpin:**逐行執行代碼**和**執行部分代碼**（真的很實用，比Debug還厲害~:heart_eyes:)
 
-> 如果你能看懂中文，建議花5分鐘快速學習如何使用Jupyter插件（查看<a hrefu003d"https://www.bilibili.com/video/BV1Bg411J78F/" targetu003d"_blank">鏈接</a>)
+> 如果你能看懂中文，建議花5分鐘快速學習如何使用Jupyter插件（查看<a href="https://www.bilibili.com/video/BV1Bg411J78F/" target="_blank">鏈接</a>)
 
 > 用法：
 >
@@ -297,7 +297,7 @@ Mac：`cmd+shift+2`
 >
 > `Jupyter`、`Jupyter keymap`、`Jupyter slide show`、`Jupyter cell tag`、`Jupyter notebook renderes`、`vs code jupyter notebook previewer`
 >
-><img srcu003d"img/2023-03-17-21-50-07.png" widthu003d"40%">
+><img src="img/2023-03-17-21-50-07.png" width="40%">
 
 > :bulb:**在交互模式下執行代碼**
 >
@@ -306,14 +306,14 @@ Mac：`cmd+shift+2`
 （建議設置一個VS Code快捷鍵，我設置為`F10`）。
 > 3. 執行後會出現一個`Interactive`窗口。
 >
-><img srcu003d"img/2023-03-17-21-54-03.png" widthu003d"40%">
-><img srcu003d"img/2023-03-17-21-57-03.png" widthu003d"40%">
+><img src="img/2023-03-17-21-54-03.png" width="40%">
+><img src="img/2023-03-17-21-57-03.png" width="40%">
 
 > :bulb:**查看變量數據類型和變量值**（需要處於交互模式）
 >
 > 在交互式窗口中單擊 *Variables*。
 >
-><img srcu003d"img/2023-03-20-13-17.PNG" widthu003d"60%">
+><img src="img/2023-03-20-13-17.PNG" width="60%">
 
 > :bulb:**逐行或部分執行**
 >
@@ -321,7 +321,7 @@ Mac：`cmd+shift+2`
 > 2. 右擊選中的代碼。
 > 3. 選擇*在交互式窗口中運行選擇/線*。
 >
-><img srcu003d"img/2023-03-17-22-04-33.png" widthu003d"60%">
+><img src="img/2023-03-17-22-04-33.png" width="60%">
 
 <a href="#top">Back to top</a>
 
