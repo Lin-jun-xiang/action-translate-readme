@@ -3,6 +3,7 @@ name: Translate Readme
 on:
   push:
     branches:
+      - dev
       - test
 
 jobs:
