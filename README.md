@@ -11,7 +11,7 @@
 <details>
 <summary>Vscode Common Commands</summary>
 
-* sss test1234
+* sss testman
 
 * Using the vscode command palette can improve development speed.
 

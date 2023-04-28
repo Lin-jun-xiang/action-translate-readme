@@ -3,7 +3,7 @@ if [[ $(git diff --name-only HEAD~1 HEAD -- README.md) ]]; then
 
     output=""
     while IFS= read -r line; do
-        line="${line// /___}" # Replace space with special character
+        line="${line//   /___}" # Replace space with special character
 
         if [[ "$line" =~ ^\<.*\> ]]; then # Ignore <tags>
             output+="$line"$'\n'
