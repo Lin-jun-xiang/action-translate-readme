@@ -10,7 +10,7 @@
 <details>
 <summary>Vscode Common Commands</summary>
 
-* sss test123
+* hI man
 
 * Using the vscode command palette can improve development speed.
 
