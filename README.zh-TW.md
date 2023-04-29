@@ -3,7 +3,7 @@
 # vscode-extensions [最佳]
 
 <div>
-<img src="https://readme-typing-svg.demolab.com/?pause=1&size=50&color=f75c7e&center=True&width=1200&height=120&vCenter=True&lines=Click+the+⭐+Star+please.;Any+questions+可以+被+詢問+在+問題中。” />
+  <img src="https://readme-typing-svg.demolab.com/?pause=1&size=50&color=f75c7e&center=True&width=1200&height=120&vCenter=True&lines=Click+the+⭐+Star+please.;任何+questions+can+be+asked+in+Issue。” />
 </div>
 
 [中文版README.md](README_中文.md)
@@ -11,17 +11,17 @@
 <details>
 <summary>Vscode Common Commands</summary>
 
-* sss test123
+* sss 測試人的世界。 123
 
 * 使用vscode命令面板可以提高開發速度。
 
 * 打開命令面板：`ctrl+shift+p`
 
 * 常用命令：
-* `File: Open Folder`: 打開文件夾作為工作區。
-* `Preferences: Color Theme`：為編輯器選擇一個顏色主題。
-* `Preferences: File Icon Theme`：為文件選擇一個圖標主題。
-* `Developer: Reload Window`: 重新加載 VSCode 窗口。
+  * `File: Open Folder`: 打開文件夾作為工作區。
+  * `Preferences: Color Theme`：為編輯器選擇一個顏色主題。
+  * `Preferences: File Icon Theme`：為文件選擇一個圖標主題。
+  * `Developer: Reload Window`: 重新加載 VSCode 窗口。
 
 </details>
 
@@ -32,16 +32,16 @@
 * 本項目提供["**擴展分享區**"](./share/README.md)，任何人都可以在這裡提交感興趣的擴展。
 
 * 擴展概要：
-- [快速下載多個擴展（先讀這個）]（#starquickly-download-multiple-extensions-please-read-this-first）
-- [透明編輯器](#snowflaketransparent-editor)
-- [主題](#purple_hearttheme)
-- [編輯器和環境美化](#yellow_heart-beautifying-editor-and-editing-environment)
-- [必備和強烈推薦](#green_heart-must-have-highly-recommended)
-- [大數據與人工智能工程師-Jupyter(Python)](#star2big-data-ai-engineer---jupyter-python)
-- [Git 和 Markdown 助手](#wavegitmarkdown-support)
-- [遠程 WSL 和開發容器](#computer-remote-wsl--dev-container)
-- [修復器](#wrenchfixer-fix-vscode-corrupt)
-- [社區分享和貢獻](./share/README.md)
+  - [快速下載多個擴展（先閱讀這個）]（#starquickly-download-multiple-extensions-please-read-this-first）
+  - [透明編輯器](#snowflaketransparent-editor)
+  - [主題](#purple_hearttheme)
+  - [編輯器和環境美化](#yellow_heart-beautifying-editor-and-editing-environment)
+  - [必備和強烈推薦](#green_heart-must-have-highly-recommended)
+  - [大數據與AI工程師-Jupyter(Python)](#star2big-data-ai-engineer---jupyter-python)
+  - [Git 和 Markdown 助手](#wavegitmarkdown-support)
+  - [遠程 WSL 和開發容器](#computer-remote-wsl--dev-container)
+  - [Fixer](#wrenchfixer-fix-vscode-corrupt)
+  - [社區共享和貢獻](./share/README.md)
 ---
 
 ## :star:快速下載多個擴展（請先閱讀此內容）
@@ -69,14 +69,14 @@
 * 比較兩個 `.ps` 文件並找到兩個擴展記錄之間的**差異**。
 
 * 用法（選擇以下之一）：
-*`比較.py`
-運行“Python”腳本。
+  * `compare.py`
+   運行 `Python` 腳本。
 
-![](./img/2023-04-19-11-06-37.png)
-*`比較.sh`
-在 `git bash、wsl 或 linux` 等上運行 `./extensions_compare/compare.sh`。
+%空間%%空間% ![](./img/2023-04-19-11-06-37.png)
+  * `compare.sh`
+   在 `git bash、wsl 或 linux` 等上運行 `./extensions_compare/compare.sh`。
 
-![](./img/2023-04-19-11-07-16.png)
+%空間%%空間% ![](./img/2023-04-19-11-07-16.png)
 </details>
 
 ---
