@@ -4,7 +4,7 @@
 
 * Update `README.md` and push it, this action will auto update `README.zh-TW.md`
 
-# How to use?
+# How to use ?
 
 1. Click on the "star" icon to add this project to your Github repository.
 2. Download the `translate-readme.yaml` file from this project's Github repository.
