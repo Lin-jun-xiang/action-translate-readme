@@ -8,8 +8,17 @@
 
 1. Click on the "star" icon to add this project to your Github repository.
 2. Download the `translate-readme.yaml` file from this project's Github repository.
-3. Save the `translate-readme.yaml` file to your own repository, in the directory `.github/workflows/.` This is where Github Actions are stored.
-4. Download `translation.sh`
+3. Add the branched which want to use in `translate-readme.yaml`:
+    ```
+    on:
+        push:
+            branches:
+            - dev
+            - test
+            - main
+    ```
+4. Save the `translate-readme.yaml` file to your own repository, in the directory `.github/workflows/.` This is where Github Actions are stored.
+5. Download `translation.sh`
 
 ---
 
