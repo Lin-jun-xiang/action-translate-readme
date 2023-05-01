@@ -2,7 +2,7 @@
 # vscode-extensions [最佳]
 
 <div>
-  <img src="https://readme-typing-svg.demolab.com/?pause=1&size=50&color=f75c7e&center=True&width=1200&height=120&vCenter=True&lines=Click+the+⭐+Star+please.;任何+questions+can+be+asked+in+Issue。” />
+  <img src="https://readme-typing-svg.demolab.com/?pause=1&size=50&color=f75c7e&center=True&width=1200&height=120&vCenter=True&lines=Click+the+⭐+Star+please.;Any+ questions+can+be+asked+in+Issue。” />
 </div>
 
 [中文版README.md](README_中文.md)
@@ -18,8 +18,8 @@
 
 * 常用命令：
   * `File: Open Folder`: 打開文件夾作為工作空間。
-  * `Preferences: Color Theme`：為編輯器選擇一個顏色主題。
-  * `Preferences: File Icon Theme`：為文件選擇一個圖標主題。
+  * `Preferences: Color Theme`: 為編輯器選擇一個顏色主題。
+  * `Preferences: File Icon Theme`: 選擇文件的圖標主題。
   * `Developer: Reload Window`: 重新加載 VSCode 窗口。
 
 </details>
@@ -39,8 +39,8 @@
   - [大數據與AI工程師-Jupyter(Python)](#star2big-data-ai-engineer---jupyter-python)
   - [Git 和 Markdown 助手](#wavegitmarkdown-support)
   - [遠程 WSL 和開發容器](#computer-remote-wsl--dev-container)
-  - [Fixer](#wrenchfixer-fix-vscode-corrupt)
-  - [社區共享和貢獻](./share/README.md)
+  - [修復器](#wrenchfixer-fix-vscode-corrupt)
+  - [社區分享和貢獻](./share/README.md)
 ---
 
 ## :star:快速下載多個擴展
@@ -54,13 +54,11 @@
 > 方法：
 >
 > 1、訪問當前電腦上vscode的所有擴展，並輸出為文本。在終端（`powershell`）中輸入以下命令：
->
 >`代碼--列表擴展| ForEach-Object {"code --install-extension $_"} > extensions.ps1`
 >
 > 2、命令執行後，會在當前目錄下得到`extensions.ps1`文件（文件名在執行命令時定義）。
 >
 > 3. 在新電腦的終端（`powershell`）中輸入以下命令：
->
 > `.xtensions.ps1`
 >
 > 4. 下載完成
@@ -77,12 +75,12 @@
   * `compare.py`
    運行 `Python` 腳本。
 
-%空間%%空間% <img src="img/2023-04-19-11-06-37.png">
+   <img src="img/2023-04-19-11-06-37.png">
 
   * `compare.sh`
    在 `git bash、wsl 或 linux` 等上運行 `./extensions_compare/compare.sh`。
 
-%空間%%空間% <img src="img/2023-04-19-11-07-16.png">
+   <img src="img/2023-04-19-11-07-16.png">
 </details>
 
 ---
