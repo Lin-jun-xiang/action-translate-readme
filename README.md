@@ -55,12 +55,9 @@ If you want to transfer extensions from an old computer to a new one in the futu
 >
 > 1. Access all the extensions of vscode on the current computer and output them as text. Enter the following command in terminal (`powershell`):
 > `code --list-extensions | ForEach-Object {"code --install-extension $_"} > extensions.ps1`
->
 > 2. After the command is executed, the `extensions.ps1` file (the filename is defined when executing the command) will be obtained in the current directory.
->
 > 3. Enter the following command in terminal (`powershell`) on the new computer:
 > `.\extensions.ps1`
->
 > 4. Download completed
 > <img src="https://user-images.githubusercontent.com/63782903/226086537-1dddd375-3206-44db-8208-17715d70c744.png" width="60%">
 
@@ -178,9 +175,7 @@ Oh! Wait a minute, here's a quick way to switch themes. After all, you may want 
 > To enable fluorescent mode:
 >
 > 1. "ctrl+shift+p": Open the VS Code command input box
->
 > 2. "Synthwave '84: Enable/Disable Neon Dreams": Turn on/off (see figure)
->
 > 3. "Restart": Restart VS Code
 
 <img src="img/2023-03-17-20-28-44.png" width="60%">
