@@ -10,8 +10,6 @@
 <details>
 <summary>Vscode Common Commands</summary>
 
-* hI man I'm jimmy. no way
-
 * Using the vscode command palette can improve development speed.
 
 * Open the command palette: `ctrl+shift+p`
