@@ -1,3 +1,18 @@
+# action-translate-markdown
+
+* **Auto Translate the Language of README.md** through Github Action (Continuous Integration, CI)
+
+* Update `README.md` and push it, this action will auto update `README.zh-TW.md`
+
+# How to use ?
+
+1. Click :star: for this project
+2. Download `translate-readme.yaml` and put in your respo: `.github/workflows/translate-readme.yml`
+3. Download `./translation.sh`
+
+---
+
+# The test auto translate document as following:
 
 # vscode-extensions [Best]
 

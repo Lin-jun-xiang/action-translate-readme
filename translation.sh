@@ -8,15 +8,10 @@ if [[ $(git diff --name-only HEAD~1 HEAD -- README.md) ]]; then
         line="${line//./%dot_%}" # Replace . with special character
         line="${line//\\/%backslash_%}" # Replace \ with special character
 
-
-
         if [[ "$line" =~ ^\<.*\> ]]; then # Ignore <tags>
             output+="$line"$'\n'
 
         elif [[ "$line" =~ ^`.*`$ ]]; then # Ignore `code`
-            output+="$line"$'\n'
-
-        elif [[ "$line" =~ \`.+\` ]]; then # Ignore text in backticks
             output+="$line"$'\n'
 
         elif [[ "$line" =~ ^\[中文版 ]]; then
