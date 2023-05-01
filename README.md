@@ -6,9 +6,10 @@
 
 # How to use ?
 
-1. Click :star: for this project
-2. Download `translate-readme.yaml` and put in your respo: `.github/workflows/translate-readme.yml`
-3. Download `./translation.sh`
+1. Click on the "star" icon to add this project to your Github repository.
+2. Download the `translate-readme.yaml` file from this project's Github repository.
+3. Save the `translate-readme.yaml` file to your own repository, in the directory `.github/workflows/.` This is where Github Actions are stored.
+4. Download `translation.sh`
 
 ---
 
