@@ -1,5 +1,9 @@
 
+<<<<<<< HEAD
 # vscode-extensions [Best]
+=======
+# vscode-extensions [最佳]
+>>>>>>> 6d95e5a528da56b60745711674a16cbe12e53855
 
 <div>
 % %% %% %% %<img% %src="https://readme-typing-svg.demolab.com/?pause=1&size=50&color=f75c7e&center=True&width=1200&height=120&vCenter=True&lines=Click+the+⭐ +Star+please.;Any+questions+can+be+asked+in+Issue."% %/>
@@ -10,7 +14,15 @@
 <details>
 <summary>Vscode Common Commands</summary>
 
+<<<<<<< HEAD
 *％   ％餵伙計
+=======
+<<<<<<< 頭
+* 餵伙計
+=======
+* sss 測試人的世界。 123
+>>>>>>> ee652ac6cd7e07420d6d08c014b9251359814406
+>>>>>>> 6d95e5a528da56b60745711674a16cbe12e53855
 
 *% %Using% %the% %vscode% %command% %palette% %can% %improve% %development% %speed。
 
@@ -43,8 +55,13 @@
 % %% %% %% %-% %[Sharing% %and% %Contributing% %by% %Community](./share/README.md)
 ---
 
+<<<<<<< HEAD
 ## :star:Quickly download multiple extensions
 稍後，% %we% %will% %introduce% %a% %lot% %of% %vscode% %extensions.% %Here% %is% %a% %trick% %that% %can% %quickly% %下載% %many% %extensions% %without% %having% %to% %look% %for% %them% %one% %by% %one.
+=======
+## :star:快速下載多個擴展（請先閱讀此內容）
+後面會介紹很多vscode的擴展。這裡有一個技巧，可以快速下載許多擴展，而無需一個一個地尋找它們。
+>>>>>>> 6d95e5a528da56b60745711674a16cbe12e53855
 
 如果% %you% %want% %to% %transfer% %extensions% %from% %an% %old% %computer% %to% %a% %new% %one% %in% %the% %future, % %you% %can% %also% %use% %this% %method% %:kissing:
 
@@ -129,8 +146,13 @@
 
 <img src="img/2023-03-17-14-44-30.png" width="60%">
 
+<<<<<<< HEAD
 ### Dracula Official
 *% %Very% %眾所周知，% %with% %a% %vampire% %color% %of% %*pink*% %and% %*purple*
+=======
+###德古拉官方
+* 非常有名，*粉色*和*紫色*吸血鬼色
+>>>>>>> 6d95e5a528da56b60745711674a16cbe12e53855
 
 <img src="img/2023-03-17-14-51-36.png" width="60%">
 
@@ -155,6 +177,7 @@
 
 <img src="img/2023-03-17-20-23-37.png" width="60%">
 
+<<<<<<< HEAD
 ### Skyline
 *% %Blue% %lovers% %must% %use% %it:blue_heart:
 
@@ -163,6 +186,16 @@
 ### SynthWave '84
 *% %A% %super% %高科技,% %flashy% %fluorescent% %theme% %:墨鏡:
 *% %After% %selecting% %the% %theme,% %remember% %to% %activate% %the% %fluorescent% %effect% %(which% %can% %also% %be% %combined% % with% %other% %theme% %colors:fu:)
+=======
+###天際線
+* 藍色愛好者必須使用它：blue_heart：
+
+<img src="img/2023-03-17-20-25-15.png" width="60%">
+
+### 合成波 '84
+* 超高科技、炫目的熒光主題：太陽鏡：
+* 選好主題後記得開啟熒光效果（也可以和其他主題色搭配:fu:)
+>>>>>>> 6d95e5a528da56b60745711674a16cbe12e53855
 
 >% %To% %enable% %fluorescent% %模式：
 >% %1.% %"ctrl+shift+p":% %Open% %the% %VS% %Code% %command% %input% %box
@@ -244,11 +277,19 @@ After% %decorating% %our% %editor,% %the% %plugins% %we% %are% %going% %to% %int
 
 <img src="img/2023-03-17-21-03-04.png" width="60%">
 
+<<<<<<< HEAD
 ### autoDocstring - Python Docstring Generator
 *% %% %plugin% %是% %introduced% %for % %Python% %開發者。
 *% %Quickly% %generate% %comments% %in% %**Docstring**% %style% %using% %shortcut% %keys。
 *% %Describe% %the% %purpose,% %parameters,% %return% %values,% %and% %other% %information% %of% %the% %function。
 *% %Support% %different% %**Docstring**% %styles,% %such% %as% %google,% %sphinx,% %numpy,% %etc.
+=======
+### autoDocstring - Python 文檔字符串生成器
+* 該插件是為 Python 開發人員引入的。
+* 使用快捷鍵快速生成 **Docstring** 樣式的註釋。
+* 描述函數的用途、參數、返回值等信息。
+* 支持不同的**Docstring**風格，如google、sphinx、numpy等。
+>>>>>>> 6d95e5a528da56b60745711674a16cbe12e53855
 
 >% %Usage:% %press% %the% %following% %key% %in% %the% %place% %where% %you% %want% %to% %generate% %comments
 Windows：% %`ctrl+shift+2`
