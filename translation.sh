@@ -14,6 +14,12 @@ if [[ $(git diff --name-only HEAD~1 HEAD -- README.md) ]]; then
         elif [[ "$line" =~ ^`.*`$ ]]; then # Ignore `code`
             output+="$line"$'\n'
 
+        elif [[ "$line" =~ \```.+\``` ]]; then # Ignore text in backticks
+            output+="$line"$'\n'
+
+        elif [[ "$line" =~ \`.+\` ]]; then # Ignore text in backticks
+            output+="$line"$'\n'
+
         elif [[ "$line" =~ ^\[中文版 ]]; then
             output+="$line"$'\n'
 
