@@ -19,7 +19,7 @@ if [[ $(git diff --name-only HEAD~1 HEAD -- README.md) ]]; then
             output+=$(echo "$line" | sed -E 's/^#+[[:space:]](.*)$/#\1/' | trans -no-ansi  -b en:zh-TW "$line")$'\n'
 
         else # Translate text
-            output+=$(trans -no-ansi -b en:zh-TW "$line")$'\n'
+            output+=$(echo "$line" | sed -E 's/([^: ]*):([^: ]*:)?/\1%%\2/g' | trans -no-ansi -b en:zh-TW | sed 's/%%/:/g')
         fi
     # Read README.md to do while
     done < README.md

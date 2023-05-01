@@ -5,7 +5,7 @@
     <img src="https://readme-typing-svg.demolab.com/?pause=1&size=50&color=f75c7e&center=True&width=1200&height=120&vCenter=True&lines=Click+the+⭐+Star+please.;Any+questions+can+be+asked+in+Issue." />
 </div>
 
-[中文版README.md](README_中文.md)
+[中文版README.md](README_zh-TW.md)
 
 <details>
 <summary>Vscode Common Commands</summary>
@@ -73,11 +73,13 @@ If you want to transfer extensions from an old computer to a new one in the futu
 
 * Usage (choose one of the following):
     * `compare.py`
+
         Run the `Python` script.
 
         <img src="img/2023-04-19-11-06-37.png">
 
     * `compare.sh`
+
         Run `./extensions_compare/compare.sh` on `git bash, wsl, or linux`, etc.
 
         <img src="img/2023-04-19-11-07-16.png">
@@ -116,9 +118,9 @@ Oh! Wait a minute, here's a quick way to switch themes. After all, you may want 
 
 > Quickly switch themes
 >
-> 1. "ctrl+shift+p": Open the vscode command input box
+> "ctrl+shift+p": Open the vscode command input box
 >
-> 2. "Preferences: Color Theme": Enter and select the theme you want
+> "Preferences: Color Theme": Enter and select the theme you want
 
 ### ButterTheme
 * As its name suggests, it is a non-eye-straining *cream yellow* theme
@@ -165,7 +167,7 @@ Oh! Wait a minute, here's a quick way to switch themes. After all, you may want 
 <img src="img/2023-03-17-20-23-37.png" width="60%">
 
 ### Skyline
-* Blue lovers must use it:blue_heart:
+* Blue lovers must use it :blue_heart:
 
 <img src="img/2023-03-17-20-25-15.png" width="60%">
 
@@ -241,7 +243,7 @@ After decorating our editor, the plugins we are going to introduce can not only 
 ## :green_heart: Must-have, highly recommended
 The plugins to be introduced below are really easy to use!
 
-The vast majority of them can improve development efficiency, so don't miss them:heart_eyes:
+The vast majority of them can improve development efficiency, so don't miss them :heart_eyes:
 
 ### Code Runner
 * I believe that those who use VSCode should not be unfamiliar with this plugin!?
@@ -263,8 +265,10 @@ The vast majority of them can improve development efficiency, so don't miss them
 * Support different **Docstring** styles, such as google, sphinx, numpy, etc.
 
 > Usage: press the following key in the place where you want to generate comments
-Windows: `ctrl+shift+2`
-Mac: `cmd+shift+2` 
+>
+> Windows: `ctrl+shift+2`
+>
+> Mac: `cmd+shift+2` 
 
 <img src="img/2023-03-17-21-07-10.png" width="60%">
 
