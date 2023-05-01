@@ -11,6 +11,9 @@ if [[ $(git diff --name-only HEAD~1 HEAD -- README.md) ]]; then
         elif [[ "$line" =~ ^`.*`$ ]]; then # Ignore `code`
             output+="$line"$'\n'
 
+        elif [[  "$line" =~ ^\:.*: ]]; then # Ignore :emoji:
+            output+="$line"$'\n'
+
         elif [[ "$line" =~ ^\[中文版 ]]; then
             output+="$line"$'\n'
 
@@ -19,7 +22,7 @@ if [[ $(git diff --name-only HEAD~1 HEAD -- README.md) ]]; then
             output+=$(echo "$line" | sed -E 's/^#+[[:space:]](.*)$/#\1/' | trans -no-ansi  -b en:zh-TW "$line")$'\n'
 
         else # Translate text
-            output+=$(echo "$line" | sed -E 's/([^: ]*):([^: ]*:)?/\1%%\2/g' | trans -no-ansi -b en:zh-TW | sed 's/%%/:/g')
+            output+=$(trans -no-ansi -b en:zh-TW "$line")$'\n'
         fi
     # Read README.md to do while
     done < README.md
