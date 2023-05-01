@@ -10,11 +10,9 @@
 <details>
 <summary>Vscode Common Commands</summary>
 
-<<<<<<< HEAD
+
 * Hi man
-=======
-* sss test man world. 123
->>>>>>> ee652ac6cd7e07420d6d08c014b9251359814406
+
 
 * Using the vscode command palette can improve development speed.
 
