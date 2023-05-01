@@ -1,24 +1,24 @@
 # action-translate-markdown
 
-* **通過 Github 操作自動翻譯 README.md** 的語言（持續集成，CI）
+* **通過 Github Action（持續集成，CI）自動翻譯 README.md 的語言**
 
-* Update `README.md` and push it, this action will auto update `README.zh-TW.md`
+* 更新 `README.md` 並推送它，此操作將自動更新 `README.zh-TW.md`
 
-# How to use?
+# How to use ?
 
 1. 單擊“星號”圖標將此項目添加到您的 Github 存儲庫.
-2. Download the `translate-readme.yaml` file from this project's Github repository.
-3. Add the branched which want to use in `translate-readme.yaml`:
-  ```
+2. 從該項目的 Github 存儲庫下載 `translate-readme.yaml` 文件.
+3. 添加要在 `translate-readme.yaml` 中使用的分支:
+ ```
   在:
    推送:
-%space%%space%%space%%space%分支:
-%space%%space%%space%%space%-開發
-%space%%space%%space%%space%- 測試
-%space%%space%%space%%space%- 主要
-  ```
-4. Save the `translate-readme.yaml` file to your own repository, in the directory `.github/workflows/.` This is where Github Actions are stored.
-5. Download `translation.sh`
+    分支:
+    -開發
+    - 測試
+    - 主要
+ ```
+4. 將 `translate-readme.yaml` 文件保存到您自己的存儲庫中，在目錄 `.github/workflows/.` 這是 Github Actions 存儲的地方.
+5. 下載`翻譯.sh`
 
 ---
 
@@ -37,13 +37,13 @@
 
 * 使用vscode命令面板可以提高開發速度.
 
-* Open the command palette: `ctrl+shift+p`
+* 打開命令面板:`ctrl+shift+p`
 
 * 常用命令:
-  * `File: Open Folder`: Open a folder as a workspace.
-  * `Preferences: Color Theme`: Choose a color theme for the editor.
-  * `Preferences: File Icon Theme`: Choose an icon theme for the files.
-  * `Developer: Reload Window`: Reload the VSCode window.
+  * `File: Open Folder`: 打開文件夾作為工作空間.
+  * `Preferences: Color Theme`: 為編輯器選擇一個顏色主題.
+  * `Preferences: File Icon Theme`: 為文件選擇一個圖標主題.
+  * `Developer: Reload Window`: 重新加載VSCode窗口.
 
 </details>
 
@@ -67,21 +67,21 @@
 ---
 
 ## :star:Quickly download multiple extensions
-後面會介紹很多vscode的擴展.這裡有一個技巧，可以快速下載很多擴展，不用一個一個找.
+後面會介紹很多vscode擴展.這裡有一個技巧，可以快速下載很多擴展，不用一個一個找.
 
 如果以後想把舊電腦的擴展轉移到新電腦上，也可以用這個方法:kissing:
 
-* You can download the `.ps1` file attached to this project and exclude the extensions you don't need by following step three below.
-* In the `extensions.ps1` file, each extension is annotated. Please delete the ones you don't need before executing the installation command.
+* 您可以下載此項目附帶的 `.ps1` 文件，並按照下面的第三步排除不需要的擴展.
+* 在`extensions.ps1`文件中，每個擴展名都標註了.請在執行安裝命令前刪除不需要的.
 
 > 方法:
 >
-> 1. Access all the extensions of vscode on the current computer and output them as text. Enter the following command in terminal (`powershell`):
-> `code --list-extensions | ForEach-Object {"code --install-extension $_"} > extensions.ps1`
+> 1. 訪問當前電腦上vscode的所有擴展，並輸出為文本. 在終端（`powershell`）中輸入以下命令:
+>`代碼--列表擴展| ForEach-Object {"code --install-extension $_"} > extensions.ps1`
 >
-> 2. After the command is executed, the `extensions.ps1` file (the filename is defined when executing the command) will be obtained in the current directory.
+> 2. 命令執行後會在當前目錄下得到`extensions.ps1`文件（文件名在執行命令時定義）.
 >
-> 3. Enter the following command in terminal (`powershell`) on the new computer:
+> 3. 在新計算機上的終端（`powershell`）中輸入以下命令:
 > `./extensions.ps1`
 >
 > 4. 下載完成
@@ -92,18 +92,18 @@
 
 * [`extensions-compare`](./extensions_compare/)
 
-* Compare two `.ps` files and find the **difference** between the two extension records.
+* 比較兩個 `.ps` 文件並找到兩個擴展記錄之間的**差異**.
 
 * 用法（選擇以下之一）:
   * `compare.py`
 
-    Run the `Python` script.
+   運行 `Python` 腳本 .
 
    <img src="img/2023-04-19-11-06-37.png">
 
   * `compare.sh`
 
-    Run `./extensions_compare/compare.sh` on `git bash, wsl, or linux`, etc.
+   在 `git bash、wsl 或 linux` 等上運行 `./extensions_compare/compare.sh`.
 
    <img src="img/2023-04-19-11-07-16.png">
 </details>
@@ -115,15 +115,15 @@
 
 可以當個懶人工具（邊看視頻邊碼字~）.
 
-您可以在編碼和觀看時使用自己的桌面背景 **Gura**.
+您可以在編碼和觀看時使用自己的桌面背景**Gura**.
 
 ### GlassIt-VSC
 
 > 用法:
 >
->`ctrl+alt+z`: decrease saturation (transparent)
+>`ctrl+alt+z`: 降低飽和度（透明）
 >
->`ctrl+alt+c`: increase saturation (opaque)
+>`ctrl+alt+c`: 增加飽和度（不透明）
 
 <img src="img/2023-03-20-20-35-03.png" width="60%">
 
@@ -133,11 +133,11 @@
 
 ## :purple_heart:Theme
 
-The biggest reason for using vscode is to have an `eye-catching`, `elegant`, `comfortable`, and `pleasant editing interface`. Only a good-looking editing environment can make coders willing to type on the keyboard ~:sunglasses:
+使用vscode最大的理由就是要有一個`搶眼`、`優雅`、`舒適`、`愉快的編輯界面`. 只有好看的編輯環境才能讓coder們願意敲鍵盤~ :表情符號_太陽鏡:
 
 接下來筆者將自己喜歡的主題一一分享給大家（以下示例均基於Python，不同語言可能略有差異）
 
-哦！稍等一下，這裡有一個快速切換主題的方法.畢竟你可能每天都想換主題~~
+哦！稍等一下，這裡有一個快速切換主題的方法. 畢竟你可能每天都想換主題~~
 
 > 快速切換主題
 >
@@ -148,7 +148,7 @@ The biggest reason for using vscode is to have an `eye-catching`, `elegant`, `co
 ### ButterTheme
 * 顧名思義，這是一款不傷眼的*奶油黃色*主題
 * 非常難得的一個主題（說白了，用的人不多），但是作者很喜歡
-* 如果找不到這個主題，<a href="https://marketplace.visualstudio.com/items?itemName=Levampire.Buttur" target="_blank">鏈接</a >
+* 如果找不到這個主題，<a href="https://marketplace.visualstudio.com/items?itemName=Levampire.Buttur" target="_blank">link</a >
 
 <img src="img/2023-03-17-14-36-15.png" width="60%">
 
@@ -250,7 +250,7 @@ The biggest reason for using vscode is to have an `eye-catching`, `elegant`, `co
 
 ### Material Theme Icons
 * 不同的文件擴展名有不同的圖標
-* 不僅好看還可以更快的找到文件.
+* 不僅好看而且可以更快地找到文件.
 
 <img src="img/2023-03-17-20-51-07.png" width="60%">
 
@@ -277,27 +277,27 @@ The biggest reason for using vscode is to have an `eye-catching`, `elegant`, `co
 
 ### Comment Divider
 * 用快捷鍵生成好看的**評論樣式**.
-* As shown in the figure below, you can see two styles: `Shift+Alt+x` and `Alt+x`.
+* 如下圖，可以看到兩種樣式:`Shift+Alt+x`和`Alt+x`.
 
 <img src="img/2023-03-17-21-03-04.png" width="60%">
 
 ### autoDocstring - Python Docstring Generator
 * 該插件是為Python開發者引入的.
-* 使用快捷鍵快速生成**Docstring**風格的註釋.
+* 使用快捷鍵快速生成 **Docstring** 風格的註釋.
 * 描述函數的用途、參數、返回值等信息.
 * 支持不同的**Docstring**風格，如google、sphinx、numpy等.
 
 > 使用方法:在要生成評論的地方按下面的鍵
 >
-> Windows: `ctrl+shift+2`
+> Windows:`ctrl+shift+2`
 >
-> Mac: `cmd+shift+2` 
+> Mac:`cmd+shift+2`
 
 <img src="img/2023-03-17-21-07-10.png" width="60%">
 
 ### Draw.io Integration
 * 流程圖繪製工具
-* 設計項目時可以使用本插件規劃可行性.
+* 設計項目時，可以使用本插件規劃可行性.
 * 可以作為筆記工具使用.
 * 支持很多常用的模式，比如穀歌云平台代表功能符號（如圖）.
 
@@ -333,16 +333,16 @@ The biggest reason for using vscode is to have an `eye-catching`, `elegant`, `co
 >
 > :bulb:下載以下插件（有些可能用不到，忘記了~）
 >
-> `Jupyter`, `Jupyter keymap`, `Jupyter slide show`, `Jupyter cell tag`, `Jupyter notebook renderes`, `vs code jupyter notebook previewer`
+> `Jupyter`、`Jupyter keymap`、`Jupyter slide show`、`Jupyter cell tag`、`Jupyter notebook renderes`、`vs code jupyter notebook previewer`
 >
 ><img src="img/2023-03-17-21-50-07.png" width="40%">
 
 > :bulb:**在交互模式下執行代碼**
 >
-> 1. 在腳本中右擊.
-> 2. Select `Run Current File in Interactive Window`
-(It is recommended to set a VS Code shortcut key, I set it as `F10`).
-> 3. After execution, an `Interactive` window will appear.
+> 1. 在腳本中右擊 .
+> 2. 選擇“在交互窗口中運行當前文件”
+（建議設置一個VS Code快捷鍵，我設置為`F10`）.
+> 3. 執行後會出現一個`Interactive`窗口.
 >
 ><img src="img/2023-03-17-21-54-03.png" width="40%">
 ><img src="img/2023-03-17-21-57-03.png" width="40%">
@@ -356,7 +356,7 @@ The biggest reason for using vscode is to have an `eye-catching`, `elegant`, `co
 > :bulb:**逐行或部分執行**
 >
 > 1. 選擇要執行的代碼（可以是一行或多行）.
-> 2. 右擊選中的代碼.
+> 2. 右鍵單擊所選代碼.
 > 3. 選擇*在交互式窗口中運行選擇/線*.
 >
 ><img src="img/2023-03-17-22-04-33.png" width="60%">
@@ -370,15 +370,15 @@ The biggest reason for using vscode is to have an `eye-catching`, `elegant`, `co
 
 ### GitLens
 * 下載後，腳本代碼會顯示**哪些**部分被**修改**，**誰**做了修改，**何時**修改了.
-* Pay attention to the code on the right side of the screen. There is a green line at line `170`, which indicates that there is a record of new code added (red indicates deleted code).
-* Remember to track the project with `git` for this plugin to work.
+* 注意屏幕右側的代碼. `170`行有一條綠線，表示有新增代碼的記錄（紅色表示刪除的代碼）.
+* 記得用 `git` 跟踪項目以使這個插件工作.
 
 <img src="img/2023-03-17-22-08-15.png" width="60%">
 
 ### Markdown Preview Enhanced
-* When writing `.md` files, you can preview the results.
-* Press `ctrl+k`, then `v` to open the preview window.
-* The middle of the figure below shows the `.md` file, and the right side shows the preview window.
+* 寫入`.md`文件時，可以預覽結果.
+* 按 `ctrl+k`，然後按 `v` 打開預覽窗口.
+* 下圖中間為`.md`文件，右側為預覽窗口.
 
 <img src="img/2023-03-17-22-15-20.png" width="60%">
 
@@ -389,19 +389,19 @@ The biggest reason for using vscode is to have an `eye-catching`, `elegant`, `co
 ## :computer: Remote WSL & Dev Container
 
 ### Remote WSL
-* vscode will open in the `Windows Subsystem Linux` environment.
-* You can edit files within the `WSL` environment in the vscode editor without using `vim` or `nano`.
+* vscode 將在 `Windows Subsystem Linux` 環境中打開.
+* 您可以在 vscode 編輯器中的 `WSL` 環境中編輯文件，而無需使用 `vim` 或 `nano`.
 
 > 用法:
-> 1. `ctrl+shift+p`: open the command palette.
-> 2. `WSL: New WSL Window`: open the `WSL` environment within vscode.
+> 1. `ctrl+shift+p`: 打開命令調色板.
+> 2. `WSL: New WSL Window`: 在 vscode. 中打開 `WSL` 環境
 
 <img src="img/2023-03-20-11-47-42.png" width="60%">
 
 ### Dev-Container
-* With the help of `Docker`, the entire development environment within vscode can run in a container, including editing, terminal, debugging, and execution.
+* 借助`Docker`，vscode內部的整個開發環境都可以在一個容器中運行，包括編輯、終端、調試、執行.
 
-* You can perform various development tasks such as `Node.js`, `Python`, `Java`, etc. in the most comfortable way within an environment with only `Docker` and vscode installed, without the need to install corresponding runtime and compilation software.
+* 您可以在只安裝`Docker`和vscode的環境中以最舒適的方式執行`Node.js`、`Python`、`Java`等各種開發任務.，無需安裝安裝相應的運行時和編譯軟件.
 
 <img src="img/2023-03-20-11-48-43.png" width="60%">
 
@@ -418,10 +418,10 @@ The biggest reason for using vscode is to have an `eye-catching`, `elegant`, `co
 
 > 用法:
 > 1. 下載修復 VSCode 校驗和插件.
-> 2. `ctrl+shift+p`: open the command palette.
-> 3. `Fix ChecksumS: Apply`: execute the repair.
-> 4. `ctrl+shift+p`: open the command palette.
-> 5. `Developer: Reload Window`: Restart VS Code.
+> 2. `ctrl+shift+p`: 打開命令調色板.
+> 3. `Fix ChecksumS: Apply`:執行修復.
+> 4. `ctrl+shift+p`: 打開命令調色板.
+> 5. `Developer: Reload Window`: 重啟 VS Code.
 
 <img src="img/2023-03-17-21-36-48.png" width="60%">
 
