@@ -4,14 +4,12 @@ if [[ $(git diff --name-only HEAD~1 HEAD -- README.md) ]]; then
     output=""
     while IFS= read -r line; do
         line="${line//   /% %}" # Replace space with special character
+        line=$(echo "$line" | sed -E 's/:(.*):/:emoji_\1:/g') # Replace :xxx: with :emoji_xxx:
 
         if [[ "$line" =~ ^\<.*\> ]]; then # Ignore <tags>
             output+="$line"$'\n'
 
         elif [[ "$line" =~ ^`.*`$ ]]; then # Ignore `code`
-            output+="$line"$'\n'
-
-        elif [[  "$line" =~ ^\:.*: ]]; then # Ignore :emoji:
             output+="$line"$'\n'
 
         elif [[ "$line" =~ ^\[中文版 ]]; then
@@ -37,5 +35,7 @@ if [[ $(git diff --name-only HEAD~1 HEAD -- README.md) ]]; then
     echo -e "$output" > README.zh-TW.md
     sed -i 's/u003d/=/g' README.zh-TW.md
     sed -i 's/% %/ /g' README.zh-TW.md
+    sed -i 's/：/:/g' README.zh-TW.md
+    sed -i 's/:emoji_/:/g' README.zh-TW.md
 
 fi
