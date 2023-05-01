@@ -52,11 +52,17 @@ If you want to transfer extensions from an old computer to a new one in the futu
 * In the `extensions.ps1` file, each extension is annotated. Please delete the ones you don't need before executing the installation command.
 
 > Method:
+>
 > 1. Access all the extensions of vscode on the current computer and output them as text. Enter the following command in terminal (`powershell`):
+>
 > `code --list-extensions | ForEach-Object {"code --install-extension $_"} > extensions.ps1`
+>
 > 2. After the command is executed, the `extensions.ps1` file (the filename is defined when executing the command) will be obtained in the current directory.
+>
 > 3. Enter the following command in terminal (`powershell`) on the new computer:
+>
 > `.\extensions.ps1`
+>
 > 4. Download completed
 > <img src="https://user-images.githubusercontent.com/63782903/226086537-1dddd375-3206-44db-8208-17715d70c744.png" width="60%">
 
@@ -71,11 +77,12 @@ If you want to transfer extensions from an old computer to a new one in the futu
     * `compare.py`
         Run the `Python` script.
 
-        ![](./img/2023-04-19-11-06-37.png)
+        <img src="img/2023-04-19-11-06-37.png">
+
     * `compare.sh`
         Run `./extensions_compare/compare.sh` on `git bash, wsl, or linux`, etc.
 
-        ![](./img/2023-04-19-11-07-16.png)
+        <img src="img/2023-04-19-11-07-16.png">
 </details>
 
 ---
@@ -90,8 +97,10 @@ You can use your own desktop background while coding and watching **Gura**.
 ### GlassIt-VSC
 
 > Usage:
-`ctrl+alt+z`: decrease saturation (transparent)
-`ctrl+alt+c`: increase saturation (opaque)
+>
+>`ctrl+alt+z`: decrease saturation (transparent)
+>
+>`ctrl+alt+c`: increase saturation (opaque)
 
 <img src="img/2023-03-20-20-35-03.png" width="60%">
 
@@ -108,7 +117,9 @@ Next, the author will share his favorite themes with you one by one (the followi
 Oh! Wait a minute, here's a quick way to switch themes. After all, you may want to change your theme every day~~
 
 > Quickly switch themes
+>
 > 1. "ctrl+shift+p": Open the vscode command input box
+>
 > 2. "Preferences: Color Theme": Enter and select the theme you want
 
 ### ButterTheme
@@ -165,8 +176,11 @@ Oh! Wait a minute, here's a quick way to switch themes. After all, you may want 
 * After selecting the theme, remember to activate the fluorescent effect (which can also be combined with other theme colors:fu:)
 
 > To enable fluorescent mode:
+>
 > 1. "ctrl+shift+p": Open the VS Code command input box
+>
 > 2. "Synthwave '84: Enable/Disable Neon Dreams": Turn on/off (see figure)
+>
 > 3. "Restart": Restart VS Code
 
 <img src="img/2023-03-17-20-28-44.png" width="60%">

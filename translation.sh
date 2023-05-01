@@ -1,5 +1,5 @@
 if [[ $(git diff --name-only HEAD~1 HEAD -- README.md) ]]; then
-    echo "There're changed in README.md."
+    echo "There are changes in README.md."
 
     output=""
     while IFS= read -r line; do
@@ -14,13 +14,7 @@ if [[ $(git diff --name-only HEAD~1 HEAD -- README.md) ]]; then
         elif [[ "$line" =~ ^\[中文版 ]]; then
             output+="$line"$'\n'
 
-        elif [[ "$line" =~ ^# ]]; then # Ignore #
-            output+="$line"$'\n'
-
-        elif [[ "$line" =~ ^\[[^\]]*\]\(#.*\)$ ]]; then # Ignore [](#)
-            output+="$line"$'\n'
-
-        elif [[ "$line" =~ ^#+[[:space:]] ]]; then # Translate headings
+        elif [[ "$line" =~ ^#+[[:space:]] && ! "$line" =~ ^#+[[:space:]]*(::|:.*:)$ ]]; then # Translate headings
             line=$(echo "$line" | sed 's/=/{EQUAL}/g')
             output+=$(echo "$line" | sed -E 's/^#+[[:space:]](.*)$/#\1/' | trans -no-ansi  -b en:zh-TW "$line")$'\n'
 
