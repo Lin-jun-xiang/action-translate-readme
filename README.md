@@ -54,13 +54,11 @@ If you want to transfer extensions from an old computer to a new one in the futu
 > Method:
 >
 > 1. Access all the extensions of vscode on the current computer and output them as text. Enter the following command in terminal (`powershell`):
->
 > `code --list-extensions | ForEach-Object {"code --install-extension $_"} > extensions.ps1`
 >
 > 2. After the command is executed, the `extensions.ps1` file (the filename is defined when executing the command) will be obtained in the current directory.
 >
 > 3. Enter the following command in terminal (`powershell`) on the new computer:
->
 > `.\extensions.ps1`
 >
 > 4. Download completed
