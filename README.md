@@ -10,7 +10,7 @@
 <details>
 <summary>Vscode Common Commands</summary>
 
-* hI man I'm jimmy. no
+* hI man I'm jimmy. no way
 
 * Using the vscode command palette can improve development speed.
 
