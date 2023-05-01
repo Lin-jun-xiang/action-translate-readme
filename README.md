@@ -10,11 +10,7 @@
 <details>
 <summary>Vscode Common Commands</summary>
 
-<<<<<<< HEAD
-* hI man
-=======
-* sss test man world. 123
->>>>>>> ee652ac6cd7e07420d6d08c014b9251359814406
+* hI man I'm jimmy.
 
 * Using the vscode command palette can improve development speed.
 
@@ -35,7 +31,7 @@
 * This project provides a ["**extensions sharing area**"](./share/README.md), where anyone can submit interesting extensions.
 
 * Outline of extensions:
-    - [Quickly download multiple extensions (read this first)](#starquickly-download-multiple-extensions-please-read-this-first)
+    - [Quickly download multiple extensions (read this first)](#starquickly-download-multiple-extensions)
     - [Transparent editor](#snowflaketransparent-editor)
     - [Theme](#purple_hearttheme)
     - [Editor and environment beautification](#yellow_heart-beautifying-editor-and-editing-environment)
@@ -47,7 +43,7 @@
     - [Sharing and Contributing by Community](./share/README.md)
 ---
 
-## :star:Quickly download multiple extensions (please read this first)
+## :star:Quickly download multiple extensions
 Later, we will introduce a lot of vscode extensions. Here is a trick that can quickly download many extensions without having to look for them one by one.
 
 If you want to transfer extensions from an old computer to a new one in the future, you can also use this method :kissing:
