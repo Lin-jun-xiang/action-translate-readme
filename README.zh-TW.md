@@ -21,8 +21,8 @@
 
 # How to use ?
 
-1. 單擊“星號”圖標將此項目添加到您的 Github 存儲庫.
-2. 從該項目的 Github 存儲庫下載 `translate-readme.yaml` 文件.
+1. 單擊 :star: 圖標將此項目添加到您的 Github 存儲庫.
+2. 從這個項目的 Github 存儲庫下載 `translate-readme.yaml` 文件.
 3. 添加要在 `translate-readme.yaml` 中使用的分支:
     ```
     on:
