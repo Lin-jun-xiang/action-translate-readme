@@ -1,9 +1,19 @@
 # action-translate-markdown
 
+[中文版README.md](README.zh-TW.md)
 
 * **Auto Translate the Language of README.md** through Github Action (Continuous Integration, CI)
 
 * Update `README.md` and push it, this action will auto update `README.zh-TW.md`
+
+# Features
+
+* Not translated:
+    * Inline Code (`inline_code`)
+    * Emoji's
+    * Code Block
+    * HTML Tag
+    * Links
 
 # How to use ?
 
@@ -30,8 +40,6 @@
 <div>
     <img src="https://readme-typing-svg.demolab.com/?pause=1&size=50&color=f75c7e&center=True&width=1200&height=120&vCenter=True&lines=Click+the+⭐+Star+please.;Any+questions+can+be+asked+in+Issue." />
 </div>
-
-[中文版README.md](README.zh-TW.md)
 
 <details>
 <summary>Vscode Common Commands</summary>
@@ -427,5 +435,4 @@ You can solve this problem using the following method:
 <img src="img/2023-03-17-21-36-48.png" width="60%">
 
 <a href="#top">Back to top</a>
-
  
