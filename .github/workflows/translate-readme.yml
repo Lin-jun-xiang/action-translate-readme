@@ -2,10 +2,7 @@ name: Translate Readme
 
 on:
   push:
-    branches:
-      - dev
-      - test
-      - main
+    branches: ['**']
 
 jobs:
   translate:
@@ -44,7 +41,7 @@ jobs:
           LATEST_COMMIT_MSG=$(git show -s --format='%s')
 
           if [[ "$LATEST_COMMIT_MSG" != "Auto-translate README" ]]; then
-            git add README.zh-TW.md
+            git add .
             git commit -m "Auto-translate README"
             git push
           fi

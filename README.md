@@ -21,7 +21,7 @@
 
 # How to use ?
 
-1. Click on the "star" icon to add this project to your Github repository.
+1. Click on the :star: icon to add this project to your Github repository.
 2. Download the `translate-readme.yaml` file from this project's Github repository.
 3. Add the branched which want to use in `translate-readme.yaml`:
     ```
@@ -39,3 +39,4 @@
 
 * Check out [Test Document](https://github.com/Lin-jun-xiang/vscode-extensions-best/tree/main)
 * The Test Document is used `action-translate-markdown` to update.
+ 
