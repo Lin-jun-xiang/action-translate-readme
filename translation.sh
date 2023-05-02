@@ -81,6 +81,8 @@ find . -name 'README.md' | while IFS= read -r file; do
             sed -i 's/:emoji_/:/g' "$output_file"
             sed -i 's/%_ddot_%/./g' "$output_file"
             sed -i 's/%_bbackslash_%/\//g' "$output_file"
+            echo "Now you have auto add $(git diff --name-only)"
+
         fi
     fi
 done
