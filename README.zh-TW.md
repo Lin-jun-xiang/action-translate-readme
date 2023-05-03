@@ -34,6 +34,20 @@
     ```
 4. 將`translate-readme.yaml` 文件保存到自己的倉庫中，在目錄`.github/workflows/.` 這是Github Actions 存放的地方.
 5. 下載 `translation.sh`
+6. 新 **Github 代幣**
+    * 設置
+    * 開發者設置
+    * 個人訪問令牌 - 令牌（經典）
+    * 生成新令牌
+    * 選擇範圍:`repo` 和 `workflow`
+    * **保持**你的令牌秘密（不要丟失）
+7. 新 **存儲庫秘密**
+    * 在您的存儲庫中 - 設置
+    * 證券和變量
+    * 操作
+    * 新存儲庫機密
+    * 填寫來自 `step6` 的標記
+
 
 # Results of Test Document
 
