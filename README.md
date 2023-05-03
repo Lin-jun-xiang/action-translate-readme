@@ -34,6 +34,20 @@
     ```
 4. Save the `translate-readme.yaml` file to your own repository, in the directory `.github/workflows/.` This is where Github Actions are stored.
 5. Download `translation.sh`
+6. New **Github Token**
+    * Settings
+    * Developer settings
+    * Personal access tokens - Tokens(classic)
+    * Generate New Token
+    * Select scopes: `repo` and `workflow`
+    * **Keep** your token secrets (Don't lost)
+7. New **repository secret**
+    * In your repository - settings
+    * Securits and variables
+    * Actions
+    * New repository secret
+    * Fill in the token from `step6`
+
 
 # Results of Test Document
 
