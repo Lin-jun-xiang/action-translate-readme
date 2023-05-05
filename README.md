@@ -4,9 +4,10 @@
 
 * Continuous Integration (CI)
 
-* **Auto Translate the Language of README.md** through Github Action
+* **Auto Translate the Language of README** through Github Action
 
 * Update `README.md` and push it, this action will auto update `README.zh-TW.md`
+    (Update `README.zh-TW.md` automatically updates `README.md`)
 
 * Save half your time to write documents.
 
@@ -34,18 +35,18 @@
     ```
 4. Save the `translate-readme.yaml` file to your own repository, in the directory `.github/workflows/.` This is where Github Actions are stored.
 5. Download `translation.sh`
-6. New **Github Token**
+6. New **Github Token Secrets**
     * Settings
     * Developer settings
-    * Personal access tokens - Tokens(classic)
+    * Personal access tokens - `Tokens(classic)`
     * Generate New Token
     * Select scopes: `repo` and `workflow`
     * **Keep** your token secrets (Don't lost)
 7. New **repository secret**
-    * In your repository - settings
-    * Securits and variables
-    * Actions
-    * New repository secret
+    * In your repository - `settings`
+    * `Securits and variables`
+    * `Actions`
+    * `New repository secret`
     * Fill in the token from `step6`
 
 
