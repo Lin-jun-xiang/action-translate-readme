@@ -2,6 +2,14 @@
 
 [中文版README.md](README.zh-TW.md)
 
+# Introduction
+
+* 我們都知道，寫文檔需要花費大量時間和精力，但現在有一個解決方案可以讓你節省一半的時間。這就是我們的 `action-translate-markdown`
+
+* 通過這個工具，你可以自動翻譯 `README.md` 文件，而且不僅僅是翻譯，它還能夠識別出**內聯代碼、表情符號、代碼塊、HTML標籤和鏈接**等各種元素
+
+* 它運作的原理是通過 `Github Actions` 實現自動化，你只需要推送更新後的 README 文件，就可以自動更新翻譯後的 README(zh or en) 文件
+
 * 持續集成（CI）
 
 * **通過 Github Action 自動翻譯 README 的語言**
@@ -10,8 +18,6 @@
     （更新 `README.zh-TW.md` 自動更新 `README.md`）
 
 * 節省一半寫文檔的時間.
-
-* `測試`: test.
 
 # Features
 
