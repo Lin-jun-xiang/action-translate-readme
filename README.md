@@ -2,6 +2,14 @@
 
 [中文版README.md](README.zh-TW.md)
 
+# Introduction
+
+* We all know that writing documentation takes a lot of time and effort, but now there is a solution that can save you half the time. This is our `action-translate-markdown`
+
+* With this tool, you can automatically translate `README.md` files, and not only translate, it can also recognize various elements such as **inline code, emoticons, code blocks, HTML tags and links**
+
+* The principle of its operation is to achieve automation through `Github Actions`, you only need to push the updated README file, and the translated README(zh or en) file can be automatically updated
+
 * Continuous Integration (CI)
 
 * **Automatically translate the language of README via Github Action**
@@ -10,8 +18,6 @@
      (update `README.zh-TW.md` automatically updates `README.md`)
 
 * Save half the time of writing documents .
-
-* `測試`: test.
 
 # Features
 
