@@ -49,29 +49,29 @@
         * `New repository secret`
         * fills in tags by `token` and name it (ex: `Action_Bot`)
 
-3. Create your action(`.yml`) in the directory `.github/workflows/.`. example:
+3. Create your action in the directory `.github/workflows/your_action.yml`. example:
 
     ```
     // .github/workflows/translate.yml
     name: Translate Readme
 
     on:
-    push:
-        branches: ['**']
+        push:
+            branches: ['**']
 
     jobs:
-    translate:
-        runs-on: ubuntu-latest
-        steps:
-        - name: Checkout
-            uses: actions/checkout@v3
-            with:
-            fetch-depth: 3
+        translate:
+            runs-on: ubuntu-latest
+            steps:
+                - name: Checkout
+                  uses: actions/checkout@v3
+                  with:
+                    fetch-depth: 3
 
-        - name: Auto Translate
-            uses: Lin-jun-xiang/action-translate-readme@v1 // Based on the tag
-            with:
-            token: ${{ secrets.Action_Bot }} // Based on step2 name
+                - name: Auto Translate
+                  uses: Lin-jun-xiang/action-translate-readme@v1 // Based on the tag
+                  with:
+                    token: ${{ secrets.Action_Bot }} // Based on step2 name
     ```
 
 ---
