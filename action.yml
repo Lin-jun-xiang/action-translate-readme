@@ -1,0 +1,51 @@
+name: 'Auto Translate Readme'
+
+description: 'Automatically translate the language of README via Github Action'
+
+author: 'https://github.com/Lin-jun-xiang'
+
+branding:
+  icon: "book-open"
+  color: "red"
+
+inputs:
+  token:
+    description: 'Secrets Token to authorize bot account'
+    required: true
+
+runs:
+      using: "composite"
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v3
+          with:
+            fetch-depth: 3
+            token: ${{ inputs.token }}
+
+        - name: Set up Python
+          uses: actions/setup-python@v3
+          with:
+            python-version: '3.9'
+
+        - name: Install dependencies
+          shell: bash
+          run: |
+            pip install googletrans==4.0.0-rc1
+            sudo apt-get update
+            sudo apt-get install -y translate-shell
+
+        - name: Translate README
+          shell: bash
+          working-directory: .
+          run: |
+            bash $GITHUB_ACTION_PATH/translation.sh
+
+        - name: GIT Commit
+          shell: bash
+          working-directory: .
+          run: |
+            git config --global user.email "username@users.noreply.github.comm";
+            git config --global user.name "Continuous Integration"
+
+            chmod +x $GITHUB_ACTION_PATH/commit.sh
+            bash $GITHUB_ACTION_PATH/commit.sh
