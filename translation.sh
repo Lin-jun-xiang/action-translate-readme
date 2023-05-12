@@ -1,7 +1,7 @@
 #!/bin/bash
 get_inline_code() {
     line=$1
-    lang=$2
+    file=$2
 
     pattern='`([^`]+)`'
     while [[ $line =~ $pattern ]]; do
@@ -9,13 +9,12 @@ get_inline_code() {
         line=${line/${BASH_REMATCH[0]}/%_inlinecode_%}
     done
 
-    if [[ $lang == "/README" ]]; then
-        # update file is README.md
-        translated=$(trans -no-ansi -b en:zh-TW "$line")
-
-    elif [[ $lang == "zh-TW" ]]; then
+    if [[ $file == *"zh-TW"* ]]; then
         # update file is README.zh-TW.md
         translated=$(trans -no-ansi -b zh-TW:en "$line")
+    else
+        # update file is README.md
+        translated=$(trans -no-ansi -b en:zh-TW "$line")
     fi
 
     for code in "${inline_codes[@]}"; do
@@ -31,9 +30,6 @@ find . -type f -name 'README*' | while IFS= read -r file; do # Find the file beg
 
         if [[ $(git diff --name-only HEAD~1 HEAD -- "$file") ]]; then
             echo "There are changes in $file."
-
-            lang=(${file//./ })
-            lang=${lang[-2]}
 
             output=""
             in_code_block=0 # Track whether we're currently in a code block
@@ -61,7 +57,7 @@ find . -type f -name 'README*' | while IFS= read -r file; do # Find the file beg
                 elif [[ "$line" =~ ^#+[[:space:]] ]]; then # Translate headings
                     line=$(echo "$line" | sed 's/=/{EQUAL}/g')
                     line=$(echo "$line" | sed -E 's/^#+[[:space:]](.*)$/#\1/')
-                    translated=$(get_inline_code "$line" "$lang")
+                    translated=$(get_inline_code "$line" "$file")
 
                     output+="$translated"$'\n'
 
@@ -76,7 +72,7 @@ find . -type f -name 'README*' | while IFS= read -r file; do # Find the file beg
                     elif [ $in_code_block -eq 1 ]; then
                         output+="$line"$'\n'
                     else
-                        translated=$(get_inline_code "$line" "$lang")
+                        translated=$(get_inline_code "$line" "$file")
 
                         output+="$translated"$'\n'
                     fi
@@ -93,11 +89,12 @@ find . -type f -name 'README*' | while IFS= read -r file; do # Find the file beg
             output="${output//:emoji_/:}"
 
             # Write output file
-            if [[ $lang == "/README" ]]; then
+            if [[ $file == *"zh-TW"* ]]; then
+                output_file=$(echo "$file" | sed 's/README.zh-TW.md/README.md/')
+
+            else
                 output_file=$(echo "$file" | sed 's/README.md/README.zh-TW.md/')
 
-            elif [[ $lang == "zh-TW" ]]; then
-                output_file=$(echo "$file" | sed 's/README.zh-TW.md/README.md/')
             fi
 
             echo "$file"
