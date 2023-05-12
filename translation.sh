@@ -1,4 +1,31 @@
-#!/bin/bash
+declare -A map_table=(
+  [］]="]"
+  [［]="["
+  [（]="("
+  [）]=")"
+  [：]=":"
+  [u003d]="="
+#   [//]="\/"
+  [:emoji_]=":"
+  [%_ddot_%]="."
+  [%_bbackslash_%]="\/"
+  [＿]="_"
+  [，]=","
+  [；]=";"
+  [%_ttab_%]="    "
+  ["] ("]="]("
+)
+
+function convert_symbols() {
+    local input="$1"
+
+    for symbol in "${!map_table[@]}"; do
+        local replacement="${map_table[$symbol]}"
+        input="${input//$symbol/$replacement}"
+    done
+    echo "$input"
+}
+
 get_inline_code() {
     line=$1
     file=$2
@@ -30,6 +57,9 @@ find . -type f -name 'README*' | while IFS= read -r file; do # Find the file beg
 
         if [[ $(git diff --name-only HEAD~1 HEAD -- "$file") ]]; then
             echo "There are changes in $file."
+
+            lang=(${file//./ })
+            lang=${lang[-2]}
 
             output=""
             in_code_block=0 # Track whether we're currently in a code block
@@ -80,13 +110,8 @@ find . -type f -name 'README*' | while IFS= read -r file; do # Find the file beg
             done < "$file"
 
             # Replace special characters back to original characters
-            output="${output//%_ttab_%/    }"
             output=$(echo "$output" | sed 's/{EQUAL}/=/g')
-            output="${output//u003d/=}"
-            output="${output//：/:}"
-            output="${output//%_ddot_%/.}"
-            output="${output//%_bbackslash_%/\/}"
-            output="${output//:emoji_/:}"
+            output=$(convert_symbols "$output")
 
             # Write output file
             if [[ $file == *"zh-TW"* ]]; then
@@ -105,4 +130,4 @@ find . -type f -name 'README*' | while IFS= read -r file; do # Find the file beg
 
         fi
     fi
-done            
+done

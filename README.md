@@ -78,5 +78,5 @@
 
 # Results of Test Document
 
-* View 【Test Documentation】(https://github.com/Lin-jun-xiang/vscode-extensions-best/tree/main)
+* View [Test Documentation](https://github.com/Lin-jun-xiang/vscode-extensions-best/tree/main)
 * Test docs updated . with `action-translate-readme`
