@@ -14,7 +14,7 @@
 
 * **通過 Github Action 自動翻譯 README 的語言**
 
-* 更新 `README.md` 並推送它,這個動作會自動更新 `README.zh-TW.md`
+* 更新`README.md`並推送,這個動作會自動更新`README.zh-TW.md`
     (更新 `README.zh-TW.md` 自動更新 `README.md`)
 
 * 寫文檔的時間節省一半.
@@ -49,7 +49,9 @@
         * `New repository secret`
         * 按 `token` 填寫標籤並命名(例如:`Action_Bot`)
 
-3. 在目錄 `.github/workflows/your_action.yml`. 中創建您的操作示例:
+2. 創建 **README** 你想要的語言: `README.md`, `READM.zh-TW.md`, ...
+
+4. 在目錄 `.github/workflows/your_action.yml`. 中創建您的操作示例:
 
     ```
     // .github/workflows/translate.yml
