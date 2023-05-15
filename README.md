@@ -49,7 +49,9 @@
         * `New repository secret`
         * fills in tags by `token` and name it (ex: `Action_Bot`)
 
-3. Create your action in the directory `.github/workflows/your_action.yml`. example:
+2. Create **README** which languages you want: `README.md`, `READM.zh-TW.md`, ...
+
+4. Create your action in the directory `.github/workflows/your_action.yml`. example:
 
     ```
     // .github/workflows/translate.yml
