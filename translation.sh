@@ -33,7 +33,7 @@ get_inline_code() {
     pattern='`([^`]+)`'
     while [[ $line =~ $pattern ]]; do
         inline_codes+=("${BASH_REMATCH[1]}")
-        line=${line/${BASH_REMATCH[0]}/%_inlinecode_%}
+        line=$(echo "$line" | sed 's/`[^`]*`/%_inlinecode_%/')
     done
 
     if [[ $file == *"zh-TW"* ]]; then

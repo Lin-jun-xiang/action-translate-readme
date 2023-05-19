@@ -41,7 +41,7 @@
         * 生成新令牌
         * 選擇範圍:`repo` 和 `workflow`
 %tab%%tab%* **保留**你的secret token(不要丟了,以後需要粘貼)
-    <img src="https://github.com/Lin-jun-xiang/action-translate-readme/assets/63782903/b7487b49-817c-4925-b94a-bdb7b025a0c2" width="60%" />
+        <img src="https://github.com/Lin-jun-xiang/action-translate-readme/assets/63782903/b7487b49-817c-4925-b94a-bdb7b025a0c2" width="60%" />
 
     * 新建一個 **`repository secret`**
         * 在您的存儲庫中 - `settings`
@@ -49,7 +49,7 @@
         * `Actions`
         * `New repository secret`
         * 按 `token` 填寫標籤並命名(例如:`Action_Bot`)
-    <img src="https://github.com/Lin-jun-xiang/action-translate-readme/assets/63782903/27dc7bcd-633f-431e-98e8-387b97ecd47c" width="60%" />
+        <img src="https://github.com/Lin-jun-xiang/action-translate-readme/assets/63782903/27dc7bcd-633f-431e-98e8-387b97ecd47c" width="60%" />
 
 2. 創建 **README** 你想要的語言: `README.md`, `READM.zh-TW.md`, ...
 
@@ -84,3 +84,5 @@
 
 * 查看【測試文檔】(https://github.com/Lin-jun-xiang/vscode-extensions-best/tree/main)
 * 測試文檔用 `action-translate-readme` 更新了 .
+
+<a href="#top">Back to top</a>
