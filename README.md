@@ -32,15 +32,16 @@
 
 1. Click the :star: icon to add this project to your Github repository .
 
-2. Setup `your Github Token`:
+2. Setup your `Github Token`:
 
-    * New a **`Github Token Secret`**
+    * New a **`Github Secret Token`**
         * settings
         * Developer Settings
         * Personal Access Token - `Tokens(classic)`
         * generate a new token
         * selection range: `repo` and `workflow`
-        * **keep** your token secret (don't lose it)
+        * **keep** your scret token (don't lose it, you need to paste it later)
+    <img src="https://github.com/Lin-jun-xiang/action-translate-readme/assets/63782903/b7487b49-817c-4925-b94a-bdb7b025a0c2" width="60%" />
 
     * New a **`repository secret`**
         * in your repository - `settings`
@@ -48,13 +49,14 @@
         * `Actions`
         * `New repository secret`
         * fills in tags by `token` and name it (ex: `Action_Bot`)
+    <img src="https://github.com/Lin-jun-xiang/action-translate-readme/assets/63782903/27dc7bcd-633f-431e-98e8-387b97ecd47c" width="60%" />
 
 2. Create **README** which languages you want: `README.md`, `READM.zh-TW.md`, ...
 
 4. Create your action in the directory `.github/workflows/your_action.yml`. example:
 
     ```
-    // .github/workflows/translate.yml
+    # .github/workflows/translate.yml
     name: Translate Readme
 
     on:
@@ -71,9 +73,9 @@
                     fetch-depth: 3
 
                 - name: Auto Translate
-                  uses: Lin-jun-xiang/action-translate-readme@v1 // Based on the tag
+                  uses: Lin-jun-xiang/action-translate-readme@v1 # Based on the tag
                   with:
-                    token: ${{ secrets.Action_Bot }} // Based on step2 name
+                    token: ${{ secrets.Action_Bot }} # Based on step2 name
     ```
 
 ---
