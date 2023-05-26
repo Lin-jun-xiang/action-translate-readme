@@ -41,7 +41,7 @@
         * 生成新令牌
         * 選擇範圍:`repo` 和 `workflow`
         * **保留**你的secret token(不要丟了,以後需要貼上)
-            <img src="https://github.com/Lin-jun-xiang/action-translate-readme/assets/63782903/b7487b49-817c-4925-b94a-bdb7b025a0c2"寬度=" 60%" />
+        <img src="https://github.com/Lin-jun-xiang/action-translate-readme/assets/63782903/b7487b49-817c-4925-b94a-bdb7b025a0c2" width=" 60%" />
 
     * 創建一個新的 **`repository secret`**
         * 在您的存儲庫中 - `settings`
@@ -83,7 +83,7 @@
 
 # Results of Test Document
 
-* 查看【測試文檔】(https://github.com/Lin-jun-xiang/vscode-extensions-best/tree/main)
+* 查看[測試文檔](https://github.com/Lin-jun-xiang/vscode-extensions-best/tree/main)
 * 測試文檔用 `action-translate-readme` 更新了 .
 
 <a href="#top">Back to top</a>
