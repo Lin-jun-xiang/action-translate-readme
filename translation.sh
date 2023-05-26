@@ -5,7 +5,6 @@ declare -A map_table=(
   [）]=")"
   [：]=":"
   [u003d]="="
-#   [//]="\/"
   [:emoji_]=":"
   [%_ddot_%]="."
   [%_bbackslash_%]="\/"
@@ -14,6 +13,8 @@ declare -A map_table=(
   [；]=";"
   [%_ttab_%]="    "
   ["] ("]="]("
+  [】]="]"
+  [【]="["
 )
 
 function convert_symbols() {

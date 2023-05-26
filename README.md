@@ -41,7 +41,7 @@
         * generate a new token
         * selection range: `repo` and `workflow`
         * **keep** your secret token (don’t lose it, you need to paste it later)
-            <img src="https://github.com/Lin-jun-xiang/action-translate-readme/assets/63782903/b7487b49-817c-4925-b94a-bdb7b025a0c2" width=" 60%" />
+        <img src="https://github.com/Lin-jun-xiang/action-translate-readme/assets/63782903/b7487b49-817c-4925-b94a-bdb7b025a0c2" width=" 60%" />
 
     * Create a new **`repository secret`**
         * in your repository - `settings`
