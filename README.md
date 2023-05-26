@@ -40,8 +40,8 @@
         * Personal Access Token - `Tokens(classic)`
         * generate a new token
         * selection range: `repo` and `workflow`
-%tab%%tab%* **keep** your secret token (don’t lose it, you need to paste it later)
-        <img src="https://github.com/Lin-jun-xiang/action-translate-readme/assets/63782903/b7487b49-817c-4925-b94a-bdb7b025a0c2" width=" 60%" />
+        * **keep** your secret token (don’t lose it, you need to paste it later)
+            <img src="https://github.com/Lin-jun-xiang/action-translate-readme/assets/63782903/b7487b49-817c-4925-b94a-bdb7b025a0c2" width=" 60%" />
 
     * Create a new **`repository secret`**
         * in your repository - `settings`
@@ -78,11 +78,12 @@
                     token: ${{ secrets.Action_Bot }} # Based on step2 name
     ```
 
+5. Now you can update `README.md`, and it will auto generate a translation version!
 ---
 
 # Results of Test Document
 
-* View 【Test Documentation】(https://github.com/Lin-jun-xiang/vscode-extensions-best/tree/main)
+* View [Test Documentation](https://github.com/Lin-jun-xiang/vscode-extensions-best/tree/main)
 * Test docs updated . with `action-translate-readme`
 
 <a href="#top">Back to top</a>
