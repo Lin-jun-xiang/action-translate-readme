@@ -1,5 +1,6 @@
 # action-translate-readme
 
+[English Version](README.md)
 [中文版README.md](README.zh-TW.md)
 
 # Introduction
@@ -79,11 +80,14 @@
     ```
 
 5. Now you can update `README.md`, and it will auto generate a translation version!
+
+![](./img/auto-translation.gif)
+
 ---
 
 # Results of Test Document
 
 * View [Test Documentation](https://github.com/Lin-jun-xiang/vscode-extensions-best/tree/main)
-* Test docs updated . with `action-translate-readme`
+* Test docs updated with our tool
 
 <a href="#top">Back to top</a>
