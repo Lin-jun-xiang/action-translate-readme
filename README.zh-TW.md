@@ -99,7 +99,7 @@
 
 6. 現在你可以更新 `README.md`,它會自動生成一個翻譯版本！
 
-![](./img/auto-translation.gif)
+    ![](./img/auto-translation.gif)
 
 ---
 
