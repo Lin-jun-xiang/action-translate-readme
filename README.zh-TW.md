@@ -21,7 +21,6 @@
 
    請注意，在 `gpt4free` 中有[不同的 Provider](https://github.com/xtekky/gpt4free#models)，這些 Provider 就是提供調用 api 的來源，如果無法正常使用本專案自動翻譯工具，通常問題來自於當前使用的 Provider 已經 **Inactive**。因此在各位的 `translate-readme.yml` 檔案中，可以自行設定該[參數](.github\workflows\translate-readme.yml) (預設為`g4f.Provider.DeepAi`)。
 
-
 # Introduction
 
 * 我們都知道寫文檔很費時間,但是現在有一個解決方案可以讓你節省一半的時間. 這就是我們的`action-translate-readme`

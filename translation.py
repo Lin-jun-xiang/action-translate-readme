@@ -67,11 +67,11 @@ def translate_content(content, output_lang):
     response = chat_completion(translate_query)
 
     check_query = (
-        '原始問題:\n'
+        '原始問題與文本:\n'
         f'{translate_content}\n'
-        '原始回答:\n'
+        '第一次翻譯結果:\n'
         f'{response}\n'
-        '請繼續完成未回答的部分，如果已經完成請回答: ""'
+        '請繼續完成未翻譯的部分，如果已經完成請回答None'
     )
     check_response = chat_completion(check_query)
 
