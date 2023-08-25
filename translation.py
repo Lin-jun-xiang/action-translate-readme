@@ -57,7 +57,7 @@ def translate_content(content, output_lang):
     """Use GPT for translation"""
     translate_query = (
         f'翻譯以下 markdown 文本為{output_lang}語言，並且遵循以下規則:\n'
-        '1. 保持文本原有格式、符號\n'
+        '1. 保持文本原有格式、符號、空格數\n'
         '2. 只需要給我文本翻譯結果，不要有任何描述\n'
         '3. 確切翻譯文本所有內容，留下換行符號\n'
         '4. 以 markdown 程式碼輸出結果:\n'
