@@ -44,7 +44,7 @@ def run_shell_command(command):
     return result.returncode, result.stdout, result.stderr
 
 
-@retry(stop=stop_after_attempt(12))
+@retry(stop=stop_after_attempt(15))
 def chat_completion(query) -> str:
     return g4f.ChatCompletion.create(
         model="gpt-3.5-turbo",
@@ -78,7 +78,6 @@ def translate_content(content, output_lang):
     if check_response != 'None':
         response = '\n' + check_response
 
-    print(response, '\n', check_response)
     return response
 
 
