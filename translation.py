@@ -30,8 +30,11 @@ PROVIDER_MAPPING = {
     'g4f.Provider.You': g4f.Provider.You,
     'g4f.Provider.Yqcloud': g4f.Provider.Yqcloud,
 }
-PROVIDER = PROVIDER_MAPPING[os.environ.get('PROVIDER')]
 
+try:
+    PROVIDER = PROVIDER_MAPPING[os.environ.get('PROVIDER')]
+except:
+    PROVIDER = PROVIDER_MAPPING['g4f.Provider.DeepAi']
 
 def run_shell_command(command):
     result = subprocess.run(
