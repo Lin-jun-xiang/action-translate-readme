@@ -12,35 +12,37 @@ inputs:
   token:
     description: 'Secrets Token to authorize bot account'
     required: true
+  g4f_provider:
+    description: 'gp4free provider'
+    required: true
 
 runs:
       using: "composite"
       steps:
-        - name: Checkout code
+        - name: Checkout Code
           uses: actions/checkout@v3
           with:
             fetch-depth: 3
             token: ${{ inputs.token }}
 
-        - name: Set up Python
+        - name: Set Up Python
           uses: actions/setup-python@v3
           with:
-            python-version: '3.9'
+            python-version: '3.10'
 
-        - name: Install dependencies
+        - name: Install Dependencies
           shell: bash
           run: |
-            pip install googletrans==4.0.0-rc1
-            sudo apt-get update
-            sudo apt-get install -y translate-shell
+            pip install -U g4f
+            pip install --upgrade tenacity
 
         - name: Translate README
           shell: bash
           working-directory: .
           run: |
-            bash $GITHUB_ACTION_PATH/translation.sh
+            PROVIDER=${{ inputs.g4f_provider }} python $GITHUB_ACTION_PATH/translation.py
 
-        - name: GIT Commit
+        - name: Git Commit
           shell: bash
           working-directory: .
           run: |

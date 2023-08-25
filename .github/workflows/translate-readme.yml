@@ -17,3 +17,4 @@ jobs:
         uses: ./
         with:
           token: ${{ secrets.Action_Bot }}
+          g4f_provider: g4f.Provider.DeepAi # You can change this provider
