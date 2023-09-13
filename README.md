@@ -1,58 +1,58 @@
 # action-translate-readme
 
-[English Version](README.md) | [Chinese Version README.md](README.zh-TW.md)
+[English version](README.md) | [Chinese version README.md](README.zh-TW.md)
 
 # What's changed for action-translate-readme?
 
-With the emergence of ChatGPT, the author thought that the translation task of this project could be handed over to GPT for implementation. Through the open source project [`gpt4free`](https://github.com/xtekky/gpt4free), we can achieve free GPT API, hoping to improve the translation capability of this project!
+With the advent of ChatGPT, the author came up with the idea of using GPT to implement the translation task of this project. Through the open-source project [`gpt4free`](https://github.com/xtekky/gpt4free), we can achieve a free GPT API to enhance the translation capability of this project!
 
-* Version 1 translation method: Implemented through third-party Linux packages (`translation.sh`)
-  * Translation effect: Poor, similar to Google translation
-  * Translation speed: Slow
-  * Stability: High, can ensure that every translation is correct
+* Version 1 translation method: implemented through Linux third-party packages (`translation.sh`)
+  * Translation effect: poor, similar to Google Translate
+  * Translation speed: slow
+  * Stability: high, can ensure correct translation every time
 
-* Version 2 translation method: Translation task is performed through GPT (`translation.py`)
-  * Translation effect: Good
-  * Translation speed: Sometimes fast, sometimes slow
-  * Stability: Low
+* Version 2 translation method: translation task using GPT (`translation.py`)
+  * Translation effect: good
+  * Translation speed: sometimes fast, sometimes slow
+  * Stability: low
 
-  Since `gpt4free` is realized by reverse engineering to implement free API calling, anomalies may occur during the calling process. The author added `retry` technology when calling the api function to avoid translation failure. As a result, the translation speed would slow down with the increase of retry times.
+Since `gpt4free` realizes the free calling API through reverse engineering, abnormal problems may be encountered during the calling process. The author added the `retry` technique (it will be executed again if an exception occurs) when calling the API function to avoid translation failure. As a result, the translation speed will increase as the number of retries increases.
 
-> Please note that `gpt4free` has different [Providers](https://github.com/xtekky/gpt4free#models) which provide the source of api calling. If you cannot use the automatic translation tool of this project normally. The problem usually comes from the fact that the Provider currently in use has become **Inactive**.
+> Please **note** that there are different Providers in `gpt4free` [Provider](https://github.com/xtekky/gpt4free#models), which provide the source for calling the API. If the automatic translation tool of this project cannot be used normally, the problem usually comes from the current used Provider is already **Inactive**.
 >
-> Therefore, in your `translate-readme.yml` file, you can set this [parameter](.github\workflows\translate-readme.yml) yourself (default is `g4f.Provider.DeepAi`).
+> Therefore, in the `translate-readme.yml` file, you can set the [parameter](.github\workflows\translate-readme.yml) yourself (default is `g4f.Provider.DeepAi`).
 >
-> In addition, as it is a **generative AI** technology, it cannot ensure that each translation is correct. If the translation effect is not good, you can perform the translation several times.
+> In addition, because it is a **Generative AI** technology, it cannot be guaranteed that the translation is correct every time. If the translation effect is not good, you can repeat it several times.
 
 # Introduction
 
-* We all know that writing documentation is time-consuming, but now there is a solution that can save you half the time. This is our `action-translate-readme`
+* We all know that writing documentation takes a lot of time, but now there is a solution that can save you half the time. This is our `action-translate-readme`.
 
-* With this tool, you can automatically translate the `README.md` document, not only can translate, but also translate **inline code, emoticons, code blocks, HTML tags, links and other elements.**
+* With this tool, you can automatically translate the `README.md` file, not only can you translate, but also translate various elements such as **inline code, emojis, code blocks, HTML tags, and links**
 
-* Its operation principle is automated through `Github Actions`, only need to push the updated README file, the translated README(zh or en) file can be updated automatically
+* Its operation principle is automated through `Github Actions`, and only needs to push the updated README file, and the translated README (zh or en) file will be automatically updated
 
-* Continuous integration (CI)
+* Continuous Integration (CI)
 
-* **Automatically translate the language of the README file through Github Action**
+* **Automatically translate README language through Github Action**
 
-* Updating `README.md` and pushing it will automatically update `README.zh-TW.md`
-    (updating `README.zh-TW.md` will automatically update`README.md`)
+* Update the `README.md` and push it, this action will automatically update `README.zh-TW.md`
+    (Update `README.zh-TW.md` automatically update `README.md`)
 
-* Save half the time writing documentation.
+* Save half the time when writing documentation.
 
 # Features
 
 * Untranslated:
-    * In-line code (`inline_code`)
+    * Inline code (`inline_code`)
 
-    * For emoticons
+    * Used for emoji
 
     * Code block
 
-    * HTML tag
+    * HTML tags
 
-    * Link
+    * Links
 
 # How to use?
 
@@ -63,10 +63,10 @@ With the emergence of ChatGPT, the author thought that the translation task of t
     * Create a new **`Github Secret Token`**
         * Setting
         * Developer settings
-        * Personal access token - `Tokens(classic)`
-        * Generate new token
-        * Choose scope: `repo` and `workflow`
-        * **Keep** your secret token (don't lose it, you will need to paste it later)
+        * Personal access tokens - `Tokens(classic)`
+        * Generate a new token
+        * Select Scope: `repo` and `workflow`
+        * **Keep** your secret token (don't throw it away, paste it later when needed)
         <img src="https://github.com/Lin-jun-xiang/action-translate-readme/assets/63782903/b7487b49-817c-4925-b94a-bdb7b025a0c2" width=" 60%" />
 
     * Create a new **`repository secret`**
@@ -74,12 +74,12 @@ With the emergence of ChatGPT, the author thought that the translation task of t
         * `Securits and variables`
         * `Actions`
         * `New repository secret`
-        * Tag with `token` and name it (eg:`Action_Bot`)
+        * Fill in the tag according to`token` and name it (eg: `Action_Bot`)
         <img src="https://github.com/Lin-jun-xiang/action-translate-readme/assets/63782903/27dc7bcd-633f-431e-98e8-387b97ecd47c" width=" 60%" />
 
-4. Create the **README** language you want: `README.md`,`READM.zh-TW.md`, ...
+4. Create the **README** language you want: `README.md`, `READM.zh-TW.md`, ...
 
-5. Create your action example in the directory`.github/workflows/your_action.yml`.
+5. Create your action example in directory `.github/workflows/your_action.yml`.
 
     ```
     # .github/workflows/translate.yml
@@ -99,20 +99,25 @@ With the emergence of ChatGPT, the author thought that the translation task of t
                     fetch-depth: 3
 
                 - name: Auto Translate
-                  uses: Lin-jun-xiang/action-translate-readme@v1 # Based on the tag
+                  uses: Lin-jun-xiang/action-translate-readme@v2 # Based on the tag
                   with:
                     token: ${{ secrets.Action_Bot }} # Based on step2 name
+                    g4f_provider: g4f.Provider.DeepAi # You can change this provider
     ```
 
-6. Now you can update `README.md`, and it will automatically generate a translated version!
+6. Now you can update `README.md`, and an translated version will be automatically generated!
 
-    ![](./img/auto-translation.gif)
+---
+
+# Demo
+
+![](./img/auto-translation.gif)
 
 ---
 
 # Results of Test Document
 
-* See [Test Document](https://github.com/Lin-jun-xiang/vscode-extensions-best/tree/main)
-* Update the test document with our tool
+* View the [test document](https://github.com/Lin-jun-xiang/vscode-extensions-best/tree/main)
+* Use our tool to update the test document
 
 <a href="#top">Back to top</a>
