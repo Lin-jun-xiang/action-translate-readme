@@ -100,9 +100,10 @@
                     fetch-depth: 3
 
                 - name: Auto Translate
-                  uses: Lin-jun-xiang/action-translate-readme@v1 # Based on the tag
+                  uses: Lin-jun-xiang/action-translate-readme@v2 # Based on the tag
                   with:
                     token: ${{ secrets.Action_Bot }} # Based on step2 name
+                    g4f_provider: g4f.Provider.DeepAi # You can change this provider
     ```
 
 6. 現在你可以更新 `README.md`,它會自動生成一個翻譯版本！
