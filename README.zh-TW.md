@@ -16,7 +16,6 @@
   * 翻譯速度: 時快時慢
   * 穩定性: 低
   
-
    由於  `gpt4free` 是透過逆向工程來實現免費調用 api，因此調用過程可能會碰到異常問題。作者在調用 api 函式時添加上 `retry` 技術 (發生異常，會重新執行) 來避免翻譯失敗，相對地，翻譯速度就會隨著 retry 次數增加。
 
 > 請**注意**，在 `gpt4free` 中有[不同的 Provider](https://github.com/xtekky/gpt4free#models)，這些 Provider 就是提供調用 api 的來源，如果無法正常使用本專案自動翻譯工具，通常問題來自於當前使用的 Provider 已經 **Inactive**。
