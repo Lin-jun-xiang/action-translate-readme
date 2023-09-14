@@ -67,6 +67,7 @@
         * 生成新令牌
         * 選擇範圍:`repo` 和 `workflow`
         * **保留**你的secret token(不要丟了,以後需要貼上)
+  
         <img src="https://github.com/Lin-jun-xiang/action-translate-readme/assets/63782903/b7487b49-817c-4925-b94a-bdb7b025a0c2" width=" 60%" />
 
     * 創建一個新的 **`repository secret`**
@@ -75,6 +76,7 @@
         * `Actions`
         * `New repository secret`
         * 按`token`填寫標籤並命名(eg: `Action_Bot`)
+
         <img src="https://github.com/Lin-jun-xiang/action-translate-readme/assets/63782903/27dc7bcd-633f-431e-98e8-387b97ecd47c" width=" 60%" />
 
 4. 創建你想要的 **README** 語言:`README.md`, `READM.zh-TW.md`, ...
