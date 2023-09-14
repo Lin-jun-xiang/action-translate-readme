@@ -61,7 +61,7 @@
 
 2. 設置你的 `Github Token`:
 
-    * 創建一個新的 **`Github Secret Token`**
+    * [創建一個新的 **`Github Secret Token`**](https://github.com/settings/tokens/new)
         * 設置
         * 開發者設置
         * 個人訪問令牌 - `Tokens(classic)`
