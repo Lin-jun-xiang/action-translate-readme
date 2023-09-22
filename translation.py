@@ -5,30 +5,8 @@ import g4f
 from tenacity import retry, stop_after_attempt
 
 PROVIDER_MAPPING = {
-    'g4f.Provider.AItianhu': g4f.Provider.AItianhu,
-    'g4f.Provider.Acytoo': g4f.Provider.Acytoo,
-    'g4f.Provider.AiService': g4f.Provider.AiService,
-    'g4f.Provider.Aichat': g4f.Provider.Aichat,
-    'g4f.Provider.Ails': g4f.Provider.Ails,
-    'g4f.Provider.Bard': g4f.Provider.Bard,
-    'g4f.Provider.Bing': g4f.Provider.Bing,
-    'g4f.Provider.ChatgptAi': g4f.Provider.ChatgptAi,
-    'g4f.Provider.ChatgptLogin': g4f.Provider.ChatgptLogin,
-    'g4f.Provider.DeepAi': g4f.Provider.DeepAi,
-    'g4f.Provider.DfeHub': g4f.Provider.DfeHub,
-    'g4f.Provider.EasyChat': g4f.Provider.EasyChat,
-    'g4f.Provider.Forefront': g4f.Provider.Forefront,
-    'g4f.Provider.GetGpt': g4f.Provider.GetGpt,
-    'g4f.Provider.H2o': g4f.Provider.H2o,
-    'g4f.Provider.Liaobots': g4f.Provider.Liaobots,
-    'g4f.Provider.Lockchat': g4f.Provider.Lockchat,
-    'g4f.Provider.Opchatgpts': g4f.Provider.Opchatgpts,
-    'g4f.Provider.Raycast': g4f.Provider.Raycast,
-    'g4f.Provider.Theb': g4f.Provider.Theb,
-    'g4f.Provider.Vercel': g4f.Provider.Vercel,
-    'g4f.Provider.Wewordle': g4f.Provider.Wewordle,
-    'g4f.Provider.You': g4f.Provider.You,
-    'g4f.Provider.Yqcloud': g4f.Provider.Yqcloud,
+    f'g4f.Provider.{provider}': getattr(g4f.Provider, provider)
+    for provider in g4f.Provider.__all__
 }
 
 try:
