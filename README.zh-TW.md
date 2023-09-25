@@ -7,8 +7,6 @@
 * [عربى](README.Arabic.md)
 
 
-
-
 # Introduction
 
 * 我們都知道寫README文檔很費時間,但是現在有一個解決方案可以讓你節省一半的時間. 這就是我們的`action-translate-readme`
