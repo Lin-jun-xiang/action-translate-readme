@@ -1,107 +1,87 @@
 # action-translate-readme
 
-[English Version](README.md) | [Chinese Version README.md](README.zh-TW.md)
-
-# What's changed for action-translate-readme?
-
-With the emergence of ChatGPT, the author thought that the translation task of this project could be handed over to GPT for implementation. Through the open source project [`gpt4free`](https://github.com/xtekky/gpt4free), we can realize the free GPT API and hope to enhance the translation ability of this project!
-
-* Version 1 translation method: implemented through third-party Linux packages (`translation.sh`)
-  * Translation effect: poor, similar to Google Translate
-  * Translation speed: slow
-  * Stability: high, can ensure correct translation every time
-
-* Version 2 translation method: using GPT for translation task (`translation.py`)
-  * Translation effect: good
-  * Translation speed: fast or slow
-  * Stability: low
-
-  Since `gpt4free` uses reverse engineering to realize free API calls, the calling process may encounter abnormal problems. The author added `retry` technology (they will be executed again when abnormal events occur) when calling the API function to avoid translation failure. As a result, the translation speed will increase with the number of retries.
-
-> Please **note** that there are [different providers](https://github.com/xtekky/gpt4free#models) in `gpt4free`, which are the sources that provide API calls. If you cannot use the automatic translation tool of this project normally, the problem usually comes from the provider currently used and is **inactive**. Therefore, you can set the [parameter](.github\workflows\translate-readme.yml) yourself in your `translate-readme.yml` file (default is `g4f.Provider.DeepAi`).
->
-> In addition, since it is a **generative AI** technology, it cannot guarantee that each translation is correct. If the translation effect is not good, you can repeat it several times.
+* [English](README.md)
+* [Traditional Chinese README.md](README.zh-TW.md)
+* [Simplified Chinese README.md](README.zh-CN.md)
+* [French](README.French.md)
+* [Arabic](README.Arabic.md)
 
 
 # Introduction
 
-* We all know that writing documents takes a lot of time, but now there is a solution that can save you half of the time. This is our `action-translate-readme`.
+* We all know that writing README documentation can be time-consuming, but now there is a solution that can save you half of your time. This is our `action-translate-readme`.
 
-* With this tool, you can automatically translate the `README.md` file, not only can translate, but also translates various elements such as **inline code, emojis, code blocks, HTML tags and links.**
+* Translate different language versions of README via `gpt3.5`.
 
-* Its operating principle is to achieve automation through `Github Actions`. Just push the updated README file, and the translated README (zh or en) file can be automatically updated.
+* Automatically submit (commit, push) the translated files through **Github Actions (CI/CD)**.
 
-* Continuous integration (CI)
+* For example: When you **write** or **modify** the English version of the README, the translated versions, such as Traditional Chinese, Simplified Chinese, French, etc., are automatically generated.
 
-* **Automatically translate the language of README through Github Action**
+Note: The translator of v1 version is implemented through third-party packages on `Linux`; v2 version is implemented through free openai api called [`g4f`](https://github.com/xtekky/gpt4free)
 
-* Update `README.md` and push it. This action will automatically update `README.zh-TW.md`
-  (Updating `README.zh-TW.md` will automatically update `README.md`)
-
-* Half of the time spent on writing documents is saved.
-
-# Features
-
-* Untranslated:
-  * Inline code (`inline_code`)
-  * Used for emoji
-  * Code block
-  * HTML tags
-  * Link
 
 # How to use?
 
-1. Click on the :star: icon to add this item to your Github repository.
+1. Click :star: icon to add this project to your Github repository.
 
-2. Set your `Github Token`:
-    * [Create a new **`Github Secret Token`**](https://github.com/settings/tokens/new)
-        * Set
-        * Developer settings
-        * Personal access tokens - `Tokens(classic)`
-        * Generate new token
-        * Choose scope: `repo` and `workflow`
-        * **Keep** your secret token (do not throw it away, it needs to be pasted later)
-     
-        <img src="https://github.com/Lin-jun-xiang/action-translate-readme/assets/63782903/b7487b49-817c-4925-b94a-bdb7b025a0c2" width=" 60%" />
-        
-    * Create a new **`repository secret`**
-        * In your repository - `settings`
-        * `Securits and variables`
-        * `Actions`
-        * `New repository secret`
-        * Fill in the tag and name it (eg: `Action_Bot`) in `token`
+2. Set up your `Github Token`:
 
-        <img src="https://github.com/Lin-jun-xiang/action-translate-readme/assets/63782903/27dc7bcd-633f-431e-98e8-387b97ecd47c" width=" 60%" />
-            
-3. Create the README language you want: `README.md`, `READM.zh-TW.md`,...
+* [Create a new **`Github Secret Token`**](https://github.com/settings/tokens/new)
+  * Settings
+  * Developer settings
+  * Personal access tokens - `Tokens(classic)`
+  * Generate a new token
+  * Choose scopes: `repo` and `workflow`
+  * **Keep** your secret token (do not lose it, you need to paste it later)
 
-4. Create your action example in directory `.github/workflows/your_action.yml`.
+  <img src="https://github.com/Lin-jun-xiang/action-translate-readme/assets/63782903/b7487b49-817c-4925-b94a-bdb7b025a0c2" width=" 60%" />
 
-    ```
-    # .github/workflows/translate.yml
-    name: Translate Readme
+* Create a new **`repository secret`**
+  * In your repository - `settings`
+  * `Security and variables`
+  * `Actions`
+  * `New repository secret`
+  * Fill in the tag with `token` and name it (e.g. `Action_Bot`)
 
-    on:
-        push:
-            branches: ['**']
+  <img src="https://github.com/Lin-jun-xiang/action-translate-readme/assets/63782903/27dc7bcd-633f-431e-98e8-387b97ecd47c" width=" 60%" />
 
-    jobs:
-        translate:
-            runs-on: ubuntu-latest
-            steps:
-                - name: Checkout
-                  uses: actions/checkout@v3
-                  with:
-                    fetch-depth: 3
+3. Create your action example in the directory `.github/workflows/your_action.yml`. You can just copy the following code:
 
-                - name: Auto Translate
-                  uses: Lin-jun-xiang/action-translate-readme@v2 # Based on the tag       
-                  with:
-                    token: ${{ secrets.Action_Bot }} # Based on step2 name
-                    g4f_provider: g4f.Provider.DeepAi # You can change this provider
-    ```
+```
+# .github/workflows/translate.yml
+name: Translate Readme
 
-5. Now you can update the `README.md`, and a translated version will be generated automatically!
+on:
+    push:
+        branches: ['**']
+
+jobs:
+    translate:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+              with:
+                fetch-depth: 3
+
+            - name: Auto Translate
+              uses: Lin-jun-xiang/action-translate-readme@v2 # Based on the tag
+              with:
+                token: ${{ secrets.Action_Bot }} # Based on step2 name
+                g4f_provider: g4f.Provider.DeepAi # You can change this provider
+                langs: "en,zh-TW,zh-CN,French,Arabic" # You can define any langs
+```
+
+There are three parameters to pay special attention to in `.yml`:
+
+* `token`: The token created in the repo based on step 2.
+* `g4f_provider`: The provider of gpt, please refer to the [link](https://github.com/xtekky/gpt4free/tree/main#gpt-35--gpt-4) for more information.
+* `langs`: The language versions to be generated. Be sure to separate different languages with `,`. For example:
+  * `"en"`: Translate only the English version.
+  * `"en,zh-TW"`: Translate English and Traditional Chinese.
+  * `"French,Arabic"`: Translate French and Arabic.
+
+4. Now you can update `README.md`, and it will automatically generate a translated version!
 
 ---
 
@@ -113,7 +93,7 @@ With the emergence of ChatGPT, the author thought that the translation task of t
 
 # Results of Test Document
 
-* View [test document](https://github.com/Lin-jun-xiang/vscode-extensions-best/tree/main)
-* Update the test document using our tool
+* Check out the [test document](https://github.com/Lin-jun-xiang/vscode-extensions-best/tree/main).
+* Use our tool to update the test document.
 
 <a href="#top">Back to top</a>
