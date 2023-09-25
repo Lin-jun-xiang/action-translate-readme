@@ -7,6 +7,15 @@ from tenacity import retry, stop_after_attempt
 
 LAGNS = os.environ.get('LANGS').split(',')
 
+PROVIDER_MAPPING = {
+    f'g4f.Provider.{provider}': getattr(g4f.Provider, provider)
+    for provider in g4f.Provider.__all__
+}
+try:
+    PROVIDER = PROVIDER_MAPPING[os.environ.get('PROVIDER')]
+except:
+    PROVIDER = PROVIDER_MAPPING['g4f.Provider.DeepAi']
+
 
 def run_shell_command(command):
     result = subprocess.run(
@@ -24,6 +33,7 @@ def chat_completion(query) -> str:
     return g4f.ChatCompletion.create(
         model=g4f.models.gpt_35_turbo,
         messages=[{"role": "user", "content": query}],
+        provider=PROVIDER
     )
 
 
@@ -37,6 +47,7 @@ def translate_content(content, output_lang):
         '4. 以 markdown 程式碼輸出結果:\n'
         '--------------------------------\n'
         f'{content}'
+        '--------------------------------\n'
     )
     response = chat_completion(translate_query)
 
@@ -84,7 +95,7 @@ def main():
                 f.write(translated_content)
             print(f"Translated content written to {output_file}")
 
-        with ThreadPool(8) as pool:
+        with ThreadPool(10) as pool:
             pool.map(multi_exec, LAGNS)
 
 
