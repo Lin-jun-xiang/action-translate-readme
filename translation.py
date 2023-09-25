@@ -1,5 +1,4 @@
 import os
-import random
 import subprocess
 from multiprocessing.dummy import Pool as ThreadPool
 
@@ -7,37 +6,6 @@ import g4f
 from tenacity import retry, stop_after_attempt
 
 LAGNS = os.environ.get('LANGS').split(',')
-
-
-class AvailableProviders:
-    providers = [getattr(g4f.Provider, provider) for provider in g4f.Provider.__all__]
-    unuse_providers = [g4f.Provider.ChatBase, g4f.Provider.Yqcloud, g4f.Provider.Bing]
-
-    @classmethod
-    def _test_provider(cls, provider: g4f.Provider) -> str:
-        try:
-            if provider in cls.unuse_providers:
-                return
-            g4f.ChatCompletion.create(
-                model='gpt-3.5-turbo',
-                messages=[{"role": "user", "content": 'Hello world'}],
-                provider=provider
-            )
-            return provider
-        except:
-            return
-
-    @classmethod
-    def show(cls, threads_num: int = 8) -> list:
-        """Test all the providers then find out which are available"""
-        with ThreadPool(threads_num) as pool:
-            available_providers = pool.map(
-                cls._test_provider, cls.providers
-            )
-        return [
-            available_provider for available_provider in available_providers
-            if available_provider is not None
-        ]
 
 
 def run_shell_command(command):
@@ -52,18 +20,15 @@ def run_shell_command(command):
 
 
 @retry(stop=stop_after_attempt(15))
-def chat_completion(query, available_providers: list) -> str:
+def chat_completion(query) -> str:
     return g4f.ChatCompletion.create(
-        model="gpt-3.5-turbo",
+        model=g4f.models.gpt_35_turbo,
         messages=[{"role": "user", "content": query}],
-        provider=random.choice(available_providers)
     )
 
 
 def translate_content(content, output_lang):
     """Use GPT for translation"""
-    available_providers = AvailableProviders.show()
-
     translate_query = (
         f'翻譯以下 markdown 文本為{output_lang}語言，並且遵循以下規則:\n'
         '1. 保持文本原有格式、符號、空格數\n'
@@ -73,7 +38,7 @@ def translate_content(content, output_lang):
         '--------------------------------\n'
         f'{content}'
     )
-    response = chat_completion(translate_query, available_providers)
+    response = chat_completion(translate_query)
 
     check_query = (
         '原始問題與文本:\n'
@@ -82,7 +47,7 @@ def translate_content(content, output_lang):
         f'{response}\n'
         '請繼續完成未翻譯的部分，如果已經完成請回答None'
     )
-    check_response = chat_completion(check_query, available_providers)
+    check_response = chat_completion(check_query)
 
     if check_response != 'None':
         response = '\n' + check_response
