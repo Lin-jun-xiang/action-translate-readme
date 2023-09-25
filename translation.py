@@ -1,4 +1,5 @@
 import os
+import re
 import subprocess
 from multiprocessing.dummy import Pool as ThreadPool
 
@@ -66,6 +67,15 @@ def translate_content(content, output_lang):
     return response
 
 
+def extract_prefix(filename):
+    """Extract file prefix path"""
+    pattern = re.compile(r'(.*/).*')
+    match = pattern.match(filename)
+    prefix = match.group(1) if match else ''
+
+    return prefix
+
+
 def main():
     git_diff_command = "git diff --name-only HEAD~1 HEAD"
     return_code, stdout, stderr = run_shell_command(git_diff_command)
@@ -81,6 +91,8 @@ def main():
             return
         print(f'{file} changed.')
 
+        prefix_path = extract_prefix(file)
+
         with open(file, "r", encoding="utf-8") as f:
             content = f.read()
 
@@ -88,7 +100,7 @@ def main():
             if output_lang in file:
                 return
             translated_content = translate_content(content, output_lang)
-            output_file = f'README.{output_lang}.md'
+            output_file = f'{prefix_path}README.{output_lang}.md'
             output_file = output_file.replace('.en', '')
 
             with open(output_file, "w", encoding="utf-8") as f:
