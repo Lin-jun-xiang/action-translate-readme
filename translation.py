@@ -11,10 +11,13 @@ LAGNS = os.environ.get('LANGS').split(',')
 
 class AvailableProviders:
     providers = [getattr(g4f.Provider, provider) for provider in g4f.Provider.__all__]
+    unuse_providers = [g4f.Provider.ChatBase, g4f.Provider.Yqcloud, g4f.Provider.Bing]
 
     @classmethod
     def _test_provider(cls, provider: g4f.Provider) -> str:
         try:
+            if provider in cls.unuse_providers:
+                return
             g4f.ChatCompletion.create(
                 model='gpt-3.5-turbo',
                 messages=[{"role": "user", "content": 'Hello world'}],
@@ -25,7 +28,7 @@ class AvailableProviders:
             return
 
     @classmethod
-    def show(cls, threads_num: int = 4) -> list:
+    def show(cls, threads_num: int = 8) -> list:
         """Test all the providers then find out which are available"""
         with ThreadPool(threads_num) as pool:
             available_providers = pool.map(
@@ -100,13 +103,14 @@ def main():
         if "README" not in file:
             print('no README changed.')
             return
+        print(f'{file} changed.')
 
         with open(file, "r", encoding="utf-8") as f:
             content = f.read()
 
-        for output_lang in LAGNS:
+        def multi_exec(output_lang: str):
             if output_lang in file:
-                continue
+                return
             translated_content = translate_content(content, output_lang)
             output_file = f'README.{output_lang}.md'
             output_file = output_file.replace('.en', '')
@@ -114,6 +118,9 @@ def main():
             with open(output_file, "w", encoding="utf-8") as f:
                 f.write(translated_content)
             print(f"Translated content written to {output_file}")
+
+        with ThreadPool(8) as pool:
+            pool.map(multi_exec, LAGNS)
 
 
 if __name__ == "__main__":
