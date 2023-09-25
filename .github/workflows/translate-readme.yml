@@ -16,5 +16,5 @@ jobs:
       - name: Test my action
         uses: ./
         with:
-          token: ${{ secrets.Action_Bot }}
-          langs: "['en', 'zh-TW', 'zh-CN', 'French', 'Arabic']" # You can define any langs
+          token: ${{ secrets.Action_Bot }} # Your token
+          langs: "en,zh-TW,zh-CN,French,Arabic" # You can define any langs

@@ -1,4 +1,3 @@
-import ast
 import os
 import random
 import subprocess
@@ -7,7 +6,7 @@ from multiprocessing.dummy import Pool as ThreadPool
 import g4f
 from tenacity import retry, stop_after_attempt
 
-LAGNS = ast.literal_eval(os.environ.get('LANGS'))
+LAGNS = os.environ.get('LANGS').split(',')
 
 
 class AvailableProviders:

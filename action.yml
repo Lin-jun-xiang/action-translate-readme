@@ -33,6 +33,7 @@ runs:
         - name: Install Dependencies
           shell: bash
           run: |
+            pip install PyExecJS
             pip install -U g4f
             pip install --upgrade tenacity
 
