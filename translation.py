@@ -101,6 +101,8 @@ async def main():
         async def run(output_lang: str):
             if output_lang in file:
                 return
+            if output_lang == 'en' and file == 'README.md':
+                return
             translated_content = await translate_content(content, output_lang)
             output_file = f'{prefix_path}README.{output_lang}.md'
             output_file = output_file.replace('.en', '')
