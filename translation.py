@@ -107,8 +107,13 @@ def main():
                 f.write(translated_content)
             print(f"Translated content written to {output_file}")
 
-        with ThreadPool(10) as pool:
-            pool.map(multi_exec, LAGNS)
+        try:
+            with ThreadPool(10) as pool:
+                pool.map(multi_exec, LAGNS)
+        except Exception as e:
+            # Use single thread if multithread have some problem
+            print('Thread Wrong:', e)
+            [multi_exec(output_lang) for output_lang in LAGNS]
 
 
 if __name__ == "__main__":
