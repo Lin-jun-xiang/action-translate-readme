@@ -1,7 +1,7 @@
+import asyncio
 import os
 import re
 import subprocess
-from multiprocessing.dummy import Pool as ThreadPool
 
 import g4f
 from tenacity import retry, stop_after_attempt
@@ -30,36 +30,46 @@ def run_shell_command(command):
 
 
 @retry(stop=stop_after_attempt(15))
-def chat_completion(query) -> str:
-    return g4f.ChatCompletion.create(
+async def chat_completion(query) -> str:
+    response = await g4f.ChatCompletion.create_async(
         model=g4f.models.gpt_35_turbo,
         messages=[{"role": "user", "content": query}],
         provider=PROVIDER
     )
+    return response
 
 
-def translate_content(content, output_lang):
+async def translate_content(content, output_lang):
     """Use GPT for translation"""
+    if output_lang == 'en':
+        output_lang = 'English version'
+    elif output_lang == 'zh-TW':
+        output_lang = '台灣繁體中文版(Traditional Chinese)'
+    elif output_lang == 'zh-CN':
+        output_lang = '简体中文(Simplified Chinese)'
+
     translate_query = (
-        f'翻譯以下 markdown 文本為{output_lang}語言，並且遵循以下規則:\n'
-        '1. 保持文本原有格式、符號、空格數\n'
-        '2. 只需要給我文本翻譯結果，不要有任何描述\n'
-        '3. 確切翻譯文本所有內容，留下換行符號\n'
-        '4. 以 markdown 程式碼輸出結果:\n'
+        f'Translate the following markdown context to [{output_lang}], '
+        'adhere to the following rules:\n'
+        '1. Maintain the original format, symbols, and spacing of the text.\n'
+        '2. Only provide me with the translated text result, without any descriptions.\n'
+        '3. Translate all the content of the text accurately, preserving line breaks.\n'
+        '4. Display all punctuation marks and parentheses in half-width characters\n'
+        '5. Output the result in "markdown code" format:\n'
         '--------------------------------\n'
         f'{content}'
         '--------------------------------\n'
     )
-    response = chat_completion(translate_query)
+    response = await chat_completion(translate_query)
 
     check_query = (
         '原始問題與文本:\n'
         f'{translate_content}\n'
         '第一次翻譯結果:\n'
         f'{response}\n'
-        '請繼續完成未翻譯的部分，如果已經完成請回答None'
+        '請繼續完成未翻譯的部分，如果已經完成請直接回答: None'
     )
-    check_response = chat_completion(check_query)
+    check_response = await chat_completion(check_query)
 
     if check_response != 'None':
         response = '\n' + check_response
@@ -76,7 +86,7 @@ def extract_prefix(filename):
     return prefix
 
 
-def main():
+async def main():
     git_diff_command = "git diff --name-only HEAD~1 HEAD"
     return_code, stdout, stderr = run_shell_command(git_diff_command)
 
@@ -96,10 +106,12 @@ def main():
         with open(file, "r", encoding="utf-8") as f:
             content = f.read()
 
-        def multi_exec(output_lang: str):
+        async def run(output_lang: str):
             if output_lang in file:
                 return
-            translated_content = translate_content(content, output_lang)
+            if output_lang == 'en' and file == 'README.md':
+                return
+            translated_content = await translate_content(content, output_lang)
             output_file = f'{prefix_path}README.{output_lang}.md'
             output_file = output_file.replace('.en', '')
 
@@ -107,14 +119,9 @@ def main():
                 f.write(translated_content)
             print(f"Translated content written to {output_file}")
 
-        try:
-            with ThreadPool(10) as pool:
-                pool.map(multi_exec, LAGNS)
-        except Exception as e:
-            # Use single thread if multithread have some problem
-            print('Thread Wrong:', e)
-            [multi_exec(output_lang) for output_lang in LAGNS]
+        tasks = [run(output_lang) for output_lang in LAGNS]
+        await asyncio.gather(*tasks)
 
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())
