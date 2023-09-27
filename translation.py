@@ -1,3 +1,4 @@
+import asyncio
 import os
 import re
 import subprocess
@@ -30,15 +31,16 @@ def run_shell_command(command):
 
 
 @retry(stop=stop_after_attempt(15))
-def chat_completion(query) -> str:
-    return g4f.ChatCompletion.create(
+async def chat_completion(query) -> str:
+    response = await g4f.ChatCompletion.create_async(
         model=g4f.models.gpt_35_turbo,
         messages=[{"role": "user", "content": query}],
         provider=PROVIDER
     )
+    return response
 
 
-def translate_content(content, output_lang):
+async def translate_content(content, output_lang):
     """Use GPT for translation"""
     translate_query = (
         f'翻譯以下 markdown 文本為{output_lang}語言，並且遵循以下規則:\n'
@@ -50,7 +52,7 @@ def translate_content(content, output_lang):
         f'{content}'
         '--------------------------------\n'
     )
-    response = chat_completion(translate_query)
+    response = await chat_completion(translate_query)
 
     check_query = (
         '原始問題與文本:\n'
@@ -59,7 +61,7 @@ def translate_content(content, output_lang):
         f'{response}\n'
         '請繼續完成未翻譯的部分，如果已經完成請回答None'
     )
-    check_response = chat_completion(check_query)
+    check_response = await chat_completion(check_query)
 
     if check_response != 'None':
         response = '\n' + check_response
@@ -76,7 +78,7 @@ def extract_prefix(filename):
     return prefix
 
 
-def main():
+async def main():
     git_diff_command = "git diff --name-only HEAD~1 HEAD"
     return_code, stdout, stderr = run_shell_command(git_diff_command)
 
@@ -96,10 +98,10 @@ def main():
         with open(file, "r", encoding="utf-8") as f:
             content = f.read()
 
-        def multi_exec(output_lang: str):
+        async def run(output_lang: str):
             if output_lang in file:
                 return
-            translated_content = translate_content(content, output_lang)
+            translated_content = await translate_content(content, output_lang)
             output_file = f'{prefix_path}README.{output_lang}.md'
             output_file = output_file.replace('.en', '')
 
@@ -107,14 +109,9 @@ def main():
                 f.write(translated_content)
             print(f"Translated content written to {output_file}")
 
-        try:
-            with ThreadPool(10) as pool:
-                pool.map(multi_exec, LAGNS)
-        except Exception as e:
-            # Use single thread if multithread have some problem
-            print('Thread Wrong:', e)
-            [multi_exec(output_lang) for output_lang in LAGNS]
+        tasks = [run(output_lang) for output_lang in LAGNS]
+        await asyncio.gather(*tasks)
 
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())
