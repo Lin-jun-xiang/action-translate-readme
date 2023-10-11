@@ -17,8 +17,8 @@
 
 * 例如: **撰寫**或**修改**英文版README，自動生成繁體中文、簡體中文、法文...等版本 README
 
-備註: v1版本的翻譯器是透過 `Linux` 第三方套件實現；v2版本是透過 [`g4f`](https://github.com/xtekky/gpt4free) 免費調用 openai api 實現翻譯
-
+> [!NOTE]
+> `v1`版本的翻譯器是透過 `Linux` 第三方套件實現；`v2`版本是透過 [`g4f`](https://github.com/xtekky/gpt4free) 免費調用 openai api 實現翻譯
 
 # How to use ?
 
@@ -82,6 +82,9 @@
       * `"French,Arabic"`: 翻譯法文、阿拉伯文
 
 4. 現在你可以更新 `README.md`,它會自動生成一個翻譯版本！
+
+> [!IMPORTANT]
+> 由於 `gpt3.5` 屬於生成式 AI 模型，因此每次翻譯結果都有機率出現問題，建議使用分支測試，並多嘗試幾次。
 
 ---
 

@@ -7,49 +7,49 @@
 * [عربى](README.Arabic.md)
 
 
-# 介紹
+# 介绍
 
-* 我們都知道寫README文檔很費時間,但是現在有一個解決方案可以讓你節省一半的時間. 這就是我們的`action-translate-readme`
+* 我们都知道写README文档很费时间,但是现在有一个解决方案可以让你节省一半的时间. 这就是我们的`action-translate-readme`
 
-* 通過 `gpt3.5` 翻譯不同語言版本的 README
+* 通过 `gpt3.5` 翻译不同语言版本的 README
 
-* 透過 **Github Actions(CI/CD) 自動提交(commit、push)** 翻譯後的檔案
+* 通过 **Github Actions(CI/CD) 自动提交(commit、push)** 翻译后的文件
 
-* 例如: **撰寫**或**修改**英文版README，自動生成繁體中文、簡體中文、法文...等版本 README
+* 例如: **撰写**或**修改**英文版README，自动生成繁体中文、简体中文、法文...等版本 README
 
-備註: v1版本的翻譯器是透過 `Linux` 第三方套件實現；v2版本是透過 [`g4f`](https://github.com/xtekky/gpt4free) 免費調用 openai api 實現翻譯
-
+> [!NOTE]
+> `v1`版本的翻译器是通过 `Linux` 第三方套件实现；`v2`版本是通过 [`g4f`](https://github.com/xtekky/gpt4free) 免费调用 openai api 实现翻译
 
 # 如何使用 ?
 
-1. 單擊 :star: 圖標將此項目添加到您的 Github 存儲庫 .
+1. 点击 :star: 图标将此项目添加到您的 Github 存储库 .
 
-2. 設置你的 `Github Token`:
+2. 设置你的 `Github Token`:
 
-    * [創建一個新的 **`Github Secret Token`**](https://github.com/settings/tokens/new)
-        * 設置
-        * 開發者設置
-        * 個人訪問令牌 - `Tokens(classic)`
+    * [创建一个新的 **`Github Secret Token`**](https://github.com/settings/tokens/new)
+        * 设置
+        * 开发者设置
+        * 个人访问令牌 - `Tokens(classic)`
         * 生成新令牌
-        * 選擇範圍:`repo` 和 `workflow`
-        * **保留**你的secret token(不要丟了,以後需要貼上)
+        * 选择范围:`repo` 和 `workflow`
+        * **保留**你的secret token(不要丢了,以后需要贴上)
   
         <img src="https://github.com/Lin-jun-xiang/action-translate-readme/assets/63782903/b7487b49-817c-4925-b94a-bdb7b025a0c2" width=" 60%" />
 
-    * 創建一個新的 **`repository secret`**
-        * 在您的存儲庫中 - `settings`
+    * 创建一个新的 **`repository secret`**
+        * 在您的存储库中 - `settings`
         * `Securits and variables`
         * `Actions`
         * `New repository secret`
-        * 按`token`填寫標籤並命名(eg: `Action_Bot`)
+        * 按`token`填写标签并命名(eg: `Action_Bot`)
 
         <img src="https://github.com/Lin-jun-xiang/action-translate-readme/assets/63782903/27dc7bcd-633f-431e-98e8-387b97ecd47c" width=" 60%" />
 
-3. 在目錄 `.github/workflows/your_action.yml`. 中創建您的操作示例，你可以直接複製以下:
+3. 在目录 `.github/workflows/your_action.yml`. 中创建您的操作示例，你可以直接复制以下:
 
     ```
     # .github/workflows/translate.yml
-    name: 翻譯 README
+    name: Translate Readme
 
     on:
         push:
@@ -59,32 +59,32 @@
         translate:
             runs-on: ubuntu-latest
             steps:
-                - name: 检出
+                - name: Checkout
                   uses: actions/checkout@v3
                   with:
                     fetch-depth: 3
 
-                - name: 自動翻譯
-                  uses: Lin-jun-xiang/action-translate-readme@v2 # 根據 tag 確定版本
+                - name: Auto Translate
+                  uses: Lin-jun-xiang/action-translate-readme@v2 # Based on the tag
                   with:
-                    token: ${{ secrets.Action_Bot }} # 根據步驟2名稱
-                    g4f_provider: g4f.Provider.DeepAi # 你能改變provider
-                    langs: "en,zh-TW,zh-CN,French,Arabic" # 定義任何需要的語言版本，必須用`,`分隔不同語言，例如:
-      * `"en"`: 僅翻譯英文版
-      * `"en,zh-TW"`: 翻譯英文、繁體中文
-      * `"French,Arabic"`: 翻譯法文、阿拉伯文
+                    token: ${{ secrets.Action_Bot }} # Based on step2 name
+                    g4f_provider: g4f.Provider.DeepAi # You can change this provider
+                    langs: "en,zh-TW,zh-CN,French,Arabic" # You can define any langs
     ```
 
-    在`.yml`中有三個參數要特別注意:
+    在`.yml`中有三个参数要特别注意:
 
-    * `token`: 根據步驟2，在repos中建立的token
-    * `g4f_provider`: gpt 的提供者，更多請參考[連結](https://github.com/xtekky/gpt4free/tree/main#gpt-35--gpt-4)
-    * `langs`: 想要產生的語言版本，務必用`,`分隔不同語言，例如:
-      * `"en"`: 僅翻譯英文版
-      * `"en,zh-TW"`: 翻譯英文、繁體中文
-      * `"French,Arabic"`: 翻譯法文、阿拉伯文
+    * `token`: 根据步骤2，在repos中建立的token
+    * `g4f_provider`: gpt 的提供者，更多请参考[链接](https://github.com/xtekky/gpt4free/tree/main#gpt-35--gpt-4)
+    * `langs`: 想要生成的语言版本，务必用`,`分隔不同语言，例如:
+      * `"en"`: 仅翻译英文版
+      * `"en,zh-TW"`: 翻译英文、繁体中文
+      * `"French,Arabic"`: 翻译法文、阿拉伯文
 
-4. 現在你可以更新 `README.md`,它會自動生成一個翻譯版本！
+4. 现在你可以更新 `README.md`,它会自动生成一个翻译版本！
+
+> [!IMPORTANT]
+> 由于 `gpt3.5` 属于生成式 AI 模型，因此每次翻译结果都有机率出现问题，建议使用分支测试，并多尝试几次。
 
 ---
 
@@ -94,9 +94,10 @@
 
 ---
 
-# 測試文檔結果
+# 测试文档的结果
 
-* 查看[測試文檔](https://github.com/Lin-jun-xiang/vscode-extensions-best/tree/main)
-* 使用我們的工具更新測試文檔
+* 查看[测试文档](https://github.com/Lin-jun-xiang/vscode-extensions-best/tree/main)
+* 使用我们的工具更新测试文档
 
-<a href="#top">返回頂部</a>
+<a href="#top">返回顶部</a>
+--------------------------------
