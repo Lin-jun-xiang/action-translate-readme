@@ -9,6 +9,10 @@
 
 # Introduction
 
+> [!NOTE]
+> `v1`版本的翻譯器是透過 `Linux` 第三方套件實現；`v2`版本是透過 [`g4f`](https://github.com/xtekky/gpt4free) 免費調用 openai api 實現翻譯
+
+
 * 我們都知道寫README文檔很費時間,但是現在有一個解決方案可以讓你節省一半的時間. 這就是我們的`action-translate-readme`
 
 * 通過 `gpt3.5` 翻譯不同語言版本的 README
@@ -17,10 +21,15 @@
 
 * 例如: **撰寫**或**修改**英文版README，自動生成繁體中文、簡體中文、法文...等版本 README
 
-> [!NOTE]
-> `v1`版本的翻譯器是透過 `Linux` 第三方套件實現；`v2`版本是透過 [`g4f`](https://github.com/xtekky/gpt4free) 免費調用 openai api 實現翻譯
 
 # How to use ?
+
+
+> [!IMPORTANT]
+> 由於 `gpt3.5` 屬於生成式 AI 模型，因此每次翻譯結果都有機率出現問題，建議使用分支測試，並多嘗試幾次。
+
+> [!WARNING]
+> 如果你遇到如下錯誤: `Error: Input required and not supplied: token`，請根據步驟二確定已建立 `Token`，或者 `Token` 是否已經過期!
 
 1. 單擊 :star: 圖標將此項目添加到您的 Github 存儲庫 .
 
@@ -31,6 +40,7 @@
         * 開發者設置
         * 個人訪問令牌 - `Tokens(classic)`
         * 生成新令牌
+        * 選擇令牌**生命週期** - 建議直接使用**無限期**
         * 選擇範圍:`repo` 和 `workflow`
         * **保留**你的secret token(不要丟了,以後需要貼上)
   
@@ -82,9 +92,6 @@
       * `"French,Arabic"`: 翻譯法文、阿拉伯文
 
 4. 現在你可以更新 `README.md`,它會自動生成一個翻譯版本！
-
-> [!IMPORTANT]
-> 由於 `gpt3.5` 屬於生成式 AI 模型，因此每次翻譯結果都有機率出現問題，建議使用分支測試，並多嘗試幾次。
 
 ---
 
