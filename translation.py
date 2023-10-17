@@ -81,9 +81,14 @@ def extract_prefix(filename: str) -> str:
 
 
 async def main():
+    git_last_commit_message = "git show -s --format=%s"
+    last_commit_message = run_shell_command(git_last_commit_message)[1].strip()
+    if last_commit_message == "Auto-translate README":
+        print('Auto translated, skip translate...')
+        return
+
     git_diff_command = "git diff --name-only HEAD~1 HEAD"
     return_code, stdout, stderr = run_shell_command(git_diff_command)
-
     if return_code != 0:
         print('no file changed.')
         return
