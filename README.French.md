@@ -9,39 +9,48 @@
 
 # Introduction
 
-* Nous savons tous que rédiger une documentation README prend du temps, mais il existe maintenant une solution qui vous permet d'économiser la moitié de votre temps. C'est notre `action-translate-readme`
-
-* Traduisez les différentes versions de README dans différentes langues avec `gpt3.5`
-
-* Soumettez automatiquement les fichiers traduits via **Github Actions (CI/CD)** (commit, push)
-
-* Par exemple : **écrire** ou **modifier** la version anglaise du README, générer automatiquement les versions en chinois traditionnel, en chinois simplifié, en français, etc.
-
 > [!NOTE]
-> La version `v1` du traducteur est implémentée via un package tiers `Linux` ; la version `v2` est implémentée via l'appel gratuit de l'API openai de [`g4f`](https://github.com/xtekky/gpt4free) pour la traduction
+> La version `v1` du traducteur est implémentée à l'aide d'un package tiers `Linux`; la version `v2` est mise en œuvre en appelant gratuitement l'API openai à l'aide de [`g4f`](https://github.com/xtekky/gpt4free).
+
+
+* Nous savons tous que rédiger une documentation README prend beaucoup de temps, mais il existe maintenant une solution qui vous permet d'économiser la moitié de votre temps. C'est notre `action-translate-readme`.
+
+* Traduisez différentes versions de README dans différentes langues en utilisant `gpt3.5`.
+
+* Soumettez automatiquement (commit, push) les fichiers traduits à l'aide de **Github Actions (CI/CD)**.
+
+* Par exemple: **Écrivez** ou **modifiez** la version anglaise de README, et les versions en chinois traditionnel, en chinois simplifié, en français, etc., seront générées automatiquement.
+
 
 # Comment utiliser ?
+
+> [!IMPORTANT]
+> Comme `gpt3.5` est un modèle d'IA génératif, il y a une probabilité que chaque résultat de traduction présente des problèmes. Il est recommandé de tester sur une branche et d'essayer plusieurs fois.
+
+> [!WARNING]
+> Si vous rencontrez l'erreur suivante : `Error: Input required and not supplied: token`, veuillez suivre l'étape 2 pour vérifier si vous avez créé le `Token` ou si le `Token` est expiré !
 
 1. Cliquez sur l'icône :star: pour ajouter ce projet à votre dépôt Github.
 
 2. Configurez votre `Github Token` :
 
     * [Créez un nouveau **`Github Secret Token`**](https://github.com/settings/tokens/new)
-        * Configurez
-        * Paramètres du développeur
-        * Jeton d'accès personnel - `Tokens(classic)`
+        * Réglages
+        * Réglages développeur
+        * Jetons d'accès personnels - `Tokens(classic)`
         * Générer un nouveau jeton
+        * Choisissez la **durée de vie** du jeton - il est recommandé d'utiliser **illimité**
         * Choisissez les autorisations : `repo` et `workflow`
-        * **Conservez** votre jeton secret (ne le perdez pas, vous en aurez besoin plus tard)
+        * **Conservez** votre secret token (ne le perdez pas, vous en aurez besoin plus tard)
   
         <img src="https://github.com/Lin-jun-xiang/action-translate-readme/assets/63782903/b7487b49-817c-4925-b94a-bdb7b025a0c2" width=" 60%" />
 
     * Créez un nouveau **`repository secret`**
-        * Dans votre dépôt - `settings`
-        * `Securits and variables`
-        * `Actions`
-        * `New repository secret`
-        * Remplissez l'étiquette avec `token` et donnez-lui un nom (par exemple : `Action_Bot`)
+        * Dans votre dépôt - Paramètres
+        * Sécurité et variables
+        * Actions
+        * Nouveau secret de dépôt
+        * Étiquetez et nommez le secret (par ex : `Action_Bot`)
 
         <img src="https://github.com/Lin-jun-xiang/action-translate-readme/assets/63782903/27dc7bcd-633f-431e-98e8-387b97ecd47c" width=" 60%" />
 
@@ -65,26 +74,23 @@
                     fetch-depth: 3
 
                 - name: Auto Translate
-                  uses: Lin-jun-xiang/action-translate-readme@v2 # Based on the tag
+                  uses: Lin-jun-xiang/action-translate-readme@v2 # Basé sur le tag
                   with:
-                    token: ${{ secrets.Action_Bot }} # Based on step2 name
-                    g4f_provider: g4f.Provider.DeepAi # You can change this provider
-                    langs: "en,zh-TW,zh-CN,French,Arabic" # You can define any langs
+                    token: ${{ secrets.Action_Bot }} # Basé sur le nom de l'étape 2
+                    g4f_provider: g4f.Provider.DeepAi # Vous pouvez changer ce fournisseur
+                    langs: "en,zh-TW,zh-CN,French,Arabic" # Vous pouvez définir n'importe quelles langues
     ```
 
-    Il y a trois paramètres importants dans le fichier `.yml` :
+    Il y a trois paramètres dans le `.yml` à noter :
 
-    * `token` : le token que vous avez créé dans le dépôt lors de l'étape 2
-    * `g4f_provider` : le fournisseur de gpt, pour plus d'informations, veuillez consulter le [lien](https://github.com/xtekky/gpt4free/tree/main#gpt-35--gpt-4)
+    * `token` : le token créé dans l'étape 2 dans le repo
+    * `g4f_provider` : le fournisseur de gpt, pour en savoir plus, veuillez consulter le [lien](https://github.com/xtekky/gpt4free/tree/main#gpt-35--gpt-4)
     * `langs` : les versions linguistiques que vous souhaitez générer, veillez à séparer les différentes langues par des virgules, par exemple :
       * `"en"` : traduire uniquement la version anglaise
-      * `"en,zh-TW"` : traduire en anglais et en chinois traditionnel
-      * `"French,Arabic"` : traduire en français et en arabe
+      * `"en,zh-TW"` : traduire l'anglais et le chinois traditionnel
+      * `"French,Arabic"` : traduire le français et l'arabe
 
-4. Vous pouvez maintenant mettre à jour le fichier `README.md`, il générera automatiquement une version traduite !
-
-> [!IMPORTANT]
-> Étant donné que `gpt3.5` est un modèle d'IA génératif, il y a toujours une probabilité que les résultats de la traduction soient incorrects. Nous vous recommandons de tester sur une branche et d'essayer plusieurs fois.
+4. Maintenant, vous pouvez mettre à jour `README.md`, et une version traduite sera générée automatiquement !
 
 ---
 
