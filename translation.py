@@ -6,6 +6,8 @@ import subprocess
 import g4f
 from tenacity import retry, stop_after_attempt
 
+g4f.debug.logging = True
+
 LAGNS = os.environ.get('LANGS').split(',')
 
 PROVIDER_MAPPING = {
