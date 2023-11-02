@@ -60,20 +60,13 @@ async def translate_content(content: str, output_lang: str) -> str:
         '3. Translate all the content of the text accurately, preserving line breaks.\n'
         '4. Display all punctuation marks and parentheses in half-width characters.\n'
         '5. Avoid translate the text in code block or inline code.\n'
+        '6. Avoid using the ```markdown ``` code block notation.\n'
         '--------------------------------\n'
         f'{content}'
         '--------------------------------\n'
         'Output the result in "markdown code" format:\n'
     )
     response = await chat_completion(translate_query)
-
-    refine_query = (
-        '請注意文本是否為 markdown，如果不是請替我做些微修正。\n'
-        '並且文本中不要出現```markdown ```的code block標示，直接將文本輸出，文本如下:\n'
-        '--------------------------------\n'
-        f'{response}'
-    )
-    response = await chat_completion(refine_query)
 
     print(f'\033[36mResponse:\n{response}\033[0m')
 
