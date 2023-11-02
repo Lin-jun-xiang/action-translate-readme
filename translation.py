@@ -103,6 +103,10 @@ async def main():
 
         prefix_path = extract_prefix(file)
 
+        if not os.path.exists(file):
+            print(f'{file} was delete in this commit')
+            continue
+
         with open(file, "r", encoding="utf-8") as f:
             content = f.read()
 
