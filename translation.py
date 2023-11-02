@@ -98,8 +98,7 @@ async def main():
     modified_files = stdout.split("\n")
     for file in modified_files:
         if "README" not in file:
-            print('no README changed.')
-            return
+            continue
         print(f'{file} changed.')
 
         prefix_path = extract_prefix(file)
