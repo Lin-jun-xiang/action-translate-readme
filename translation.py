@@ -6,6 +6,8 @@ import subprocess
 import g4f
 from tenacity import retry, stop_after_attempt
 
+g4f.debug.logging = True
+
 LAGNS = os.environ.get('LANGS').split(',')
 
 PROVIDER_MAPPING = {
@@ -58,12 +60,12 @@ async def translate_content(content: str, output_lang: str) -> str:
         '3. Translate all the content of the text accurately, preserving line breaks.\n'
         '4. Display all punctuation marks and parentheses in half-width characters.\n'
         '5. Avoid translate the text in code block or inline code.\n'
+        '6. Avoid using the ```markdown ``` code block notation.\n'
         '--------------------------------\n'
         f'{content}'
         '--------------------------------\n'
         'Output the result in "markdown code" format:\n'
     )
-
     response = await chat_completion(translate_query)
 
     print(f'\033[36mResponse:\n{response}\033[0m')
@@ -96,11 +98,14 @@ async def main():
     modified_files = stdout.split("\n")
     for file in modified_files:
         if "README" not in file:
-            print('no README changed.')
-            return
+            continue
         print(f'{file} changed.')
 
         prefix_path = extract_prefix(file)
+
+        if not os.path.exists(file):
+            print(f'{file} was delete in this commit')
+            continue
 
         with open(file, "r", encoding="utf-8") as f:
             content = f.read()
