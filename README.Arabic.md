@@ -1,5 +1,9 @@
 # action-translate-readme
 
+<p align="center">
+    <img src="img/2023-11-13-16-50-04.png" width="60%"/>
+</p>
+
 * [English](README.md)
 * [繁體中文版README.md](README.zh-TW.md)
 * [简体中文](README.zh-CN.md)
