@@ -4,11 +4,12 @@ import re
 import subprocess
 
 import g4f
-from tenacity import retry, stop_after_attempt
+from openai import AsyncOpenAI
 
 g4f.debug.logging = True
 
 LAGNS = os.environ.get('LANGS').split(',')
+OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY')
 
 PROVIDER_MAPPING = {
     f'g4f.Provider.{provider}': getattr(g4f.Provider, provider)
@@ -20,27 +21,34 @@ except:
     PROVIDER = None
 
 
-def run_shell_command(command: str) -> tuple:
-    result = subprocess.run(
-        command,
-        shell=True,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-        text=True
-    )
-    return result.returncode, result.stdout, result.stderr
+class Chat:
+    @staticmethod
+    async def g4f_chat_completion(query: str) -> str:
+        """Use gpt4free"""
+        try:
+            response = await g4f.ChatCompletion.create_async(
+                model=g4f.models.gpt_35_long,
+                messages=[{"role": "user", "content": query}],
+                provider=PROVIDER
+            )
+            return response
+        except Exception as e:
+            print(e)
 
-
-@retry(stop=stop_after_attempt(15))
-async def chat_completion(query: str) -> str:
-    response = await g4f.ChatCompletion.create_async(
-        model=g4f.models.gpt_35_long,
-        messages=[{"role": "user", "content": query}],
-        provider=PROVIDER
-    )
-    if response == '' or response is None:
-        raise Exception
-    return response
+    @staticmethod
+    async def openai_chat_completion(query: str) -> str:
+        """Use openai api"""
+        try:
+            client = AsyncOpenAI(
+                api_key=OPENAI_API_KEY,
+            )
+            response = await client.chat.completions.create(
+                messages=[{"role": "user", "content": query}],
+                model="gpt-3.5-turbo-16K",
+            )
+            return response
+        except Exception as e:
+            print(e)
 
 
 async def translate_content(content: str, output_lang: str) -> str:
@@ -66,11 +74,24 @@ async def translate_content(content: str, output_lang: str) -> str:
         '--------------------------------\n'
         'Output the result in "markdown code" format:\n'
     )
-    response = await chat_completion(translate_query)
-
+    response = (
+        await Chat.g4f_chat_completion(translate_query) or
+        await Chat.openai_chat_completion(translate_query)
+    )
     print(f'\033[36mResponse:\n{response}\033[0m')
 
     return response
+
+
+def run_shell_command(command: str) -> tuple:
+    result = subprocess.run(
+        command,
+        shell=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        text=True
+    )
+    return result.returncode, result.stdout, result.stderr
 
 
 def extract_prefix(filename: str) -> str:
@@ -90,7 +111,7 @@ async def main():
         return
 
     git_diff_command = "git diff --name-only HEAD~1 HEAD"
-    return_code, stdout, stderr = run_shell_command(git_diff_command)
+    return_code, stdout, _ = run_shell_command(git_diff_command)
     if return_code != 0:
         print('no file changed.')
         return

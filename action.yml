@@ -13,11 +13,14 @@ inputs:
     description: 'Secrets Token to authorize bot account'
     required: true
   g4f_provider:
-    description: 'gp4free provider'
-    required: true
+    description: 'gpt4free provider'
+    required: false
   langs:
     description: 'Languages for README'
     required: true
+  openai_api_key:
+    description: 'If you want to use the openai gpt3.5 instead of gpt4free, you should pass the key.'
+    required: false
 
 runs:
       using: "composite"
@@ -39,6 +42,7 @@ runs:
             pip install PyExecJS
             pip install -U g4f
             pip install --upgrade tenacity
+            pip install openai
 
         - name: Translate README
           shell: bash
@@ -46,6 +50,7 @@ runs:
           run: |
             export PROVIDER=${{ inputs.g4f_provider }}
             export LANGS=${{ inputs.langs }}
+            export OPENAI_API_KEY=${{ inputs.openai_api_key }}
             python $GITHUB_ACTION_PATH/translation.py
 
         - name: Git Commit

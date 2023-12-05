@@ -61,7 +61,7 @@
 
 3. 在目錄 `.github/workflows/your_action.yml`. 中創建您的操作示例，你可以直接複製以下:
 
-    ```
+    ```yaml
     # .github/workflows/translate.yml
     name: Translate Readme
 
@@ -84,16 +84,18 @@
                     token: ${{ secrets.Action_Bot }} # Based on step2 name
                     g4f_provider: g4f.Provider.DeepAi # You can change this provider
                     langs: "en,zh-TW,zh-CN,French,Arabic" # You can define any langs
+                  # openai_api_key: ${{ secrets.OPENAI_API_KEY }} # If you pass the openai api key, it'll use openai gpt instead of gpt4free
     ```
 
-    在`.yml`中有三個參數要特別注意:
-
-    * `token`: 根據步驟2，在repos中建立的token
-    * `g4f_provider`: gpt 的提供者，更多請參考[連結](https://github.com/xtekky/gpt4free/tree/main#gpt-35--gpt-4)
-    * `langs`: 想要產生的語言版本，務必用`,`分隔不同語言，例如:
-      * `"en"`: 僅翻譯英文版
-      * `"en,zh-TW"`: 翻譯英文、繁體中文
-      * `"French,Arabic"`: 翻譯法文、阿拉伯文
+> [!NOTE]
+> 在`.yml`中有幾個參數要特別注意:
+> * `token` **(必須)**: 根據步驟2，在repos中建立的token
+> * `g4f_provider` **(可選)**: gpt 的提供者，更多請參考[連結](https://github.com/xtekky/gpt4free/tree/main#gpt-35--gpt-4)
+> * `langs` **(必須)**: 想要產生的語言版本，務必用`,`分隔不同語言，例如:
+>   * `"en"`: 僅翻譯英文版
+>   * `"en,zh-TW"`: 翻譯英文、繁體中文
+>   * `"French,Arabic"`: 翻譯法文、阿拉伯文
+> * `openai_api_key` **(可選)**: 如果你想使用 openai api 的 gpt，您可以依照步驟2建立token一樣，建立一個 openai api key，**切記不要直接把 key 放在 yml 檔案中，造成資料外洩!**
 
 4. 現在你可以更新 `README.md`,它會自動生成一個翻譯版本！
 
