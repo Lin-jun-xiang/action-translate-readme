@@ -17,5 +17,4 @@ jobs:
         uses: ./
         with:
           token: ${{ secrets.Action_Bot }} # Your token
-          g4f_provider: g4f.Provider.DeepAi # You can change this provider
           langs: "en,zh-TW,zh-CN,French,Arabic" # You can define any langs

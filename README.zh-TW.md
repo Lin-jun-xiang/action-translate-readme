@@ -82,14 +82,12 @@
                   uses: Lin-jun-xiang/action-translate-readme@v2 # Based on the tag
                   with:
                     token: ${{ secrets.Action_Bot }} # Based on step2 name
-                    g4f_provider: g4f.Provider.DeepAi # You can change this provider
                     langs: "en,zh-TW,zh-CN,French,Arabic" # You can define any langs
     ```
 
     在`.yml`中有三個參數要特別注意:
 
     * `token`: 根據步驟2，在repos中建立的token
-    * `g4f_provider`: gpt 的提供者，更多請參考[連結](https://github.com/xtekky/gpt4free/tree/main#gpt-35--gpt-4)
     * `langs`: 想要產生的語言版本，務必用`,`分隔不同語言，例如:
       * `"en"`: 僅翻譯英文版
       * `"en,zh-TW"`: 翻譯英文、繁體中文

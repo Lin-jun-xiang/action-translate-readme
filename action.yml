@@ -37,6 +37,7 @@ runs:
           shell: bash
           run: |
             pip install PyExecJS
+            pip install nest_asyncio
             pip install -U g4f
             pip install --upgrade tenacity
 
@@ -44,7 +45,6 @@ runs:
           shell: bash
           working-directory: .
           run: |
-            export PROVIDER=${{ inputs.g4f_provider }}
             export LANGS=${{ inputs.langs }}
             python $GITHUB_ACTION_PATH/translation.py
 

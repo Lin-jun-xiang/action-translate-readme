@@ -4,20 +4,12 @@ import re
 import subprocess
 
 import g4f
+from g4f.client import AsyncClient
 from tenacity import retry, stop_after_attempt
 
 g4f.debug.logging = True
 
 LAGNS = os.environ.get('LANGS').split(',')
-
-PROVIDER_MAPPING = {
-    f'g4f.Provider.{provider}': getattr(g4f.Provider, provider)
-    for provider in g4f.Provider.__all__
-}
-try:
-    PROVIDER = PROVIDER_MAPPING[os.environ.get('PROVIDER')]
-except:
-    PROVIDER = None
 
 
 def run_shell_command(command: str) -> tuple:
@@ -33,14 +25,15 @@ def run_shell_command(command: str) -> tuple:
 
 @retry(stop=stop_after_attempt(15))
 async def chat_completion(query: str) -> str:
-    response = await g4f.ChatCompletion.create_async(
-        model=g4f.models.gpt_35_long,
+    client = AsyncClient()
+    
+    response = await client.chat.completions.create(
+        model="gpt-3.5-turbo",
         messages=[{"role": "user", "content": query}],
-        provider=PROVIDER
     )
     if response == '' or response is None:
         raise Exception
-    return response
+    return response.choices[0].message.content
 
 
 async def translate_content(content: str, output_lang: str) -> str:
