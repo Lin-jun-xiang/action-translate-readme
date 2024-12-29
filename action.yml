@@ -12,9 +12,6 @@ inputs:
   token:
     description: 'Secrets Token to authorize bot account'
     required: true
-  g4f_provider:
-    description: 'gp4free provider'
-    required: true
   langs:
     description: 'Languages for README'
     required: true
@@ -44,7 +41,6 @@ runs:
           shell: bash
           working-directory: .
           run: |
-            export PROVIDER=${{ inputs.g4f_provider }}
             export LANGS=${{ inputs.langs }}
             python $GITHUB_ACTION_PATH/translation.py
 
