@@ -10,15 +10,6 @@ g4f.debug.logging = True
 
 LAGNS = os.environ.get('LANGS').split(',')
 
-PROVIDER_MAPPING = {
-    f'g4f.Provider.{provider}': getattr(g4f.Provider, provider)
-    for provider in g4f.Provider.__all__
-}
-try:
-    PROVIDER = PROVIDER_MAPPING[os.environ.get('PROVIDER')]
-except:
-    PROVIDER = None
-
 
 def run_shell_command(command: str) -> tuple:
     result = subprocess.run(
@@ -34,9 +25,8 @@ def run_shell_command(command: str) -> tuple:
 @retry(stop=stop_after_attempt(15))
 async def chat_completion(query: str) -> str:
     response = await g4f.ChatCompletion.create_async(
-        model=g4f.models.gpt_35_long,
+        model="gpt-4o",
         messages=[{"role": "user", "content": query}],
-        provider=PROVIDER
     )
     if response == '' or response is None:
         raise Exception
