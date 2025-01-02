@@ -5,11 +5,12 @@ import subprocess
 
 import g4f
 from tenacity import retry, stop_after_attempt
+from zhipuai import ZhipuAI
 
 g4f.debug.logging = True
 
 LAGNS = os.environ.get('LANGS').split(',')
-
+ZHIPUAI_API_KEY = os.environ.get('ZHIPUAI_API_KEY', '')
 
 def run_shell_command(command: str) -> tuple:
     result = subprocess.run(
@@ -24,10 +25,17 @@ def run_shell_command(command: str) -> tuple:
 
 @retry(stop=stop_after_attempt(15))
 async def chat_completion(query: str) -> str:
-    response = await g4f.ChatCompletion.create_async(
-        model="gpt-4o",
-        messages=[{"role": "user", "content": query}],
-    )
+    response = ''
+    if not ZHIPUAI_API_KEY:
+        response = await g4f.ChatCompletion.create_async(
+            model="gpt-4o",
+            messages=[{"role": "user", "content": query}],
+        )
+    else:
+        response = ZhipuAI(api_key=ZHIPUAI_API_KEY).chat.asyncCompletions.create(
+            model="glm-4-plus",
+            messages=[{"role": "user", "content": query}]
+        )
     if response == '' or response is None:
         raise Exception
     return response

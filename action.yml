@@ -24,6 +24,7 @@ runs:
           with:
             fetch-depth: 3
             token: ${{ inputs.token }}
+            zhipuai: ${{ inputs.zhipuai }}
 
         - name: Set Up Python
           uses: actions/setup-python@v3
@@ -35,6 +36,7 @@ runs:
           run: |
             pip install PyExecJS
             pip install -U g4f
+            pip install -U zhipuai
             pip install --upgrade tenacity
 
         - name: Translate README
