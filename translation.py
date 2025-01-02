@@ -34,7 +34,7 @@ async def chat_completion(query: str) -> str:
         )
     else:
         print('Using zhipuai.')
-        response = ZhipuAI(api_key=ZHIPUAI_API_KEY).chat.asyncCompletions.create(
+        response = await ZhipuAI(api_key=ZHIPUAI_API_KEY).chat.asyncCompletions.create(
             model="glm-4-plus",
             messages=[{"role": "user", "content": query}]
         )
