@@ -23,7 +23,28 @@ def run_shell_command(command: str) -> tuple:
     return result.returncode, result.stdout, result.stderr
 
 
-@retry(stop=stop_after_attempt(15))
+async def async_zhipuai(query: str):
+    client = ZhipuAI(api_key=ZHIPUAI_API_KEY)
+
+    response = client.chat.asyncCompletions.create(
+        model="glm-4-plus",
+        messages=[{"role": "user", "content": query}],
+    )
+    task_id = response.id
+
+    task_status = ''
+    while task_status not in ('SUCCESS', 'FAILED'):
+        result_response = client.chat.asyncCompletions.retrieve_completion_result(
+            id=task_id
+        )
+        task_status = result_response.task_status
+
+        await asyncio.sleep(0.5)
+
+    return result_response
+
+
+@retry(stop=stop_after_attempt(5))
 async def chat_completion(query: str) -> str:
     response = ''
     if not ZHIPUAI_API_KEY:
@@ -34,10 +55,7 @@ async def chat_completion(query: str) -> str:
         )
     else:
         print('Using zhipuai.')
-        response = await ZhipuAI(api_key=ZHIPUAI_API_KEY).chat.asyncCompletions.create(
-            model="glm-4-plus",
-            messages=[{"role": "user", "content": query}]
-        )
+        response = async_zhipuai(query)
     if response == '' or response is None:
         raise Exception
     return response
