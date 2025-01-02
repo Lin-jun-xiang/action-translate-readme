@@ -27,11 +27,13 @@ def run_shell_command(command: str) -> tuple:
 async def chat_completion(query: str) -> str:
     response = ''
     if not ZHIPUAI_API_KEY:
+        print('Using g4f.')
         response = await g4f.ChatCompletion.create_async(
             model="gpt-4o",
             messages=[{"role": "user", "content": query}],
         )
     else:
+        print('Using zhipuai.')
         response = ZhipuAI(api_key=ZHIPUAI_API_KEY).chat.asyncCompletions.create(
             model="glm-4-plus",
             messages=[{"role": "user", "content": query}]
