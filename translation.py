@@ -55,7 +55,7 @@ async def chat_completion(query: str) -> str:
         )
     else:
         print('Using zhipuai.')
-        response = async_zhipuai(query)
+        response = await async_zhipuai(query)
     if response == '' or response is None:
         raise Exception
     return response
