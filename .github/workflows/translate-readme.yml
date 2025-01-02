@@ -18,4 +18,4 @@ jobs:
         with:
           token: ${{ secrets.Action_Bot }} # Your token
           zhipuai: ${{ secrets.zhipuai_api_key }} # Your zhipuai api key if use zhipuai instead of g4f
-          langs: "en,zh-TW,zh-CN,French,Arabic" # You can define any langs
+          langs: "en,zh-TW,zh-CN,French" # You can define any langs

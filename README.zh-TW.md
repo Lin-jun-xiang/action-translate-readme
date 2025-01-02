@@ -8,8 +8,6 @@
 * [繁體中文版README.md](README.zh-TW.md)
 * [简体中文](README.zh-CN.md)
 * [Française](README.French.md)
-* [عربى](README.Arabic.md)
-
 
 # Introduction
  
