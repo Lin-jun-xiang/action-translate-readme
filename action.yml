@@ -24,7 +24,6 @@ runs:
           with:
             fetch-depth: 3
             token: ${{ inputs.token }}
-            zhipuai: ${{ inputs.zhipuai }}
 
         - name: Set Up Python
           uses: actions/setup-python@v3
@@ -44,6 +43,7 @@ runs:
           working-directory: .
           run: |
             export LANGS=${{ inputs.langs }}
+            export ZHIPUAI_API_KEY=${{ inputs.zhipuai }}
             python $GITHUB_ACTION_PATH/translation.py
 
         - name: Git Commit
