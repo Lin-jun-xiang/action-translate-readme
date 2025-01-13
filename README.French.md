@@ -17,58 +17,63 @@
 
 * Nous savons tous que rédiger un README prend du temps, mais il existe maintenant une solution qui peut vous faire gagner la moitié de ce temps. C'est notre `action-translate-readme`
 
-* Traduire les versions de README dans différentes langues via une **IA générative**
+* Traduire les README dans différentes langues via une **IA générative**
 
 * Soumettre automatiquement (commit, push) les fichiers traduits via **Github Actions (CI/CD)**
 
-* Par exemple : **rédiger** ou **modifier** le README en anglais, générer automatiquement les versions en chinois traditionnel, chinois simplifié, français, etc.
+* Par exemple : **écrire** ou **modifier** le README en anglais, générer automatiquement les versions en chinois traditionnel, chinois simplifié, français, etc.
 
 
 # How to use ?
 
 > [!IMPORTANT]
-> Étant donné que les résultats de la traduction par le modèle d'IA générative peuvent être erronés à chaque tentative, il est recommandé de tester sur une branche et de réessayer plusieurs fois.
+> Étant donné que les résultats de la traduction par le modèle d'IA générative peuvent présenter des problèmes à chaque tentative, il est recommandé d'exécuter sur une branche et de fusionner ensuite avec la branche principale.
 
 > [!WARNING]
-> Si vous rencontrez l'erreur suivante : `Error: Input required and not supplied: token`, veuillez suivre les étapes ci-dessous pour vous assurer que le `Token` a été créé et qu'il n'a pas expiré !
+> Si vous rencontrez l'erreur suivante : `Error: Input required and not supplied: token`, veuillez suivre les étapes ci-dessous pour vous assurer que le `Token` a été créé, ou vérifiez si le `Token` a expiré !
 
 1. Cliquez sur l'icône :star: pour ajouter ce projet à votre dépôt Github.
 
-2. Configurez votre `Github Token`:
+2. Configurez votre `Github Token` (**obligatoire**) :
 
-    * [Créer un nouveau **`Github Secret Token`**](https://github.com/settings/tokens/new)
+    1. [Créer un nouveau **`Github Secret Token`**](https://github.com/settings/tokens/new)
         * Configuration
         * Paramètres du développeur
         * Jetons d'accès personnels - `Tokens(classic)`
         * Générer un nouveau jeton
-        * Choisir la **durée de vie** du jeton - Il est recommandé d'utiliser directement **illimité**
+        * Choisir la **durée de vie** du jeton - Il est recommandé d'utiliser **illimité**
         * Choisir les scopes : `repo` et `workflow`
         * **Conserver** votre secret token (ne le perdez pas, vous en aurez besoin plus tard)
   
         <img src="https://github.com/Lin-jun-xiang/action-translate-readme/assets/63782903/b7487b49-817c-4925-b94a-bdb7b025a0c2" width=" 60%" />
 
-    * Créer un nouveau **`repository secret`**
+    2. Ajoutez le Github Token aux **`repository secret`**
         * Dans votre dépôt - `settings`
-        * `Securities and variables`
+        * `Securits and variables`
         * `Actions`
         * `New repository secret`
-        * Remplir le libellé avec `token` et le nommer (par exemple : `Action_Bot`)
+        * Remplissez le label avec `token` et donnez-lui un nom (ex : `Action_Bot`)
 
         <img src="https://github.com/Lin-jun-xiang/action-translate-readme/assets/63782903/27dc7bcd-633f-431e-98e8-387b97ecd47c" width=" 60%" />
 
-3. Sélection du modèle GPT
+3. Choix du modèle de traduction GPT (**optionnel**)
    
-   * `g4f` : **Par défaut**, utilise `g4f` pour les appels OpenAI et réaliser la tâche de traduction.
-   * `zhipuai` : Si vous avez besoin d'une traduction stable, vous pouvez vous inscrire sur la [plateforme Zhipu AI](https://open.bigmodel.cn/dev/howuse/introduction) et [demander un API KEY](https://open.bigmodel.cn/usercenter/proj-mgmt/apikeys). C'est une solution GPT entièrement gratuite, sans besoin de carte de crédit.
-     * Pour utiliser cette solution, veuillez suivre les étapes de la création du Github Token et ajouter l'API KEY de Zhipu AI dans le Repo en tant que variable d'environnement.
+   * `g4f` : **Par défaut**, utilise **gratuitement** `g4f` pour les appels OpenAI et réaliser les tâches de traduction.
+   * `zhipuai` : Si vous avez besoin d'une traduction **gratuite et stable**, vous pouvez vous inscrire sur la [plateforme Zhipuai AI](https://open.bigmodel.cn/dev/howuse/introduction) et [demander un API KEY](https://open.bigmodel.cn/usercenter/proj-mgmt/apikeys). C'est une solution GPT entièrement gratuite, sans besoin de carte de crédit.
+     * Pour utiliser cette solution, veuillez ajouter l'API KEY de Zhipuai AI aux Secrets de GitHub Repos de la même manière que décrit dans **étape 2-2**.
 
         <img src="static/images/2025-01-02-11-25-45.png" width="60%" />
 
         <img src="static/images/2025-01-02-11-26-28.png" width="60%" />
 
-4. Créez votre exemple d'action dans le répertoire `.github/workflows/your_action.yml`. Vous pouvez directement copier ce qui suit:
+   * `openai` : **Garantit une qualité élevée et stable**, si vous avez un OPENAI API KEY, le modèle `gpt-4o` sera utilisé pour la traduction.
+     * Pour utiliser cette solution, veuillez ajouter l'API KEY d'OpenAI aux Secrets de GitHub Repos de la même manière que décrit dans **étape 2-2**.
 
-    ```
+        <img src="static/images/2025-01-13-10-13-51.png" width="60%" />
+
+4. Créez votre exemple d'action dans le répertoire `.github/workflows/your_action.yml`. Vous pouvez directement copier ce qui suit :
+
+    ```yaml
     # .github/workflows/translate.yml
     name: Translate Readme
 
@@ -89,20 +94,24 @@
                   uses: Lin-jun-xiang/action-translate-readme@v2 # Basé sur le tag
                   with:
                     token: ${{ secrets.Action_Bot }} # Basé sur le nom de l'étape 2
-                    zhipuai: ${{ secrets.zhipuai_api_key }} # Basé sur l'étape 3
+                    zhipuai: ${{ secrets.zhipuai_api_key }} # Optionnel : Basé sur l'étape 3
+                    openai: ${{ secrets.openai_api_key }}  # Optionnel : Basé sur l'étape 3
                     langs: "en,zh-TW,zh-CN,French,Arabic" # Vous pouvez définir n'importe quelles langues
     ```
 
-    Dans le `.yml`, trois paramètres nécessitent une attention particulière:
+    Dans le `.yml`, quelques paramètres nécessitent une attention particulière :
 
-    * `token` : Selon l'étape 2, le token créé dans les repos
-    * `zhipuai` : Le fournisseur de GPT, si fourni, utilise le modèle de la plateforme Zhipu AI, sinon utilise `g4f` par défaut, doit être créé dans les repos
-    * `langs` : Les versions linguistiques que vous souhaitez générer, veillez à les séparer par des `,`, par exemple :
+    * `token` : Le GitHub Token utilisé pour autoriser l'action (ajouté selon l'étape 2).
+    * `zhipuai` : API Zhipuai, ajoutée selon l'étape 3 (optionnel)
+    * `openai` : API OpenAI, ajoutée selon l'étape 3 (optionnel)
+    * `langs` : Langues à traduire, veillez à les séparer par des `,`, par exemple :
       * `"en"` : Traduire uniquement la version anglaise
-      * `"en,zh-TW"` : Traduire en anglais et en chinois traditionnel
-      * `"French,Arabic"` : Traduire en français et en arabe
+      * `"en,zh-TW"` : Traduire l'anglais et le chinois traditionnel
+      * `"French,Arabic"` : Traduire le français et l'arabe
 
-5. Maintenant, vous pouvez mettre à jour `README.md`, il générera automatiquement une version traduite !
+    > PS : Si ni `zhipuai`, ni `openai` n'ont été ajoutés aux Secrets de GitHub, `g4f` sera utilisé pour la traduction.
+
+5. Maintenant, vous pouvez mettre à jour `README.md`, une version traduite sera générée automatiquement !
 
 ---
 
@@ -111,10 +120,5 @@
 ![](./img/auto-translation.gif)
 
 ---
-
-# Résultats du Document de Test
-
-* Voir le [document de test](https://github.com/Lin-jun-xiang/vscode-extensions-best/tree/main)
-* Utiliser notre outil pour mettre à jour le document de test
 
 <a href="#top">Retour en haut</a>
