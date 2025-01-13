@@ -1,16 +1,16 @@
 # action-translate-readme
 
-<p align="center">
-    <img src="img/2023-11-13-16-50-04.png" width="60%"/>
-</p>
-
 * [English](README.md)
 * [繁體中文版README.md](README.zh-TW.md)
 * [简体中文](README.zh-CN.md)
 * [Française](README.French.md)
 
 # Introduction
-  
+
+**GitHub Action to translate Readme to any language**
+
+This is a GitHub Action that automatically translate the readme in your repo to a specified language.
+
 > [!NOTE]
 > `v1` version translator is implemented through `Linux` third-party package; `v2` version is implemented through generative AI for translation
 
