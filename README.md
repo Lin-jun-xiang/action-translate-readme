@@ -5,73 +5,73 @@
 </p>
 
 * [English](README.md)
-* [Traditional Chinese README.md](README.zh-TW.md)
-* [Simplified Chinese](README.zh-CN.md)
-* [French](README.French.md)
+* [繁體中文版README.md](README.zh-TW.md)
+* [简体中文](README.zh-CN.md)
+* [Française](README.French.md)
 
 # Introduction
- 
+  
 > [!NOTE]
-> The `v1` version of the translator is implemented through `Linux` third-party packages; the `v2` version is implemented through generative AI for translation.
+> `v1` version translator is implemented through `Linux` third-party package; `v2` version is implemented through generative AI for translation
 
 
-* We all know that writing README documents is time-consuming, but now there is a solution that can save you half the time. This is our `action-translate-readme`
+* We all know writing README documents is time-consuming, but now there's a solution to save you half the time. That's our `action-translate-readme`
 
 * Translate different language versions of README through **generative AI**
 
-* Automatically submit (commit, push) the translated files through **Github Actions (CI/CD)**
+* Automatically **commit and push** the translated files through **GitHub Actions (CI/CD)**
 
-* For example: **Writing** or **modifying** the English version README, automatically generate Traditional Chinese, Simplified Chinese, French, etc. versions of README
+* For example: **Write** or **Modify** the English version of the README, automatically generate Traditional Chinese, Simplified Chinese, French... and other versions of the README
 
 
 # How to use ?
 
 > [!IMPORTANT]
-> Since generative AI models may have issues with translation results each time, it is recommended to execute using branches and finally merge back to the main branch.
+> Since the result of the generative AI model's translation may have issues occasionally, it's recommended to perform operations on a branch and finally merge back to the main branch.
 
 > [!WARNING]
-> If you encounter the following error: `Error: Input required and not supplied: token`, please follow the steps below to ensure that a `Token` has been created, or check if the `Token` has expired!
+> If you encounter this error: `Error: Input required and not supplied: token`, please ensure that `Token` is established as per step two below, or check if the `Token` has expired!
 
-1. Click the :star: icon to add this project to your Github repository.
+1. Click the :star: icon to add this item to your GitHub repository.
 
-2. Set up your `Github Token` (**required**):
+2. Set up your `GitHub Token` (**mandatory**):
 
-    1. [Create a new **`Github Secret Token`**](https://github.com/settings/tokens/new)
+    1. [Create a new **`GitHub Secret Token`**](https://github.com/settings/tokens/new)
         * Settings
         * Developer settings
         * Personal access tokens - `Tokens(classic)`
         * Generate new token
-        * Select token **lifecycle** - recommended to use **unlimited**
-        * Select scope: `repo` and `workflow`
-        * **Keep** your secret token (do not lose it, you will need to paste it later)
+        * Choose token's **lifetime** - it's recommended to use **permanently**
+        * Scope selection: `repo` and `workflow`
+        * **Keep** your secret token (don’t lose it, you’ll need to paste it later)
   
-        <img src="https://github.com/Lin-jun-xiang/action-translate-readme/assets/63782903/b7487b49-817c-4925-b94a-bdb7b025a0c2" width=" 60%" />
+        <img src="https://github.com/Lin-jun-xiang/action-translate-readme/assets/63782903/b7487b49-817c-4925-b94a-bdb7b025a0c2" width="60%" />
 
-    2. Add Github Token to **`repository secret`**
+    2. Add the GitHub Token to **`repository secret`**
         * In your repository - `settings`
         * `Securities and variables`
         * `Actions`
         * `New repository secret`
-        * Fill in the label with `token` and name it (e.g., `Action_Bot`)
+        * Fill in the label and name it with `token` (e.g., `Action_Bot`)
 
-        <img src="https://github.com/Lin-jun-xiang/action-translate-readme/assets/63782903/27dc7bcd-633f-431e-98e8-387b97ecd47c" width=" 60%" />
+        <img src="https://github.com/Lin-jun-xiang/action-translate-readme/assets/63782903/27dc7bcd-633f-431e-98e8-387b97ecd47c" width="60%" />
 
-3. GPT Translation Model Selection (**optional**)
+3. Choose GPT translation model (**optional**)
    
-   * `g4f`: **Default** uses **free** `g4f` for OpenAI calls and completes translation tasks.
-   * `zhipuai`: If you need **free and stable translation**, you can register an account on the [Zhipuai AI platform](https://open.bigmodel.cn/dev/howuse/introduction) and [apply for an API KEY](https://open.bigmodel.cn/usercenter/proj-mgmt/apikeys). This is a completely free, no credit card required GPT model solution.
-     * To use this solution, please follow the method in **step 2-2** to add the Github Token, and add the **Zhipuai AI API KEY to the GitHub Repos Secrets**.
+   * `g4f`: **Default** is to use **free** `g4f` for OpenAI calls to complete translation tasks.
+   * `zhipuai`: If you need **free and stable translation**, you can register an account on the [Zhipuai AI Platform](https://open.bigmodel.cn/dev/howuse/introduction) and [apply for an API KEY](https://open.bigmodel.cn/usercenter/proj-mgmt/apikeys), which is a completely free GPT model without requiring a credit card.
+     * To use this option, please follow the method of adding GitHub Token in **step 2-2**, and add **API KEY of Zhipuai AI to GitHub Repos' Secrets**.
 
         <img src="static/images/2025-01-02-11-25-45.png" width="60%" />
 
         <img src="static/images/2025-01-02-11-26-28.png" width="60%" />
 
-   * `openai`: **Guaranteed high quality and stable quality**, if you have an OPENAI API KEY, `gpt-4o` will be used as the translation model.
-     * To use this solution, please follow the method in **step 2-2** to add the Github Token, and add the **OpenAI API KEY to the GitHub Repos Secrets**.
+   * `openai`: **Guarantee high quality and stable quality**, if you have an OPENAI API KEY, `gpt-4o` will be used as the translation model.
+     * To use this option, please follow the method of adding GitHub Token in **step 2-2**, and add **API KEY of OpenAI to GitHub Repos' Secrets**.
 
         <img src="static/images/2025-01-13-10-13-51.png" width="60%" />
 
-4. Create your action example in the directory `.github/workflows/your_action.yml`. You can directly copy the following:
+4. Create your action example in `.github/workflows/your_action.yml`. You can directly copy the following:
 
     ```yaml
     # .github/workflows/translate.yml
@@ -99,19 +99,19 @@
                     langs: "en,zh-TW,zh-CN,French,Arabic" # You can define any langs
     ```
 
-    There are a few parameters in the `.yml` to pay special attention to:
+    Pay attention to several parameters in the `.yml`:
 
-    * `token`: GitHub Token used for authorization (added according to step 2).
-    * `zhipuai`: Zhipuai API, added according to step 3 (optional)
-    * `openai`: OpenAI API, added according to step 3 (optional)
-    * `langs`: Specify the languages to translate, make sure to separate different languages with `,`, for example:
-      * `"en"`: Translate only the English version
-      * `"en,zh-TW"`: Translate English and Traditional Chinese
-      * `"French,Arabic"`: Translate French and Arabic
+    * `token`: GitHub Token for authorizing the operation (added as per step two).
+    * `zhipuai`: Zhipuai API, added as per step three (optional)
+    * `openai`: OpenAI API, added as per step three (optional)
+    * `langs`: Specify the languages to be translated, be sure to separate different languages with `,` such as:
+      * `"en"`: Translate English version only
+      * `"en,zh-TW"`: Translate English, Traditional Chinese
+      * `"French,Arabic"`: Translate French, Arabic
 
     > PS: If neither `zhipuai` nor `openai` is added to GitHub Secrets, `g4f` will be used for translation.
 
-5. Now you can update `README.md`, it will automatically generate a translated version!
+5. Now you can update `README.md`, and it will automatically generate a translated version!
 
 ---
 
