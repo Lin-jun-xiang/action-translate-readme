@@ -119,6 +119,8 @@
 
 ![](./img/auto-translation.gif)
 
----
+# Results of Test Document
+
+* View the [test document](https://github.com/Lin-jun-xiang/chatgpt-line-bot) which used our tool to update the documents.
 
 <a href="#top">Back to top</a>
