@@ -17,5 +17,6 @@ jobs:
         uses: ./
         with:
           token: ${{ secrets.Action_Bot }} # Your token
-          zhipuai: ${{ secrets.zhipuai_api_key }} # Your zhipuai api key if use zhipuai instead of g4f
+          zhipuai: ${{ secrets.zhipuai_api_key }} # Optional: Your zhipuai api key if use zhipuai
+          openai: ${{ secrets.openai_api_key }}  # Optional: Your openai api key if use openai
           langs: "en,zh-TW,zh-CN,French" # You can define any langs

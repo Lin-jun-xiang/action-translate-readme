@@ -4,6 +4,7 @@ import re
 import subprocess
 
 import g4f
+from openai import AsyncOpenAI
 from tenacity import retry, stop_after_attempt
 from zhipuai import ZhipuAI
 
@@ -11,6 +12,11 @@ g4f.debug.logging = True
 
 LAGNS = os.environ.get('LANGS').split(',')
 ZHIPUAI_API_KEY = os.environ.get('ZHIPUAI_API_KEY', '')
+OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY', '')
+
+zhipuai_client = ZhipuAI(api_key=ZHIPUAI_API_KEY)
+openai_client = AsyncOpenAI(api_key=OPENAI_API_KEY)
+
 
 def run_shell_command(command: str) -> tuple:
     result = subprocess.run(
@@ -23,18 +29,16 @@ def run_shell_command(command: str) -> tuple:
     return result.returncode, result.stdout, result.stderr
 
 
-async def async_zhipuai(query: str):
-    client = ZhipuAI(api_key=ZHIPUAI_API_KEY)
-
-    response = client.chat.asyncCompletions.create(
+async def async_zhipuai(messages: list):
+    response = zhipuai_client.chat.asyncCompletions.create(
         model="glm-4-plus",
-        messages=[{"role": "user", "content": query}],
+        messages=messages,
     )
     task_id = response.id
 
     task_status = ''
     while task_status not in ('SUCCESS', 'FAILED'):
-        result_response = client.chat.asyncCompletions.retrieve_completion_result(
+        result_response = zhipuai_client.chat.asyncCompletions.retrieve_completion_result(
             id=task_id
         )
         task_status = result_response.task_status
@@ -47,16 +51,26 @@ async def async_zhipuai(query: str):
 @retry(stop=stop_after_attempt(5))
 async def chat_completion(query: str) -> str:
     response = ''
-    if not ZHIPUAI_API_KEY:
+    messages = [{"role": "user", "content": query}]
+    if ZHIPUAI_API_KEY:
+        print('Using zhipuai.')
+        response = await async_zhipuai(messages)
+        response = response.choices[0].message.content
+
+    elif OPENAI_API_KEY:
+        print('Using openai.')
+        response = await openai_client.chat.completions.create(
+            model='gpt-4o',
+            messages=messages,
+        )
+        response = response.choices[0].message.content
+
+    else:
         print('Using g4f.')
         response = await g4f.ChatCompletion.create_async(
             model="gpt-4o",
-            messages=[{"role": "user", "content": query}],
+            messages=messages,
         )
-    else:
-        print('Using zhipuai.')
-        response = await async_zhipuai(query)
-        response = response.choices[0].message.content
     if response == '' or response is None:
         raise Exception
     return response
