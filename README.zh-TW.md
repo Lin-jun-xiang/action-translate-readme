@@ -10,7 +10,7 @@
 * [Française](README.French.md)
 
 # Introduction
- 
+  
 > [!NOTE]
 > `v1`版本的翻譯器是透過 `Linux` 第三方套件實現；`v2`版本是透過生成式AI實現翻譯
 
