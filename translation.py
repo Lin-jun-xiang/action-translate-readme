@@ -31,7 +31,7 @@ def run_shell_command(command: str) -> tuple:
 
 async def async_zhipuai(messages: list):
     response = zhipuai_client.chat.asyncCompletions.create(
-        model="glm-4-plus",
+        model="glm-4-flash",
         messages=messages,
     )
     task_id = response.id
