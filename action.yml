@@ -33,10 +33,10 @@ runs:
         - name: Install Dependencies
           shell: bash
           run: |
-            if [ -f "${{ github.workspace }}/requirements.txt" ]; then
-              pip install -r ${{ github.workspace }}/requirements.txt
+            if [ -f "$GITHUB_ACTION_PATH/requirements.txt" ]; then
+              pip install -r $GITHUB_ACTION_PATH/requirements.txt
             else
-              echo "⚠️ No requirements.txt found in the repository."
+              echo "⚠️ No requirements.txt found in the Action repository."
             fi
         - name: Translate README
           shell: bash
